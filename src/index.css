@@ -1,8 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root{
   --primary-color: rgb(244,136,71);
   --greens: rgb(19,85,11);
+  --primary-font: 'Poppins', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
 }

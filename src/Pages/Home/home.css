@@ -1,0 +1,257 @@
+.afrimentary__hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    /* ff 3.6+ */
+    background:-moz-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%); 
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#949494', endColorstr='#E1E1E1', GradientType=1 );
+
+    /* ie 10+ */
+    background:-ms-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* global 94%+ browsers support */
+    background:linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%), url("hero-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+.hero__heading {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.heading-primary {
+    color: var(--primary-color);
+}
+.heading-whites {
+    color: #fff;
+}
+.heading-last {
+    position: relative;
+}
+.heading-last::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 7px;
+    background-color: var(--primary-color);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+}
+
+.afrimentary__brief {
+    padding: 0 32px;
+    margin: 64px 0;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--greens);
+    letter-spacing: 1px;
+    word-spacing: 10px;
+}
+
+.afrimentary__mission {
+    position: relative;
+    background-color: var(--primary-color);
+    height: auto;
+    padding: 80px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mission_sidebar h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: 2px;
+}
+.mission__main > p {
+    color: var(--greens);
+    font-size: 1.5rem;
+    font-weight: 500;
+    word-spacing: 5px;
+}
+.afrimentary__how {
+    position: relative;
+    height: auto;
+    padding: 128px 32px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: none;
+}
+.afrimentary__how::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100px;
+    background-color: var(--primary-color);
+    bottom: calc(100% - 32px);
+    left: -50%;
+    transform: rotate(5deg);
+}
+.how__title h3 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    word-spacing: 5px;
+}
+.how__text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+}
+.how__text-greens {
+    color: var(--greens);
+}
+.how__cta {
+    margin: 32px 0 0;
+}
+.how__cta h3 {
+    color: var(--greens);
+    font-size: 2rem;
+    margin: 0 0 16px;
+}
+.cta__btn {
+    border: none;
+    padding: 16px 48px;
+    background-color: var(--primary-color);
+    transition: all 0.2s ease-in-out;
+    border-radius: 32px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+.cta__btn > a {
+    color: #fff;
+}
+.afrimentary__faq {
+    background-color: var(--primary-color);
+    position: relative;
+    height: auto;
+    padding: 80px 16px;
+    color: #fff;
+}
+.faq_title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0 0 32px;
+    font-weight: 700;
+}
+.home__footer {
+    position: relative;
+    height: auto;
+    padding: 80px 32px 16px;
+    color: var(--primary-color);
+}
+.footer__info {
+    margin: 0 0 20px;
+}
+.footer__info h3 {
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+.footer__menu {
+    color: var(--greens);
+}
+.footer__socials {
+    margin: 32px 0;
+}
+.copyright {
+    font-size: 0.9rem;
+    border-top: 0.5px solid var(--greens);
+    padding: 12px 0 0;
+    text-align: center;
+}
+.copyright a {
+    color: var(--greens);
+}
+
+@media screen and (min-width: 428px) {
+    .hero__heading {
+        font-size: 4.5rem;
+        word-spacing: 10px;
+    }
+    .afrimentary__brief {
+        font-size: 2.5rem;
+        margin: 80px 0;
+    }
+    .mission_sidebar h3 {
+        font-size: 3.5rem;
+    }
+    .afrimentary__mission {
+        padding: 96px 32px;
+    }
+    .mission__main > p {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .afrimentary__how {
+        padding: 144px 32px 96px;
+    }
+    .afrimentary__how::after {
+        bottom: calc(100% - 48px);
+    }
+    .how__title h3 {
+        font-size: 3.5rem;
+    }
+    .how__text {
+        font-size: 2.5rem;
+    }
+    .how__cta h3 {
+        font-size: 3rem;
+    }
+    .afrimentary__faq {
+        padding: 96px 32px;
+    }
+    .cta__btn {
+        padding: 20px 48px;
+        font-size: 2rem;
+        border-radius: 48px;
+    }
+    .faq_title {
+        font-size: 3.5rem;
+    }
+    .home__footer {
+        padding: 96px 32px 16px;
+    }
+    .footer__main {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer__info h2 {
+        font-size: 2.5rem;
+        font-weight: 500;
+    }
+    .footer__info h3 {
+        font-weight: 400;
+        font-size: 1.5rem;
+        width: 40ch;
+    }
+    .copyright {
+        font-size: 1.1rem;
+        padding: 16px 0 0;
+    }
+}
+@media screen and (min-width: 800px) {
+    .afrimentary__how::after {
+        bottom: calc(100% - 64px);
+        transform: rotate(3deg);
+    }  
+}

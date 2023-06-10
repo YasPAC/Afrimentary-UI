@@ -1,0 +1,96 @@
+.afrimentary__header {
+    width:  100%;
+    height: 80px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.afrimentary__nav {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.afrimentary__logo h1 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.afrimentary__menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 70%;
+    height: 50vh;
+    background-color: #ffffff;
+    top: 100%;
+    right: 0;
+    padding: 32px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 3;
+}
+.nav__menu {
+    width: 100%;
+    height: 60%;
+}
+.menu__items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    align-items: center;
+    list-style: none;
+}
+.item > a {
+    color: var(--greens);
+    letter-spacing: 1px;
+}
+.nav__btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 32px 0 0;
+}
+.btn {
+    border: none;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    transition: all 0.2s ease-in-out;
+}
+.btn > a {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #fff;
+}
+.btn:hover {
+    transform: scale(1.05)
+}
+.btn-login{
+    background-color: var(--greens);
+}
+
+@media screen and (min-width: 428px) {
+    .afrimentary__logo h1 {
+        font-size: 1.3rem;
+    }
+    .menu__items {
+        font-size: 2rem;
+    }
+    .nav__btns {
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+}
+@media screen and (min-width: 800px) {
+    .afrimentary__menu {
+        width: 50%;
+        height: 80vh;
+    } 
+}

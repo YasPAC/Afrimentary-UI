@@ -1,0 +1,34 @@
+.faq_container {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border-top: 0.5px solid #fff;
+}
+.faq_container:last-child {
+    border-bottom: 0.5px solid #fff;
+}
+.qn_container {
+    position: relative;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 12px;
+}
+.question {
+    width: 80%;
+    font-weight: 600;
+}
+.answer {
+    max-width: 90%;
+}
+@media screen and (min-width: 428px) {
+    .question {
+        font-size: 1.8rem;
+    }
+    .answer {
+        font-size: 1.3rem;
+    }
+}
+
