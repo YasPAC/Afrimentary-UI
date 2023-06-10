@@ -118,7 +118,17 @@
     line-height: 1;
 }
 .how__text-greens {
+    position: relative;
     color: var(--greens);
+}
+.how__text-greens::after {
+    content: "";
+    width: 50%;
+    height: 5px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .how__cta {
     margin: 32px 0 0;
@@ -149,7 +159,6 @@
     color: #fff;
 }
 .faq_title {
-    text-align: center;
     font-size: 2.5rem;
     margin: 0 0 32px;
     font-weight: 700;
@@ -183,7 +192,7 @@
     color: var(--greens);
 }
 
-@media screen and (min-width: 428px) {
+@media screen and (min-width: 480px) {
     .hero__heading {
         font-size: 4.5rem;
         word-spacing: 10px;
@@ -234,6 +243,7 @@
     .footer__main {
         display: flex;
         justify-content: space-between;
+        padding: 0 0 60px
     }
     .footer__info h2 {
         font-size: 2.5rem;
@@ -249,9 +259,63 @@
         padding: 16px 0 0;
     }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 769px) {
     .afrimentary__how::after {
         bottom: calc(100% - 64px);
         transform: rotate(3deg);
     }  
+}
+@media screen and (min-width: 1024px) {
+    .afrimentary__hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero__heading {
+        font-size: 3.5rem;
+        width: 60%;
+    }
+    .afrimentary__brief {
+        width: 80%;
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+    }
+    .mission__main > p {
+        font-size: 2.2rem;
+        word-spacing: 7px;
+        font-weight: 500;
+    }
+    .mission_sidebar h3 {
+        font-size: 3rem;
+    }
+    .cta__btn {
+        padding: 12px 32px;
+        font-size: 1.6rem;
+        border-radius: 48px;
+        transition: all 0.3s ease-in;
+    }
+    .cta__btn:hover {
+        transform: scale(1.05);
+    }
+    .how__title h3 {
+        font-size: 3rem;
+    }
+    .how__text {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+    .how__cta h3 {
+        font-size: 2.5rem;
+    }
+    .afrimentary__faq {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .faq_title {
+        font-size: 3rem;
+    }
+    .copyright {
+        font-size: 0.9rem;
+    }
 }

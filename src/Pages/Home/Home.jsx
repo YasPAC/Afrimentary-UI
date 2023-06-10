@@ -42,8 +42,8 @@ function Home() {
                 </div>
                 <div className="how__text">
                     <p>
-                        <span className="how__text-dark">Respond to academic <br /> surveys, </span>
-                        <span className="how__text-greens">get paid!</span>
+                        <span className="how__text-dark">Respond to academic <br /> surveys, get </span>
+                        <span className="how__text-greens">paid!</span>
                     </p>
                 </div>
                 <div className="how__cta">

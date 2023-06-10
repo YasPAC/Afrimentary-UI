@@ -76,7 +76,7 @@
     background-color: var(--greens);
 }
 
-@media screen and (min-width: 428px) {
+@media screen and (min-width: 480px) {
     .afrimentary__logo h1 {
         font-size: 1.3rem;
     }
@@ -88,7 +88,7 @@
         gap: 20px;
     }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 769px) {
     .afrimentary__menu {
         width: 50%;
         height: 80vh;

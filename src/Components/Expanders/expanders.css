@@ -10,7 +10,7 @@
 .qn_container {
     position: relative;
     width: 100%;
-    min-height: 40px;
+    min-height: 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,14 +21,25 @@
     font-weight: 600;
 }
 .answer {
-    max-width: 90%;
+    width: 90%;
 }
-@media screen and (min-width: 428px) {
+@media screen and (min-width: 480px) {
     .question {
         font-size: 1.8rem;
     }
     .answer {
         font-size: 1.3rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .faq__question {
+        width: 70%;
+    }
+    .question {
+        font-size: 1.3rem;
+    }
+    .answer {
+        font-size: 1rem;
     }
 }
 
