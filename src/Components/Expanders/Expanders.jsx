@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./expanders.css";
 import {RxCaretDown, RxCaretUp} from "react-icons/rx";
+import uniqid from "uniqid";
 
 const questions = [
     {
@@ -39,7 +40,7 @@ const ExpanderSection = () => {
   return (
     <div className="faq__question">
       {expanders.map((expander) => (
-        <div className="faq_container" key={expander.id}>
+        <div className="faq_container" key={uniqid()}>
             <div className="qn_container">
                 <div className="question">{questions[expander.id].qn}</div>
                 <div className="faq__toggle" onClick={() => toggleExpander(expander.id)}>

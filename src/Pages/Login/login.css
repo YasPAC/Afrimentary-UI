@@ -1,0 +1,203 @@
+.afrimentary__login {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(244,136,71, 0.4);
+    overflow: hidden;
+}
+.afrimentary__login::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    background-color: var(--primary-color);
+}
+.afrimentary__login::before {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background-color: var(--greens);
+    border-radius: 100%;
+}
+.login__inner {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 32px;
+    z-index: 1;
+}
+.login__intro {
+    /* ff 3.6+ */
+    background:-moz-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%); 
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#949494', endColorstr='#E1E1E1', GradientType=1 );
+
+    /* ie 10+ */
+    background:-ms-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
+
+    /* global 94%+ browsers support */
+    background:linear-gradient(150deg, rgba(0, 0, 0, 0.7) 11%, rgba(0, 0, 0, 1) 100%), url("hero-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 32px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.intro__description h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+.description__greens {
+    color: var(--primary-color);
+}
+.intro__description p {
+    font-weight: 200;
+    color: #d6d6d6;
+    font-size: 1.1rem;
+}
+.login__form {
+    position: relative;
+    padding: 48px 60px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom-right-radius: 32px;
+    border-top-right-radius: 32px;
+}
+.errMsg {
+    position: absolute;
+    width: calc(100% - 120px);
+    min-height: 40px;
+    color: #dbdbdb;
+    top: 8px;
+    background-color: rgb(255, 99, 99);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+}
+.login__form h3 {
+    font-size: 1.8rem;
+    color: var(--greens);
+    font-weight: 500;
+    margin: 16px 0 0;
+}
+.login__register {
+    font-size: 0.8rem;
+    color: #575757;
+}
+.login__register a {
+    color: var(--greens);
+    text-decoration: underline;
+}
+.login__toggle {
+    width: 100%;
+    height: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: var(--greens);
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 0.5px solid #fff;
+    margin: 20px 0;
+}
+.toggle__button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    font-weight: 500;
+    background-color: rgba(244,136,71, 0.3);
+}
+.toggle__button:hover {
+    color: rgb(48, 144, 37);
+}
+.toggle__button-respondent {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.toggle__button-researcher {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.toggle__button.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.respondent__form {
+    margin: 32px 0 0;
+}
+.form__field {
+    width: 100%;
+    border-bottom: 0.5px solid #393939;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 0 0 4px;
+}
+.form__field label {
+    font-size: 1.2rem;
+    color: #868686;
+}
+.form__field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.form__submit {
+    padding: 8px 40px;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    border-radius: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+.submission__field {
+    width: 100;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 32px 0 0;
+}
+.forgot_password a {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
