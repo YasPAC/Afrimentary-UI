@@ -63,6 +63,7 @@
     padding: 12px 24px;
     background-color: var(--primary-color);
     transition: all 0.2s ease-in-out;
+    border-radius: 32px;
 }
 .btn > a {
     font-weight: 400;
@@ -93,4 +94,7 @@
         width: 50%;
         height: 80vh;
     } 
+    .btn {
+        padding: 12px 32px;
+    }
 }

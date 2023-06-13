@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef} from 'react';
 import useAuth from '../../Hooks/useAuth';
 import "./login.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useLocation} from "react-router-dom";
 import axios from "axios";
 
 const LoginSignupComponent = () => {
     const {setAuth} = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/"
+
     const [isRespondent, setIsRespondent] = useState(true);
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [errMsg, setErrorMsg] = useState("")
@@ -39,11 +44,12 @@ const LoginSignupComponent = () => {
             }
             axios(axiosConfig)
             .then(response => {
-                const token = response?.data?.Token;
-                const userId = response?.data?.public_id;
-                setAuth({userId: userId, token: token})
+                const accessToken = response?.data?.Token;
+                const publicId = response?.data?.public_id;
+                setAuth({userId: publicId, token: accessToken})
                 // Reset login form
                 setLoginData({ email: '', password: '' });
+                navigate(from, {replace: true});
             })
             .catch(err => {
             const error = err.response.data;
@@ -91,7 +97,7 @@ const LoginSignupComponent = () => {
             <div className="login__form">
                 <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
                 <h3>Login</h3>
-                <p className="login__register">Don't have an account? <Link to="/">Register</Link></p>
+                <p className="login__register">Don't have an account? <Link to="/signup">Register</Link></p>
                 <div className="login__toggle">
                     <div 
                         className = {isRespondent ? `toggle__button toggle__button-respondent active` : `toggle__button toggle__button-respondent`}

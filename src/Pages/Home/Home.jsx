@@ -4,7 +4,7 @@ import {AiFillTwitterCircle, AiFillLinkedin, AiFillInstagram} from "react-icons/
 import { Link } from "react-router-dom";
 
 function Home() {
-    const date = new Date()
+    const date = new Date();
     return (
         <div className="afrimentary__home">
             <Header />
