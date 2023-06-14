@@ -48,7 +48,7 @@ function Home() {
                 </div>
                 <div className="how__cta">
                     <h3>Register today!</h3>
-                    <button className="cta__btn"><Link to="/">Sign Up</Link></button>
+                    <button className="cta__btn"><Link to="/signup">Sign Up</Link></button>
                 </div>
             </div>
             <div className="afrimentary__faq">

@@ -100,7 +100,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 0;
+    padding: 8px;
 }
 .signup__container h3 {
     font-size: 1.8rem;
@@ -243,4 +243,86 @@
 .control.control-next {
     right: 0;
     bottom: 0;
+}
+
+
+/* Coming soon - To be removed */
+.busy__gif {
+    width: 100%;
+    height: 150px;
+}
+.coming-soon {
+    color: red;
+}
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+    .afrimentary__signup {
+        padding: 32px;
+    }
+    .signup__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+    }
+    .signup__intro {
+        border-top-right-radius: 32px;
+        border-bottom-left-radius: 0;
+        padding: 60px 32px;
+    }
+    .intro__description h2 {
+        font-size: 2.5rem;
+    }
+    .intro__description p {
+        font-size: 1.5rem;
+    }
+    .signup__container {
+        border-top-right-radius: 0;
+        border-bottom-left-radius:32px;
+    }
+    .signup__container h3 {
+        font-size: 2rem;
+    }
+    .signup__register {
+        font-size: 1rem;
+    }
+    .signup__toggle {
+        height: 60px;
+    }
+    .signup__form .form__field label {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .afrimentary__signup {
+        padding: 0 8px;
+    }
+    .signup__intro {
+        padding: 32px;
+    }
+    .intro__description h2 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+    }
+    .intro__description p {
+        font-size: 1rem;
+    }
+    .signup__container {
+        padding: 16px;
+    }
+    .signup__container h3 {
+        font-size: 1.8rem;
+    }
+    .signup__register {
+        font-size: 0.8rem;
+    }
+    .signup__toggle {
+        height: 48px;
+    }
+    .signup__form .form__field label {
+        font-size: 1rem;
+    }
 }

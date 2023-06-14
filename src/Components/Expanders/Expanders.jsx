@@ -6,20 +6,15 @@ import uniqid from "uniqid";
 const questions = [
     {
         qn: "How does Afrimentary work?",
-        ans: `It all begins with an idea. Maybe you want to launch a business. 
-        Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. 
-        Whatever it is, the way you tell your story online can make all the difference.`
+        ans: `We help researchers find respondent for their research studies. `
     },
     {
         qn: "How can one earn with Afrimentary?",
-        ans: `It all begins with an idea. Maybe you want to launch a business. 
-        Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. 
-        Whatever it is, the way you tell your story online can make all the difference.`
+        ans: `Fill out surveys and get paid to do so. `
     },
     {
         qn: "How much does Afrimentary pay per survey?",
-        ans: `It all begins with an idea. Maybe you want to launch a business. 
-        Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world.`
+        ans: `The amount depends on the type of questions, and number of quetions in each survey.`
     }
 ]
 

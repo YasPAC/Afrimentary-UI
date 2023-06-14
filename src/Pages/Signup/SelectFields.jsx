@@ -5,7 +5,8 @@ const ReferrerField = ({agents, data, handleChange}) => {
             <section className="form__field form__field-select">
                 <label htmlFor="referee">Referred By</label>
                 <select name="referred_by" id="referee" value={data.referred_by} onChange={handleChange}>
-                    <option value="self">None</option>
+                    <option value="">Select Referrer</option>
+                    <option value="self">Self Referral</option>
                     {agents.map(agent =>  {agent
                         return <option key={uniqid()} value={agent?.public_id}>{`${agent?.first_name} ${agent?.last_name}`} </option>})
                     }
@@ -18,6 +19,7 @@ const EducationField = ({data, handleChange}) => {
         <section className="form__field form__field-select">
             <label htmlFor="education">Education Level</label>
             <select name="education" id="education" required value={data.education} onChange={handleChange}>
+                <option value="">Select Education</option>
                 <option value="Certificate">Certificate</option>
                 <option value="Diploma">Diploma</option>
                 <option value="Bachelor's Degree">Bachelor's Degree</option>
@@ -32,6 +34,7 @@ const GenderField = ({data, handleChange}) => {
         <section className="form__field form__field-select">
             <label htmlFor="education">Gender</label>
             <select name="gender" id="gender" required value={data.gender} onChange={handleChange}>
+                <option value="">Select Gender</option>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Other">Other</option>

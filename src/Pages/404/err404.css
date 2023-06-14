@@ -1,0 +1,45 @@
+.oopss {
+    background: #fff;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .oopss .error-text {
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--greens);
+    padding: 60px 32px;
+    box-shadow: 5px 5px 10px 5px #d9d9d9;
+    border-radius: 12px;
+    min-width: 50%;
+  }
+  .oopss .error-text img {
+    width: 100px;
+    height: 100px;
+  }
+  .oopss .error-text span {
+    position: relative;
+    font-size: 3.3em;
+    font-weight: 900;
+  }
+  .oopss .error-text p.p-a {
+    font-size: 1.7rem;
+    margin: 30px 0 15px;
+  }
+  .oopss .error-text .back {
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    border-radius: 32px;
+    font-weight: 300;
+    padding: 12px 24px;
+    margin: 32px 0 0;
+  }

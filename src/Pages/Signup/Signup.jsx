@@ -7,6 +7,7 @@ import ReferrerField, {GenderField, EducationField} from "./SelectFields";
 import {BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill} from "react-icons/bs"
 import uniqid from "uniqid";
 import axios from "axios";
+import busy from "../../assets/busy.gif";
 
 
 function Signup() {
@@ -38,7 +39,7 @@ function Signup() {
     useEffect(() => {
         const axiosConfig = {
             method: "get",
-            url: "http://127.0.0.1:5000/API/respondents/associates",
+            url: "https://afrimentary.onrender.com/API/respondents/associates",
         }
         axios(axiosConfig)
         .then(response => {
@@ -67,7 +68,7 @@ function Signup() {
             if (respondentData.password != respondentData.confirmPass) {
                 setErrorMsg("Passwords are not same");
                 errRef.current.focus();
-            } else if (respondentData.gender === "" || respondentData.referred_by==="" || respondentData.education==="") {
+            } else if (respondentData.gender === "" || respondentData.referred_by === "" || respondentData.education==="") {
                 setErrorMsg("Please fill these fields (Education, Referred By and Gender)");
                 errRef.current.focus();
             }
@@ -75,7 +76,7 @@ function Signup() {
                 // Send Respondent Data to DB
                 const axiosConfig = {
                     method: "post",
-                    url: "http://127.0.0.1:5000//API/respondents/signup",
+                    url: "https://afrimentary.onrender.com/API/respondents/signup",
                     data: respondentData
                 }
                 axios(axiosConfig)
@@ -156,15 +157,16 @@ function Signup() {
                             className = {isRespondent ? `toggle__button toggle__button-respondent active` : `toggle__button toggle__button-respondent`}
                             onClick={() => {setIsRespondent(true)}}
                         >
-                            <p>Signup as Respondent</p>
+                            <p>As Respondent</p>
                         </div>
                         <div 
                             className={!isRespondent ? `toggle__button toggle__button-researcher active` : `toggle__button toggle__button-researcher`}
                             onClick={() => {setIsRespondent(false)}}
                             >
-                            <p>Signup as Researcher</p>
+                            <p>As Researcher</p>
                         </div>
                     </div>
+                    {isRespondent ? 
                     <form className="signup__form" onSubmit={handleRespondentSubmit}>
                         {step}
                         <div className="signup__controls">
@@ -172,6 +174,12 @@ function Signup() {
                             <button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <BsFillArrowRightCircleFill /></> : "Sign Up"}</button>
                         </div>
                     </form>
+                    : 
+                    <div className="coming-soon">
+                        <h2>We are working on this!</h2>
+                        <img className="busy__gif" src={busy} alt="busy-gif" />
+                    </div>
+                    }
                 </div>
             </div>
         </main>

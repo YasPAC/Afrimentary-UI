@@ -8,6 +8,7 @@ const SignupFields = ({handleChange, fields, data}) => {
                     name={fields.name}
                     type={fields.type}
                     required
+                    autoComplete="off"
                     value={data[fields.name]}
                     id={fields.name}
                 />

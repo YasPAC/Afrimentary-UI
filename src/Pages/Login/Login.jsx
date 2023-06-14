@@ -3,12 +3,14 @@ import useAuth from '../../Hooks/useAuth';
 import "./login.css";
 import {Link, useNavigate, useLocation} from "react-router-dom";
 import axios from "axios";
+import busy from "../../assets/busy.gif";
 
 const LoginSignupComponent = () => {
     const {setAuth} = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
+    // Nav to prev protected path otherwise home
     const from = location.state?.from?.pathname || "/"
 
     const [isRespondent, setIsRespondent] = useState(true);
@@ -35,7 +37,7 @@ const LoginSignupComponent = () => {
         if (isRespondent) {
             const axiosConfig = {
                 method: "post",
-                url: "http://127.0.0.1:5000/API/respondents/login",
+                url: "https://afrimentary.onrender.com/API/respondents/login",
                 auth: {
                     username: loginData.email,
                     password: loginData.password
@@ -62,27 +64,28 @@ const LoginSignupComponent = () => {
                 }
                 errRef.current.focus();
             });
-        } else {
-            const axiosConfig = {
-                method: "post",
-                url: "http://127.0.0.1:5000/API/researchers/login",
-                auth: {
-                    username: loginData.email,
-                    password: loginData.password
-                },
-                // headers: {'Authorization': 'Basic Auth'}
-            }
-            axios(axiosConfig)
-            .then(response => {
-                console.log("Success")
-                const token = response.data.Token;
-                // Reset login form
-                setLoginData({ email: '', password: '' });
-            })
-            .catch(err => {
-                setErrorMsg(err.response.data);
-            });
-        }
+        } 
+        // else {
+        //     const axiosConfig = {
+        //         method: "post",
+        //         url: "https://afrimentary.onrender.com/API/researchers/login",
+        //         auth: {
+        //             username: loginData.email,
+        //             password: loginData.password
+        //         },
+        //         // headers: {'Authorization': 'Basic Auth'}
+        //     }
+        //     axios(axiosConfig)
+        //     .then(response => {
+        //         console.log("Success")
+        //         const token = response.data.Token;
+        //         // Reset login form
+        //         setLoginData({ email: '', password: '' });
+        //     })
+        //     .catch(err => {
+        //         setErrorMsg(err.response.data);
+        //     });
+        // }
     };
 
   return (
@@ -91,7 +94,7 @@ const LoginSignupComponent = () => {
             <div className="login__intro">
                 <div className="intro__description">
                     <h2>Welcome back to <span className="description__greens">Afrimentary</span></h2>
-                    <p>Stay connected, log in with your personal information to continue.</p>
+                    <p>Stay connected, login to continue.</p>
                 </div>
             </div>
             <div className="login__form">
@@ -103,15 +106,16 @@ const LoginSignupComponent = () => {
                         className = {isRespondent ? `toggle__button toggle__button-respondent active` : `toggle__button toggle__button-respondent`}
                         onClick={() => {setIsRespondent(true)}}
                     >
-                        <p>Login as Respondent</p>
+                        <p>As Respondent</p>
                     </div>
                     <div 
                         className={!isRespondent ? `toggle__button toggle__button-researcher active` : `toggle__button toggle__button-researcher`}
                         onClick={() => {setIsRespondent(false)}}
                         >
-                        <p>Login as Researcher</p>
+                        <p>As Researcher</p>
                     </div>
                 </div>
+                {isRespondent ? 
                 <form className="respondent__form" onSubmit={handleSubmit}>
                     <div className="form__field">
                         <label htmlFor="respondent_email">Email</label>
@@ -141,7 +145,13 @@ const LoginSignupComponent = () => {
                         <div className="forgot_password"><Link to={isRespondent ? "/" : "/"}>Forgot password?</Link></div>
                         <button className="form__submit" type="submit">Login</button>
                     </div>
-                </form>
+                </form> 
+                : 
+                    <div className="coming-soon">
+                        <h2>We are working on this!</h2>
+                        <img className="busy__gif" src={busy} alt="busy-gif" />
+                    </div>
+                }
             </div>
         </div>
     </section>
