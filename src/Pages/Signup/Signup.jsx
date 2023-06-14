@@ -91,7 +91,8 @@ function Signup() {
                         );
                     }
                 }).catch(err => {
-                    const error = err.response.data;
+                    const error = err.response.data.message;
+                    console.log(error);
                     setErrorMsg(error);
                     errRef.current.focus();
                 });
