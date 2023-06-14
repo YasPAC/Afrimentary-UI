@@ -1,6 +1,6 @@
 import "./home.css"
 import { Header, ExpanderSection } from "../../Components";
-import {AiFillTwitterCircle, AiFillLinkedin, AiFillInstagram} from "react-icons/Ai";
+import {RiTwitterFill, RiLinkedinBoxFill, RiInstagramFill} from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -66,9 +66,9 @@ function Home() {
                         </h3>
                     </div>
                     <div className="footer__socials">
-                        <AiFillTwitterCircle color="rgb(19,85,11)" size={30}/>
-                        <AiFillLinkedin color="rgb(19,85,11)" size={30}/>
-                        <AiFillInstagram color="rgb(19,85,11)" size={30}/>
+                        <RiTwitterFill color="rgb(19,85,11)" size={30}/>
+                        <RiLinkedinBoxFill color="rgb(19,85,11)" size={30}/>
+                        <RiInstagramFill color="rgb(19,85,11)" size={30}/>
                     </div>
                 </div>
                 <div className="copyright">

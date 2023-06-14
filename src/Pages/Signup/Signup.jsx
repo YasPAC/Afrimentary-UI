@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignupFields from "./SignupFields";
 import ReferrerField, {GenderField, EducationField} from "./SelectFields";
-import {BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill} from "react-icons/bs"
+import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
@@ -170,8 +170,8 @@ function Signup() {
                     <form className="signup__form" onSubmit={handleRespondentSubmit}>
                         {step}
                         <div className="signup__controls">
-                            {!isFirst && <button type="button" className="control control-prev" onClick={back}><><BsFillArrowLeftCircleFill /> Previous</></button>}
-                            <button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <BsFillArrowRightCircleFill /></> : "Sign Up"}</button>
+                            {!isFirst && <button type="button" className="control control-prev" onClick={back}><><RiArrowLeftCircleFill /> Previous</></button>}
+                            <button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>
                         </div>
                     </form>
                     : 
