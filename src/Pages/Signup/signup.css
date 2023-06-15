@@ -279,7 +279,7 @@
         font-size: 1.5rem;
     }
     .signup__container .errMsg {
-        width: 100%;
+        width: calc(100% - 112px);
         top: 0;
     }
     .signup__container {
@@ -322,6 +322,9 @@
     }
     .signup__container {
         padding: 16px;
+    }
+    .signup__container .errMsg {
+        width: calc(100% - 32px);
     }
     .signup__container h3 {
         font-size: 1.8rem;

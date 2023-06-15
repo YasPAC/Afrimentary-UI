@@ -236,6 +236,10 @@
         border-top-right-radius: 0;
         border-bottom-left-radius:32px;
     }
+    .errMsg {
+        top: 0;
+        width: calc(100% - 112px);
+    }
     .login__form h3 {
         font-size: 2rem;
     }
@@ -278,6 +282,9 @@
     }
     .login__form {
         padding: 16px;
+    }
+    .errMsg {
+        width: calc(100% - 32px);
     }
     .login__form h3 {
         font-size: 1.8rem;
