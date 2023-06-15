@@ -6,7 +6,7 @@ import uniqid from "uniqid";
 const questions = [
     {
         qn: "How does Afrimentary work?",
-        ans: `We help researchers find respondent for their research studies. `
+        ans: `We help researchers find respondents for their research studies. `
     },
     {
         qn: "How can one earn with Afrimentary?",
@@ -14,7 +14,7 @@ const questions = [
     },
     {
         qn: "How much does Afrimentary pay per survey?",
-        ans: `The amount depends on the type of questions, and number of quetions in each survey.`
+        ans: `The amount paid depends on the type of questions, and number of quetions in each survey.`
     }
 ]
 
