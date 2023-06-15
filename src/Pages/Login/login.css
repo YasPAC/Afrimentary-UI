@@ -260,6 +260,12 @@
     .afrimentary__login {
         padding: 0 8px;
     }
+    .afrimentary__login::after {
+        background-color: rgba(244,136,71,0.4);
+    }
+    .afrimentary__login::before {
+        background-color: rgba(19,85,11,0.4);
+    }
     .login__intro {
         padding: 32px;
     }

@@ -305,10 +305,10 @@
         padding: 0 8px;
     }
     .afrimentary__signup::after {
-        display: none;
+        background-color: rgba(244,136,71,0.4);
     }
     .afrimentary__signup::before {
-        display: none;
+        background-color: rgba(19,85,11,0.4);
     }
     .signup__intro {
         padding: 32px;

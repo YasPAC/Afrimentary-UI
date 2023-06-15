@@ -2,13 +2,16 @@ import "./home.css"
 import { Header, ExpanderSection } from "../../Components";
 import {RiTwitterFill, RiLinkedinBoxFill, RiInstagramFill} from "react-icons/ri";
 import { Link } from "react-router-dom";
+import heroBg from "../../assets/hero-bg.jpg"
 
 function Home() {
     const date = new Date();
     return (
-        <div className="afrimentary__home">
+        <main className="afrimentary__home">
             <Header />
             <div className="afrimentary__hero">
+                <img className="hero__bg" src={heroBg} alt="afrimentary-hero-bg"/>
+                <div className="hero__bg-cover"></div>
                 <h2 className="hero__heading">
                     <span className="heading heading-primary">Harnessing </span>
                     <span className="heading heading-whites">African </span>
@@ -76,7 +79,7 @@ function Home() {
                     <span><a href="#">Terms and conditions</a></span>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }
 
