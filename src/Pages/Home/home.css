@@ -28,11 +28,22 @@
     content: "";
     position: absolute;
     width: 200%;
-    height: 100px;
-    background-color: #fff;
+    height: 112px;
+    background-color: #FFF;
     top: calc(100% - 32px);
     left: -50%;
     transform: rotate(4deg);
+    z-index: 3;
+}
+.afrimentary__hero::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100px;
+    background-color: #FFF;
+    top: calc(100% - 32px);
+    left: -50%;
+    transform: rotate(-1deg);
     z-index: 3;
 }
 .hero__heading {
@@ -281,15 +292,19 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100vh;
     }
     .hero__heading {
         font-size: 3.5rem;
-        width: 60%;
+        width: 80%;
     }
     .afrimentary__brief {
         width: 80%;
         font-size: 3.5rem;
         font-weight: 500;
+        height: 300px;
+        display: flex;
+        align-items: center;
     }
     .afrimentary__mission  {
         display: grid;
