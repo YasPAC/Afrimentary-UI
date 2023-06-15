@@ -102,6 +102,12 @@
     align-items: center;
     padding: 12px 0;
 }
+.loadingMsg {
+    position: absolute;
+    width: 64px;
+    top: 32px;
+    right: 32px;
+}
 .login__form h3 {
     font-size: 1.8rem;
     color: var(--greens);

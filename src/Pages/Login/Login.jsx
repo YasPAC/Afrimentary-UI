@@ -4,6 +4,7 @@ import "./login.css";
 import {Link, useNavigate, useLocation} from "react-router-dom";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
+import loading from "../../assets/loading.gif"
 
 const LoginSignupComponent = () => {
     const {setAuth} = useAuth();
@@ -15,9 +16,10 @@ const LoginSignupComponent = () => {
 
     const [isRespondent, setIsRespondent] = useState(true);
     const [loginData, setLoginData] = useState({ email: '', password: '' });
-    const [errMsg, setErrorMsg] = useState("")
-    const emailRef = useRef()
-    const errRef = useRef()
+    const [isLoading, setIsLoading] = useState(false);
+    const [errMsg, setErrorMsg] = useState("");
+    const emailRef = useRef();
+    const errRef = useRef();
 
     useEffect(() => {
             emailRef.current.focus()
@@ -34,6 +36,7 @@ const LoginSignupComponent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         if (isRespondent) {
             const axiosConfig = {
                 method: "post",
@@ -52,6 +55,7 @@ const LoginSignupComponent = () => {
                 // Reset login form
                 setLoginData({ email: '', password: '' });
                 navigate(from, {replace: true});
+                setIsLoading(false);
             })
             .catch(err => {
             const error = err.response.data;
@@ -63,6 +67,7 @@ const LoginSignupComponent = () => {
                     setErrorMsg(error);
                 }
                 errRef.current.focus();
+                setIsLoading(false);
             });
         } 
         // else {
@@ -99,6 +104,7 @@ const LoginSignupComponent = () => {
             </div>
             <div className="login__form">
                 <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
+                {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                 <h3>Login</h3>
                 <p className="login__register">Don't have an account? <Link to="/signup">Register</Link></p>
                 <div className="login__toggle">

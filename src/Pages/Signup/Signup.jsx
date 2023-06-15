@@ -8,12 +8,14 @@ import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
+import loading from "../../assets/loading.gif"
 
 
 function Signup() {
     const navigate = useNavigate();
     const [isRespondent, setIsRespondent] = useState(true);
     const [associates, setAssociates] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [errMsg, setErrorMsg] = useState("");
     const errRef = useRef();
     const [respondentData, setRespondentData]  = useState(
@@ -74,6 +76,7 @@ function Signup() {
             }
              else {
                 // Send Respondent Data to DB
+                setIsLoading(true);
                 const axiosConfig = {
                     method: "post",
                     url: "https://afrimentary.onrender.com/API/respondents/signup",
@@ -89,11 +92,12 @@ function Signup() {
                                 gender: "", phone: "", email: "", language: "", city: "", county: "", country: "", referred_by: ""
                             }
                         );
+                        setIsLoading(false);
                     }
                 }).catch(err => {
                     const error = err.response.data.message;
-                    console.log(error);
                     setErrorMsg(error);
+                    setIsLoading(false);
                     errRef.current.focus();
                 });
             }
@@ -151,6 +155,7 @@ function Signup() {
                 </div>
                 <div className="signup__container">
                     <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
+                    {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                     <h3>Signup</h3>
                     <p className="signup__register">Already have an account? <Link to="/login">Login</Link></p>
                     <div className="signup__toggle">
