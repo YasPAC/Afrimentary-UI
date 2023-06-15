@@ -164,7 +164,7 @@
     background-color: var(--primary-color);
     position: relative;
     height: auto;
-    padding: 80px 16px;
+    padding: 80px 32px;
     color: #fff;
 }
 .faq_title {
