@@ -35,16 +35,20 @@ const ExpanderSection = () => {
   return (
     <div className="faq__question">
       {expanders.map((expander) => (
-        <div className="faq_container" key={uniqid()}>
+        <div className="faq_container"   onClick={() => toggleExpander(expander.id)} key={uniqid()}>
             <div className="qn_container">
                 <div className="question">{questions[expander.id].qn}</div>
-                <div className="faq__toggle" onClick={() => toggleExpander(expander.id)}>
+                <div className="faq__toggle">
                 {expander.expanded ? <RxCaretUp color="white" size={40} /> : <RxCaretDown color="white" size={40} />}
                 </div>
             </div>
             {expander.expanded && (
                 <div className="answer">
-                    <p>{questions[expander.id].ans}</p>
+                  <ul>
+                    <li>
+                      {questions[expander.id].ans}
+                    </li>
+                  </ul>
                 </div>
             )}
         </div>

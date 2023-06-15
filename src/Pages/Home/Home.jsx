@@ -19,13 +19,13 @@ function Home() {
                 </h2>
             </div>
             <div className="afrimentary__brief">
-                <h2 className="mission__brief">
+                <p className="mission__brief">
                     We bridge the gap between knowledge creation and harnessing insights!
-                </h2>
+                </p>
             </div>
             <div className="afrimentary__mission">
                 <div className="mission_sidebar">
-                    <h3>Afrimentary</h3>
+                    <p>Afrimentary</p>
                 </div>
                 <div className="mission__main">
                     <p>
@@ -38,7 +38,7 @@ function Home() {
             </div>
             <div className="afrimentary__how">
                 <div className="how__title">
-                    <h3>How it works</h3>
+                    <p>How it works</p>
                 </div>
                 <div className="how__text">
                     <p>
@@ -47,20 +47,20 @@ function Home() {
                     </p>
                 </div>
                 <div className="how__cta">
-                    <h3>Register today!</h3>
+                    <p>Register today!</p>
                     <button className="cta__btn"><Link to="/signup">Sign Up</Link></button>
                 </div>
             </div>
             <div className="afrimentary__faq">
                 <div className="faq_title">
-                    <h3>FAQs</h3>
+                    <p>FAQs</p>
                 </div>
                 <ExpanderSection />
             </div>
             <div className="home__footer">
                 <div className="footer__main">
                     <div className="footer__info">
-                        <h2>Afrimentary</h2>
+                        <h2>Afrimentary,</h2>
                         <h3>
                             Harness your insights and get paid ♡
                         </h3>

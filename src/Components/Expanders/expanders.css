@@ -1,7 +1,6 @@
 .faq_container {
     width: 100%;
-    min-height: 80px;
-    padding: 12px;
+    min-height: auto;
     border-top: 0.5px solid #fff;
 }
 .faq_container:last-child {
@@ -10,11 +9,12 @@
 .qn_container {
     position: relative;
     width: 100%;
-    min-height: 48px;
+    height: 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 12px;
+    padding: 48px 0;
+    /* border: 1px solid blueviolet; */
 }
 .question {
     width: 80%;
@@ -23,6 +23,7 @@
 .answer {
     width: 90%;
     color: #e5e5e5;
+    padding: 0 0 16px 32px;
 }
 @media screen and (min-width: 480px) {
     .question {

@@ -18,7 +18,7 @@
     background:-ms-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
 
     /* global 94%+ browsers support */
-    background:linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%), url("hero-bg.jpg");
+    background:linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%), url("./hero-bg.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -26,6 +26,16 @@
     justify-content: center;
     align-items: center;
     padding: 32px;
+}
+.afrimentary__hero::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100px;
+    background-color: #fff;
+    top: calc(100% - 32px);
+    left: -50%;
+    transform: rotate(4deg);
 }
 .hero__heading {
     font-size: 3rem;
@@ -44,7 +54,7 @@
 .heading-last::after {
     content: "";
     position: absolute;
-    width: 50%;
+    width: 80%;
     height: 7px;
     background-color: var(--primary-color);
     left: 50%;
@@ -53,13 +63,12 @@
 }
 
 .afrimentary__brief {
+    position: relative;
     padding: 0 32px;
     margin: 64px 0;
-    font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 2.5rem;
+    font-weight: 600;
     color: var(--greens);
-    letter-spacing: 1px;
-    word-spacing: 10px;
 }
 
 .afrimentary__mission {
@@ -72,10 +81,10 @@
     justify-content: center;
 }
 
-.mission_sidebar h3 {
+.mission_sidebar p {
     color: #fff;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 600;
     margin: 0 0 16px;
     letter-spacing: 2px;
 }
@@ -105,16 +114,15 @@
     left: -50%;
     transform: rotate(5deg);
 }
-.how__title h3 {
+.how__title p {
     color: var(--primary-color);
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 500;
     margin: 0 0 16px;
-    word-spacing: 5px;
 }
 .how__text {
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
 }
 .how__text-greens {
@@ -133,7 +141,7 @@
 .how__cta {
     margin: 32px 0 0;
 }
-.how__cta h3 {
+.how__cta p {
     color: var(--greens);
     font-size: 2rem;
     margin: 0 0 16px;
@@ -159,9 +167,9 @@
     color: #fff;
 }
 .faq_title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0 0 32px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .home__footer {
     position: relative;
@@ -198,7 +206,8 @@
         word-spacing: 10px;
     }
     .afrimentary__brief {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        font-weight: 500;
         margin: 80px 0;
     }
     .mission_sidebar h3 {
@@ -217,13 +226,14 @@
     .afrimentary__how::after {
         bottom: calc(100% - 48px);
     }
-    .how__title h3 {
+    .how__title p {
         font-size: 3.5rem;
     }
     .how__text {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        font-weight: 500;
     }
-    .how__cta h3 {
+    .how__cta p {
         font-size: 3rem;
     }
     .afrimentary__faq {
@@ -277,16 +287,23 @@
     }
     .afrimentary__brief {
         width: 80%;
-        font-size: 2rem;
-        letter-spacing: 1.5px;
+        font-size: 3.5rem;
+        font-weight: 500;
+    }
+    .afrimentary__mission  {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 48px;
+        padding: 96px 32px
     }
     .mission__main > p {
         font-size: 2.2rem;
         word-spacing: 7px;
-        font-weight: 500;
+        font-weight: 400;
     }
-    .mission_sidebar h3 {
-        font-size: 3rem;
+    .mission_sidebar p {
+        line-height: 1;
+        padding: 0;
     }
     .cta__btn {
         padding: 12px 32px;
@@ -297,14 +314,11 @@
     .cta__btn:hover {
         transform: scale(1.05);
     }
-    .how__title h3 {
-        font-size: 3rem;
-    }
     .how__text {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         letter-spacing: 2px;
     }
-    .how__cta h3 {
+    .how__cta p {
         font-size: 2.5rem;
     }
     .afrimentary__faq {

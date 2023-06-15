@@ -278,6 +278,10 @@
     .intro__description p {
         font-size: 1.5rem;
     }
+    .signup__container .errMsg {
+        width: 100%;
+        top: 0;
+    }
     .signup__container {
         border-top-right-radius: 0;
         border-bottom-left-radius:32px;
@@ -299,6 +303,12 @@
 @media screen and (max-width: 480px) {
     .afrimentary__signup {
         padding: 0 8px;
+    }
+    .afrimentary__signup::after {
+        display: none;
+    }
+    .afrimentary__signup::before {
+        display: none;
     }
     .signup__intro {
         padding: 32px;

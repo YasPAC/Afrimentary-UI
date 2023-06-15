@@ -13,8 +13,7 @@ function Header(){
                 <div className="afrimentary__logo">
                     <h1>Afrimentary</h1>
                 </div>
-                {showMenu &&
-                <div className="afrimentary__menu">
+                <div className={showMenu ? "afrimentary__menu hide__menu" : "afrimentary__menu"}>
                     <div className="nav__menu">
                         <ul className="menu__items">
                             <li className="item"><Link to="/">Home</Link></li>
@@ -29,9 +28,11 @@ function Header(){
                         </div>
                         : null
                     }
-                </div>}
-                {showMenu ? <RiCloseLine color="white" size={30} onClick={() => {setShowMenu(!showMenu)}}/> :
-            <RiMenu3Line color="white" size={30} onClick={() => {setShowMenu(!showMenu)}}/>}
+                </div>
+                <div className="nav__hamburger">
+                    {showMenu ? <RiCloseLine color="white" size={30} onClick={() => {setShowMenu(!showMenu)}}/> :
+                    <RiMenu3Line color="white" size={30} onClick={() => {setShowMenu(!showMenu)}}/>}
+                </div>
             </nav>
         </header>
     )
