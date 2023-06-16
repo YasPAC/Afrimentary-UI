@@ -1,0 +1,30 @@
+.afrimentary__unauthorized {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 48px;
+    gap: 48px
+}
+.afrimentary__unauthorized img {
+    width: 400px;
+    height: 400px;
+}
+.afrimentary__unauthorized button {
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 8px 32px;
+    font-size: 1.2rem;
+    background-color: var(--greens);
+    border-radius: 32px;
+}
+@media screen and (max-width: 480px){
+    .afrimentary__unauthorized img {
+        width: 100%;
+        height: auto;
+    }
+}
