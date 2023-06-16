@@ -16,19 +16,19 @@ function Home() {
                     <span className="heading heading-primary">Harnessing </span>
                     <span className="heading heading-whites">African </span>
                     <span className="heading heading-primary">insights, </span>
-                    <span className="heading heading-whites">Amplifying </span>
-                    <span className="heading heading-primary">African </span>
-                    <span className="heading heading-whites heading-last">voices</span>
+                    <span className="heading heading-primary">Amplifying </span>
+                    <span className="heading heading-whites">African </span>
+                    <span className="heading heading-primary heading-last">voices</span>
                 </h2>
             </div>
             <div className="afrimentary__brief">
                 <p className="mission__brief">
-                    We bridge the gap between knowledge creation and harnessing insights!
+                    We bridge the gap between knowledge creation and <br />harnessing insights!
                 </p>
             </div>
             <div className="afrimentary__mission">
                 <div className="mission_sidebar">
-                    <p>Afrimentary</p>
+                    <p>Afrimentary:</p>
                 </div>
                 <div className="mission__main">
                     <p>

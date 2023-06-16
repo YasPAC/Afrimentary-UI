@@ -98,20 +98,18 @@
     .afrimentary__logo h1 {
         font-size: 2rem;
     }
-    /* .afrimentary__menu {
-        width: 40%;
-        height: calc(100vh - 80px);
-    }  */
     .afrimentary__menu {
+        position: relative;
         background-color: var(--primary-color);
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         width: 70%;
         height: 100%;
-        justify-content: space-between;
         align-items: center;
         top: 0;
+        gap: 48px;
+        padding: 0;
     }
     .menu__items {
         list-style: none;
@@ -120,12 +118,14 @@
         font-size: 1.3rem;
         font-weight: 300;
         color: #fff;
+        width: auto;
+        justify-content: flex-end;
     }
     .nav__btns {
         height: 100%;
         align-items: center;
         justify-content: space-between;
-        padding: 0 24px;
+        padding: 0;
         gap: 32px;
     }
     .item {

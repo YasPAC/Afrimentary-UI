@@ -39,15 +39,22 @@ function Signup() {
     
     //Load Agents
     useEffect(() => {
-        const axiosConfig = {
-            method: "get",
-            url: "https://afrimentary.onrender.com/API/respondents/associates",
+        const controller = new AbortController();
+        const getAssociates = async () => {
+            try {
+                const response = await axios.get(
+                    "https://afrimentary.onrender.com/API/respondents/associates",
+                    {signal: controller.signal}
+                );
+                !controller.signal.abort && setAssociates(response?.data?.associates);
+            } catch(err) {
+                setErrorMsg(err.response);
+            }
         }
-        axios(axiosConfig)
-        .then(response => {
-            const agents = response?.data?.associates;
-            setAssociates(agents);
-        })
+        getAssociates()
+        return () => {
+            controller.abort();
+        }
     }, []);
 
     // Handle form values change

@@ -4,7 +4,7 @@ import {RiMenu3Line, RiCloseLine} from "react-icons/ri";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 
-function Header(){
+function Header() {
     const [showMenu, setShowMenu] = useState(false);
     const {auth} = useAuth();
     return (
@@ -23,8 +23,8 @@ function Header(){
                     </div>
                     {!auth?.userId  ? 
                         <div className="nav__btns">
-                            <button className="btn btn-login"><Link to="/login">Login</Link></button>
                             <button className="btn btn-signup"><Link to="/signup">Sign up</Link></button>
+                            <button className="btn btn-login"><Link to="/login">Login</Link></button>
                         </div>
                         : null
                     }

@@ -1,6 +1,6 @@
 import './App.css';
 import { Layout, RequireAuth } from './Components';
-import {Home, LoginSignupComponent, NotFound, RespondentAccount, Signup} from "./Pages";
+import {Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 
 function App() {
@@ -12,13 +12,18 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="login" element={<LoginSignupComponent />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="unauthorized" element={<Unauthorized />} />
+        
+          {/* Protected Routes */}
+          <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>
+            <Route path="respondent/:id" element={<RespondentAccount />} />
+          </Route>
+          <Route  element={<RequireAuth roles={["admin"]} />}>
+            <Route path="admin/:id" element={<RespondentAccount />} />
+          </Route>
+          {/* Catch 404 */}
+          <Route path="*" element={<NotFound />}/>
         </Route>
-        {/* Protected Routes */}
-        <Route element={<RequireAuth />}>
-          <Route path="respondent/:id" element={<RespondentAccount />} />
-        </Route>
-        {/* Catch 404 */}
-        <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>
   )

@@ -51,7 +51,8 @@ const LoginSignupComponent = () => {
             .then(response => {
                 const accessToken = response?.data?.Token;
                 const publicId = response?.data?.public_id;
-                setAuth({userId: publicId, token: accessToken})
+                const userRole = response?.data?.role;
+                setAuth({userId: publicId, token: accessToken, role: userRole})
                 // Reset login form
                 setLoginData({ email: '', password: '' });
                 navigate(from, {replace: true});
