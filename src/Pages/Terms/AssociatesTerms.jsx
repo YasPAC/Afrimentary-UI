@@ -1,7 +1,7 @@
 const AssociatesTerms = () => {
     return (
         <>
-            <ol className="associates__terms-list">
+            <ol className="terms__list">
                 <li className="term">
                     <h5 className="term__title">Nature of the role: </h5>
                     <ul className="term_item">
@@ -18,7 +18,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li className="term">
                     <h5 className="term__title">Eligibility: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -30,7 +30,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li className="term">
                     <h5 className="term__title">Registration and Verification: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -48,7 +48,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li className="term">
                     <h5 className="term__title">Payment: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -63,7 +63,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Independent Contractor Status: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -79,7 +79,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Confidentiality: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -90,7 +90,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Termination: </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -101,7 +101,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Limitation of Liability: : </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -113,7 +113,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Amendments:  </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -124,7 +124,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Governing Law:  </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -133,7 +133,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Entire Agreement:  </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -142,7 +142,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Severability:  </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -151,7 +151,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Waiver:  </h5>
                     <ul className="term_item">
                         <li className="item">
@@ -160,7 +160,7 @@ const AssociatesTerms = () => {
                         </li>
                     </ul>
                 </li>          
-                <li>
+                <li  className="term">
                     <h5 className="term__title">Contact Information:  </h5>
                     <ul className="term_item">
                         <li className="item">

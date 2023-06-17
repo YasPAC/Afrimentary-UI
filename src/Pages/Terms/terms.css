@@ -58,7 +58,7 @@
     color: var(--greens);
     margin: 0 0 8px;
 }
-.associates__terms-list {
+.terms__list {
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -108,7 +108,7 @@
     .group h4 {
         font-size: 1.2rem;
     }
-    .associates__terms-list {
+    .terms__list {
         width: 100%;
     }
     .term_item {
