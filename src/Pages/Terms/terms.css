@@ -1,0 +1,117 @@
+.afrimentary__terms {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 32px;
+    background-color: rgba(244,136,71, 0.4);
+}
+.terms_wrapper {
+    padding: 32px 64px;
+    width: 80%;
+    height: 80%;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    border-radius: 32px;
+}
+.terms__groups {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+    position: relative;
+} 
+.terms__groups::-webkit-scrollbar {
+    width: 10px;
+}
+
+.terms__groups::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.terms__groups::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    outline: 1px solid slategrey;
+}
+.terms__groups > h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: #424242;
+}
+.group h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--greens);
+    margin: 0 0 8px;
+}
+.associates__terms-list {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+.term__title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+.term_item {
+    margin: 0 0 0 32px;
+}
+.term_item h6 {
+    font-size: 1rem;
+    color: var(--greens);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+    .terms_wrapper {
+        padding: 16px 32px;
+        width: 90%;
+        height: 80%;
+        background-color: #f4f4f4;
+        overflow: hidden;
+        border-radius: 32px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .terms_wrapper {
+        padding: 32px 16px;
+        width: 95%;
+        height: 90%;
+        background-color: #f4f4f4;
+        overflow: hidden;
+        border-radius: 32px;
+    }
+    .terms__groups {
+        padding: 12px;
+    } 
+    .terms__groups > h3 {
+        font-size: 2rem;
+    }
+    .group h4 {
+        font-size: 1.2rem;
+    }
+    .associates__terms-list {
+        width: 100%;
+    }
+    .term_item {
+        margin: 0 0 0 8px;
+    }
+}

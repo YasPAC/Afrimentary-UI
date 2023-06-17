@@ -3,7 +3,7 @@ import useMultipleStepForm from "../../Hooks/useMutliStepForm";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignupFields from "./SignupFields";
-import ReferrerField, {GenderField, EducationField} from "./SelectFields";
+import ReferrerField, {GenderField, EducationField, CheckBox} from "./SelectFields";
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
@@ -148,6 +148,9 @@ function Signup() {
         <div className="field__collection" key={uniqid}>
             <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Password", name: "password" , type: "password"}} />
             <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Confirm Password", name: "confirmPass" , type: "password"}} />
+        </div>,
+        <div className="field__collection" key={uniqid}>
+            <CheckBox />
         </div>
         
     ]);

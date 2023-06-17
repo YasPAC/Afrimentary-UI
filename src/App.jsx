@@ -1,6 +1,6 @@
 import './App.css';
 import { Layout, RequireAuth } from './Components';
-import {Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized} from "./Pages";
+import {Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized, Terms} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
           <Route path="login" element={<LoginSignupComponent />} />
           <Route path="signup" element={<Signup />} />
           <Route path="unauthorized" element={<Unauthorized />} />
+          <Route path="terms" element={<Terms />} />
         
           {/* Protected Routes */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>

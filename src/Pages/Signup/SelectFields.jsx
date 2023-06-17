@@ -1,5 +1,5 @@
 import uniqid from "uniqid";
-
+import {Link} from "react-router-dom";
 const ReferrerField = ({agents, data, handleChange}) => {
     return (
             <section className="form__field form__field-select">
@@ -42,5 +42,13 @@ const GenderField = ({data, handleChange}) => {
         </section>
     )
 }
+const CheckBox = () => {
+    return (
+        <section className="form__field form__field-check">
+            <input type="checkbox" name="terms&conditions" value="accepted" required/>
+            <p>By signing in you are accepting the <Link to="/terms">terms and conditions</Link></p>
+        </section>
+    )
+}
 export default ReferrerField;
-export {EducationField, GenderField};
+export {EducationField, GenderField, CheckBox};
