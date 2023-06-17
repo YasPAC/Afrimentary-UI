@@ -132,7 +132,7 @@
         position: relative;
         padding: 8px;
     }
-    .item::after {
+    .menu__items .item::after {
         content: "";
         position: absolute;
         width: 0;

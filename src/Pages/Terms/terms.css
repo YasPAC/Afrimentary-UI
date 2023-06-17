@@ -7,15 +7,37 @@
     align-items: center;
     overflow: hidden;
     gap: 32px;
-    background-color: rgba(244,136,71, 0.4);
+    background-color: rgba(244,136,71,0.4);
+}
+.afrimentary__terms::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(19,85,11,0.4);
+    width: 200%;
+    height: 100%;
+    left: -50%;
+    bottom: -50%;
+    transform: rotate(-26deg);
 }
 .terms_wrapper {
-    padding: 32px 64px;
+    position: relative;
+    padding: 32px 64px 0;
     width: 80%;
-    height: 80%;
+    height: 90%;
     background-color: #f4f4f4;
     overflow: hidden;
     border-radius: 32px;
+    z-index: 2;
+}
+.terms_wrapper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    left: 0;
+    bottom: 0;
+    /* global 94%+ browsers support */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.95) 100%);
 }
 .terms__groups {
     width: 100%;
@@ -35,10 +57,14 @@
 
 .terms__groups::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--primary-color);
+    border-radius: 32px;
+    z-index: 4;
 }
 
 .terms__groups::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
+    background-color: var(--greens);
+    border-radius: 64px;
     outline: 1px solid slategrey;
 }
 .terms__groups > h3 {
@@ -51,6 +77,8 @@
     flex-direction: column;
     gap: 32px;
     color: #424242;
+    border-bottom: 1px solid var(--greens);
+    padding-bottom: 48px;
 }
 .group h4 {
     font-size: 1.6rem;
