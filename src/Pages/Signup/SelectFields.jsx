@@ -46,7 +46,7 @@ const CheckBox = () => {
     return (
         <section className="form__field form__field-check">
             <input type="checkbox" name="terms&conditions" value="accepted" required/>
-            <p>By signing in you are accepting the <Link to="/terms">terms and conditions</Link></p>
+            <p>By signing in you are accepting the <Link to="/terms" target="_blank">terms and conditions</Link></p>
         </section>
     )
 }

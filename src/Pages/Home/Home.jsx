@@ -2,7 +2,7 @@ import "./home.css"
 import { Header, ExpanderSection } from "../../Components";
 import {RiTwitterFill, RiLinkedinBoxFill, RiInstagramFill} from "react-icons/ri";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/hero-bg.jpg"
+import heroBg from "../../assets/hero-bg.jpg";
 
 function Home() {
     const date = new Date();
@@ -76,7 +76,7 @@ function Home() {
                 </div>
                 <div className="copyright">
                     <span>Copyright © {date.getFullYear()} </span>
-                    <span><a href="#">Terms and conditions</a></span>
+                    <span><Link to="/terms">Terms and conditions</Link></span>
                 </div>
             </div>
         </main>
