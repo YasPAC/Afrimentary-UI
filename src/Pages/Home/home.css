@@ -183,34 +183,6 @@
     margin: 0 0 32px;
     font-weight: 500;
 }
-.home__footer {
-    position: relative;
-    height: auto;
-    padding: 80px 32px 16px;
-    color: var(--primary-color);
-}
-.footer__info {
-    margin: 0 0 20px;
-}
-.footer__info h3 {
-    font-weight: 500;
-    font-size: 1.3rem;
-}
-.footer__menu {
-    color: var(--greens);
-}
-.footer__socials {
-    margin: 32px 0;
-}
-.copyright {
-    font-size: 0.9rem;
-    border-top: 0.5px solid var(--greens);
-    padding: 12px 0 0;
-    text-align: center;
-}
-.copyright a {
-    color: var(--greens);
-}
 
 @media screen and (min-width: 480px) {
     .hero__heading {

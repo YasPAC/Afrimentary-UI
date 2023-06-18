@@ -1,11 +1,9 @@
 import "./home.css"
-import { Header, ExpanderSection } from "../../Components";
-import {RiTwitterFill, RiLinkedinBoxFill, RiInstagramFill} from "react-icons/ri";
+import { Header, ExpanderSection, Footer } from "../../Components";
 import { Link } from "react-router-dom";
 import heroBg from "../../assets/hero-bg.jpg";
 
 function Home() {
-    const date = new Date();
     return (
         <main className="afrimentary__home">
             <Header />
@@ -60,25 +58,7 @@ function Home() {
                 </div>
                 <ExpanderSection />
             </div>
-            <div className="home__footer">
-                <div className="footer__main">
-                    <div className="footer__info">
-                        <h2>Afrimentary,</h2>
-                        <h3>
-                            Harness your insights and get paid ♡
-                        </h3>
-                    </div>
-                    <div className="footer__socials">
-                        <RiTwitterFill color="rgb(19,85,11)" size={30}/>
-                        <RiLinkedinBoxFill color="rgb(19,85,11)" size={30}/>
-                        <RiInstagramFill color="rgb(19,85,11)" size={30}/>
-                    </div>
-                </div>
-                <div className="copyright">
-                    <span>Copyright © {date.getFullYear()} </span>
-                    <span><Link to="/terms">Terms and conditions</Link></span>
-                </div>
-            </div>
+            <Footer />
         </main>
     )
 }
