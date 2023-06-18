@@ -27,13 +27,12 @@
     color: var(--greens);
 }
 @media screen and (min-width: 480px) {
-    .home__footer {
+    .afrimentary__footer {
         padding: 96px 32px 16px;
     }
     .footer__main {
         display: flex;
-        justify-content: space-between;
-        padding: 0 0 60px
+        padding: 0 0 48px;
     }
     .footer__info h2 {
         font-size: 2.5rem;

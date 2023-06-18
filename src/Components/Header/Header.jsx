@@ -18,7 +18,7 @@ function Header() {
                         <ul className="menu__items">
                             <li className="item"><Link to="/">Home</Link></li>
                             <li className="item"><Link to="/about">About</Link></li>
-                            <li className="item"><Link to="/">Contact</Link></li>
+                            <li className="item"><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
                     {!auth?.userId  ? 

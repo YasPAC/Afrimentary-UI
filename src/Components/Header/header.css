@@ -86,6 +86,9 @@
     .afrimentary__logo h1 {
         font-size: 1.3rem;
     }
+    .afrimentary__menu {
+        width: 50%;
+    }
     .menu__items {
         font-size: 2rem;
     }

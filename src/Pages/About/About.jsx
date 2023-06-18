@@ -4,7 +4,7 @@ import aboutBg from "../../assets/about-hero.jpg";
 
 const About = () => {
     return (
-        <section className="afrimentary__about">
+        <main className="afrimentary__about">
             <Header />
             <div className="about__image">
                 <img src={aboutBg} alt="afrimentary-about"/>
@@ -81,7 +81,7 @@ const About = () => {
             <div className="about__footer">
                 <Footer />
             </div>
-        </section>
+        </main>
     )
 }
 
