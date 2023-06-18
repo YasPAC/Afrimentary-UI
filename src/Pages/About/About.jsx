@@ -6,11 +6,16 @@ const About = () => {
     return (
         <section className="afrimentary__about">
             <Header />
+            <div className="about__image">
+                <img src={aboutBg} alt="afrimentary-about"/>
+                <div className="image_dot one"></div>
+                <div className="image_dot two"></div>
+                <div className="image_dot three"></div>
+            </div>
             <div className="about__intro">
                 <div className="intro__bold">
                     <p>
-                        Transforming the landscape of academic quantitative
-                        <span className="text__muted"> surveys and survey experiments in Africa.</span>
+                        Transforming the landscape of academic quantitative surveys and survey experiments in Africa.
                     </p>
                 </div>
                 <div className="intro__light">
@@ -23,18 +28,7 @@ const About = () => {
                     </p>
                 </div>
             </div>
-            <div className="about__image">
-                <img src={aboutBg} alt="afrimentary-about"/>
-                <div className="image_dot one"></div>
-                <div className="image_dot two"></div>
-                <div className="image_dot three"></div>
-            </div>
             <div className="about__mission">
-                <div className="mission__title titles">
-                    <p>
-                        What's our mission?
-                    </p>
-                </div>
                 <div className="mission__info">
                     <p className="info__header">
                         Our mission is clear and impactful: we aim to bridge the gap between researchers 
@@ -53,8 +47,18 @@ const About = () => {
                         </p>
                     </div>
                 </div>
+                <div className="mission__title titles">
+                    <p>
+                        What's our mission?
+                    </p>
+                </div>
             </div>
             <div className="about__why">
+                <div className="why__title titles">
+                    <p>
+                        Why you should choose Afrimentary
+                    </p>
+                </div>
                 <div className="why__info">
                     <p className="info__header">
                         Our firsthand experience enables us to create a platform that truly resonates 
@@ -72,11 +76,6 @@ const About = () => {
                         researchers to tailor their surveys to specific regions and demographics, 
                         ensuring that the data collected accurately reflects the rich tapestry of African society.
                     </div>
-                </div>
-                <div className="why__title titles">
-                    <p>
-                        Why you should choose Afrimentary
-                    </p>
                 </div>
             </div>
             <div className="about__footer">
