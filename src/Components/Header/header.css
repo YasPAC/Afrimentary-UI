@@ -56,6 +56,7 @@
 .item > a {
     color: var(--greens);
     letter-spacing: 1px;
+    z-index: 5;
 }
 .nav__btns {
     display: flex;
