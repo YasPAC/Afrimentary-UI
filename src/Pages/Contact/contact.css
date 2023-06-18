@@ -57,7 +57,11 @@
 
 @media screen and (max-width: 900px) {
     .form__container {
-        width: 80%;
+        width: 90%;
+    }
+    .contact__footer {
+        width: 90%;
+        padding: 0;
     }
 }
 
@@ -69,6 +73,6 @@
     .contact__footer {
         width: 100%;
         margin: 0 auto;
-        padding: 0;
+        padding: 0 16px;
     }
 }

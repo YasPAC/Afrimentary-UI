@@ -173,6 +173,9 @@
     .why__info {
         gap: 12px;
     }
+    .about__footer {
+        width: 90%;
+    }
 }
 @media screen and (max-width: 480px) {
     .about__image {
@@ -192,5 +195,10 @@
     .about__mission {
         width: 100%;
         padding: 32px 16px;
+    }
+    .about__footer {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 16px;
     }
 }

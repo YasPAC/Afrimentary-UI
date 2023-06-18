@@ -183,6 +183,12 @@
     margin: 0 0 32px;
     font-weight: 500;
 }
+.home__footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    
+}
 
 @media screen and (min-width: 480px) {
     .hero__heading {
@@ -231,27 +237,7 @@
     .faq_title {
         font-size: 3.5rem;
     }
-    .home__footer {
-        padding: 96px 32px 16px;
-    }
-    .footer__main {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 0 60px
-    }
-    .footer__info h2 {
-        font-size: 2.5rem;
-        font-weight: 500;
-    }
-    .footer__info h3 {
-        font-weight: 400;
-        font-size: 1.5rem;
-        width: 40ch;
-    }
-    .copyright {
-        font-size: 1.1rem;
-        padding: 16px 0 0;
-    }
+    
 }
 @media screen and (min-width: 769px) {
     .afrimentary__how::after {
@@ -317,8 +303,5 @@
     }
     .faq_title {
         font-size: 3rem;
-    }
-    .copyright {
-        font-size: 0.9rem;
     }
 }

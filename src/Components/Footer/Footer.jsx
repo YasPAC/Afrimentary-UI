@@ -17,11 +17,11 @@ const Footer = () => {
                         <RiLinkedinBoxFill color="rgb(19,85,11)" size={30}/>
                         <RiInstagramFill color="rgb(19,85,11)" size={30}/>
                     </div>
-                </div>
-                <div className="copyright">
-                    <span>Copyright © {date.getFullYear()} </span>
-                    <span><Link to="/terms">Terms and conditions</Link></span>
-                </div>
+            </div>
+            <div className="copyright">
+                <span>Copyright © {date.getFullYear()} </span>
+                <span><Link to="/terms">Terms and conditions</Link></span>
+            </div>
         </section>
     )
 }

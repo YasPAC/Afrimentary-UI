@@ -58,7 +58,9 @@ function Home() {
                 </div>
                 <ExpanderSection />
             </div>
-            <Footer />
+            <div className="home__footer">
+                <Footer />
+            </div>
         </main>
     )
 }
