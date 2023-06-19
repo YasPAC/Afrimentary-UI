@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm";
 import {Header, Footer} from "../../Components";
 
 const Contact = () => {
+
     return (
     <main className="afrimentary__contact">
         <Header />

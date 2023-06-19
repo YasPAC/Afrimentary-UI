@@ -20,6 +20,15 @@
     flex-direction: column;
     gap: 8px;
 }
+.response_message {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    background-color: rgb(166, 255, 196);
+}
+.response_message.err {
+    background-color: rgb(255, 166, 166);
+}
 .form-group {
     width: 100%;
     min-height: 48px;
@@ -69,10 +78,12 @@
     .form__container {
         padding: 32px 16px;
         width: 95%;
+        box-shadow: none;
     }
     .contact__footer {
         width: 100%;
         margin: 0 auto;
         padding: 0 16px;
     }
+    
 }

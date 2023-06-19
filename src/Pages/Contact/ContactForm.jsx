@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,19 +8,58 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
+  const [errMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleInputChange = (e) => {
     const {name, value} = e.target
     setFormData({ ...formData, [name]: value });
   };
 
+  // Reset the response messages
+  useEffect(() => {
+    const clearMessages = async () =>{
+      const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      };
+      await sleep(5000);
+      setSuccessMsg("");
+      setErrorMsg("");
+    };
+    clearMessages();
+
+  }, [errMsg, successMsg])
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // Perform form submission logic here
+    const axiosConfig = {
+      method: "post",
+      url: "https://afrimentary.onrender.com/API/contactmessage",
+      data: formData
+    }
+    axios(axiosConfig).then(
+      response => {
+        const message = response.data.message
+        if (message === "Success! Message sent"){
+          setFormData({ name: '', email: '', subject: '', message: ''});
+          setSuccessMsg(message);
+        }
+      }
+
+    ).catch(err => {
+      setErrorMsg(err);
+    });
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {errMsg || successMsg ? 
+        <div className={errMsg ? "response_message err": "response_message success"}>
+          <p>{errMsg}</p>
+          <p>{successMsg}</p>
+        </div> :  null
+      }
       <div className="form-group">
         <input
           type="text"
