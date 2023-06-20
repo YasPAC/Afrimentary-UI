@@ -2,13 +2,14 @@ import { useState, useEffect, useRef} from 'react';
 import useAuth from '../../Hooks/useAuth';
 import "./login.css";
 import {Link, useNavigate, useLocation} from "react-router-dom";
+import Cookies from "universal-cookie";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
-import loading from "../../assets/loading.gif"
+import loading from "../../assets/loading.gif";
 
 const LoginSignupComponent = () => {
+    const cookies = new Cookies();
     const {setAuth} = useAuth();
-
     const navigate = useNavigate();
     const location = useLocation();
     // Nav to prev protected path otherwise home
@@ -52,18 +53,25 @@ const LoginSignupComponent = () => {
                 const accessToken = response?.data?.Token;
                 const publicId = response?.data?.public_id;
                 const userRole = response?.data?.role;
-                setAuth({userId: publicId, token: accessToken, role: userRole})
+                // Set cookies
+                cookies.set("token", accessToken, {path: "/", sameSite: "None", secure:true});
+                cookies.set("public_id", publicId, {path: "/", sameSite: "None", secure:true});
+                cookies.set("role", userRole, {path: "/", sameSite: "None", secure:true});
+                setAuth({userId: publicId, token: accessToken, role: userRole});
                 // Reset login form
                 setLoginData({ email: '', password: '' });
                 navigate(from, {replace: true});
                 setIsLoading(false);
             })
             .catch(err => {
-            const error = err.response.data;
+                console.log(err);
+                const error = err?.response?.data;
                 if(error == "Incorrect Email") {
                     setErrorMsg("Sorry! Email doesn't exist");
                 } else if (error == "Incorrect password") {
                     setErrorMsg("Sorry! Incorrect password");
+                } else if (!error) {
+                    setErrorMsg("Unable to login! Please try again");
                 } else {
                     setErrorMsg(error);
                 }

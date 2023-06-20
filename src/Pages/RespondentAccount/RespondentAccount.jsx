@@ -1,6 +1,8 @@
+import { Header } from "../../Components";
 const RespondentAccount = () => {
     return (
         <main className="respondent__dash">
+            <Header />
             <div className="dash__inner">
                 <section className="dash__sidebar">
                     <div className="sidebar__personalInfo">

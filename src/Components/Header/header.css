@@ -82,6 +82,9 @@
 .btn-login {
     background-color: var(--greens);
 }
+.btn-logout {
+    color: var(--greens);
+}
 
 @media screen and (min-width: 480px) {
     .afrimentary__logo h1 {

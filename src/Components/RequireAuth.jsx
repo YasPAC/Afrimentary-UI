@@ -1,15 +1,27 @@
 import { Navigate, useLocation, Outlet } from "react-router-dom";
-import useAuth from "../Hooks/useAuth";
+import { isExpired } from "react-jwt";
+import Cookies from "universal-cookie";
 
 const RequireAuth = ({roles}) => {
-    const {auth} = useAuth();
+    const cookies = new Cookies();
+    const token = cookies.get("token");
+    const role = cookies.get("role");
     const location = useLocation();
+    let expired;
+    const SECRET_KEY = import.meta.env.VITE_SECRET_KEY;
+
+    if (token) {
+        expired = isExpired(token, SECRET_KEY);
+    };
+   
     return (
-        roles?.includes(auth?.role) ?
-            <Outlet /> 
-            : auth?.userId ? 
-                <Navigate to="/unauthorized" state = {{from: location}} replace/> :
-                <Navigate to="/login" state = {{from: location}} replace/>
+        token ?
+            !expired ? roles?.includes(role) ? <Outlet />  :
+            <Navigate to="/unauthorized" state = {{from: location}} replace/> :
+            <Navigate to="/login" state = {{from: location}} replace/>
+        :
+        <Navigate to="/login" state = {{from: location}} replace/>
+
     );
 }
 
