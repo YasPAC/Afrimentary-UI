@@ -1,5 +1,5 @@
 import "./respondentAccount.css";
-import { Header, Footer } from "../../Components";
+import { Header, UpdateForm } from "../../Components";
 import Sidebar from "./Sidebar";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {Link, useNavigate, useParams} from "react-router-dom";
@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useState } from "react";
+import {RiCloseLine} from "react-icons/ri";
 
 const RespondentAccount = () => {
     const cookies = new Cookies();
@@ -21,6 +22,7 @@ const RespondentAccount = () => {
     });
     const [referred, setReferred] = useState(0);
     const [openSidebar, setOpenSidebar] = useState(false);
+    const [updateRespondent, setUpdateRespondent] = useState(false);
     
     // Get users referred by this user if associate
     const getReferred = () => {
@@ -73,13 +75,18 @@ const RespondentAccount = () => {
         setOpenSidebar(prev => !prev);
     }
 
+    const toggleUpdate = () => {
+        setUpdateRespondent(prev => !prev);
+        setOpenSidebar(false);
+    }
+
     return (
         <main className="respondent__dash">
             <Header />
             {isLoaded ? 
             <div className="respondent__dash-inner">
                 <section className={!openSidebar ? "respondent__dash-sidebar" : "respondent__dash-sidebar sidebar__unhide"}>
-                    <Sidebar data={respondentData}/>
+                    <Sidebar data={respondentData} update={toggleUpdate}/>
                 </section>
                 {openSidebar ? 
                     <div onClick={toggleSidebar}  className="sidebar__controls hide__sidebar-btn">
@@ -91,6 +98,10 @@ const RespondentAccount = () => {
                     </div>
                 }
                 <section className="respondent__dash-main">
+                    {updateRespondent && <UpdateForm />}
+                    {updateRespondent && <div className="update__close" onClick={toggleUpdate}>
+                        <RiCloseLine  color={"green"} size={48}/>
+                    </div>}
                     <div className="dash__main-top">
                         <p className="respondent__greeting">Hello, <span>{respondentData.first_name}</span></p>
                         <div className="dash__main-controls">

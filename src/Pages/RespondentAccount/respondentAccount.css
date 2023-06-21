@@ -54,13 +54,15 @@
     flex-direction: column;
     gap: 16px;
 }
-.respondentsidebar__settings a {
+.respondentsidebar__settings .setting {
     font-weight: 500;
     color: var(--greens);
+    cursor: pointer;
 }
 
 /* MAIN */
 .respondent__dash-main {
+    position: relative;
     width: 100%;
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

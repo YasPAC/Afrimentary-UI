@@ -1,0 +1,103 @@
+.respondent__update {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding: 32px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow-y: scroll;
+}
+.respondent__update > h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 16px;
+}
+.respondent__update-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    row-gap: 16px;
+}
+.respondent__update-form .form__field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    height: 72px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0 5px;
+    border-bottom: 1px solid var(--greens);
+}
+.respondent__update-form .form__field  input {
+    background-color: rgb(249, 249, 249);
+    height: 100px;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+.respondent__update-form .form__field-select select {
+    background-color: rgb(249, 249, 249);
+    height: 100px;
+    padding: 5px;
+    font-size: 0.9rem;
+    border: none;
+}
+.respondent__update-form button {
+    padding: 12px 24px;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.respondent__update-form button:hover {
+    transform: scale(1.05)
+}
+.update__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.update__close:hover {
+    transform: scale(1.05);
+}
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+    
+    .respondent__update > h4 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 0 0 24px;
+    }
+    .respondent__update-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+    .update__close {
+        top: -20px;
+        right: 0px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .respondent__update {
+        padding: 16px;
+    }
+}
