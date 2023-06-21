@@ -14,7 +14,7 @@ const LoginSignupComponent = () => {
     const navigate = useNavigate();
     const location = useLocation();
     // Nav to prev protected path otherwise home
-    const from = location.state?.from?.pathname || "/"
+    const from = location.state?.from?.pathname
 
     const [isRespondent, setIsRespondent] = useState(true);
     const [loginData, setLoginData] = useState({ email: '', password: '' });
@@ -61,7 +61,7 @@ const LoginSignupComponent = () => {
                 setAuth({userId: publicId, token: accessToken, role: userRole});
                 // Reset login form
                 setLoginData({ email: '', password: '' });
-                navigate(from, {replace: true});
+                navigate(from || `/respondent/${publicId}`, {replace: true});
                 setIsLoading(false);
             })
             .catch(err => {

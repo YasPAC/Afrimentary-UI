@@ -1,7 +1,7 @@
 import "./respondentAccount.css";
 import { Header, Footer } from "../../Components";
 import Sidebar from "./Sidebar";
-import {MdVerified, MdCancel} from "react-icons/md";
+import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -20,6 +20,7 @@ const RespondentAccount = () => {
         gender: "", language: "", last_name: "", phone: "", public_id: "", role: "", verified: ""
     });
     const [referred, setReferred] = useState(0);
+    const [openSidebar, setOpenSidebar] = useState(false);
     
     // Get users referred by this user if associate
     const getReferred = () => {
@@ -68,20 +69,33 @@ const RespondentAccount = () => {
 
     }, []);
 
+    const toggleSidebar = () => {
+        setOpenSidebar(prev => !prev);
+    }
+
     return (
         <main className="respondent__dash">
             <Header />
             {isLoaded ? 
             <div className="respondent__dash-inner">
-                <section className="respondent__dash-sidebar">
+                <section className={!openSidebar ? "respondent__dash-sidebar" : "respondent__dash-sidebar sidebar__unhide"}>
                     <Sidebar data={respondentData}/>
                 </section>
+                {openSidebar ? 
+                    <div onClick={toggleSidebar}  className="sidebar__controls hide__sidebar-btn">
+                        <MdOutlineArrowBackIos size={32} />
+                    </div> 
+                    :
+                    <div onClick={toggleSidebar} className="sidebar__controls show__sidebar-btn">
+                        <MdOutlineArrowForwardIos size={32} />
+                    </div>
+                }
                 <section className="respondent__dash-main">
                     <div className="dash__main-top">
                         <p className="respondent__greeting">Hello, <span>{respondentData.first_name}</span></p>
                         <div className="dash__main-controls">
                             {respondentData.role !== "user"? 
-                                <p className="role">Role: <span>{respondentData.role}</span></p>:
+                                <p className="role">{respondentData.role}</p>:
                                 null
                             }
                             {
