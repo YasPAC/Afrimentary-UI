@@ -195,13 +195,14 @@
     }
     .respondent__dash-sidebar {
         position: absolute;
-        height: 100vh;
+        height: 100%;
         z-index: 3;
         background-color: #fff;
         top: 0;
         left: -500px;
         width: 400px;
         transition: all 0.3s linear;
+        border-radius: 0;
     }
     .sidebar__unhide {
         left: 0;
@@ -231,7 +232,7 @@
         height: auto;
     }
     .respondent__dash-sidebar {
-        width: 90%;
+        width: 95%;
     }
     .respondent__dash-main {
         padding: 24px 16px;
