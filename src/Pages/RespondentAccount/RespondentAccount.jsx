@@ -33,11 +33,10 @@ const RespondentAccount = () => {
         }
         axios(axiosReferrerConfig).then(
             response => {
-                setReferred(response?.data?.number)
+                setReferred(response?.data?.n_verified);
             }
         ).catch(err => {
             // The error rediricts will happen inside useEffect
-            console.log(err?.response)
         });
     }
 
@@ -103,6 +102,7 @@ const RespondentAccount = () => {
                                 respondentData.role !== "user" ? 
                                 <div className="respondent__card">
                                     <h4>Users Referred</h4>
+                                    <small>Verified</small>
                                     <p className="referral__count">
                                         {referred}
                                     </p>
