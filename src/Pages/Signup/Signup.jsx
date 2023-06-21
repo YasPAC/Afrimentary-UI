@@ -8,7 +8,8 @@ import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
-import loading from "../../assets/loading.gif"
+import loading from "../../assets/loading.gif";
+import dash from "../../assets/sitting.jpg";
 
 
 function Signup() {
@@ -158,6 +159,8 @@ function Signup() {
         <main className="afrimentary__signup">
             <div className="signup__inner">
                 <div className="signup__intro">
+                    <img src={dash} alt="afrimentary"/>
+                    <div className="signup__cover"></div>
                     <div className="intro__description">
                         <h2>Welcome to <span className="description__greens">Afrimentary</span></h2>
                         <p>Signup, share your opinion, earn.</p>

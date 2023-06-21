@@ -37,28 +37,7 @@
     z-index: 1;
 }
 .login__intro {
-    /* ff 3.6+ */
-    background:-moz-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%); 
-
-    /* safari 5.1+,chrome 10+ */
-    background:-webkit-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
-
-    /* opera 11.10+ */
-    background:-o-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
-
-    /* ie 6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#949494', endColorstr='#E1E1E1', GradientType=1 );
-
-    /* ie 10+ */
-    background:-ms-linear-gradient(150deg, rgba(225, 225, 225, 1) 11%, rgba(148, 148, 148, 1) 100%);
-
-    /* global 94%+ browsers support */
-    background:linear-gradient(150deg, rgba(0, 0, 0, 0.7) 11%, rgba(0, 0, 0, 1) 100%), url("hero-bg.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     position: relative;
-    padding: 32px;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -66,6 +45,32 @@
     text-align: center;
     border-top-left-radius: 32px;
     border-bottom-left-radius: 32px;
+}
+.login__intro > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.login__cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background:-moz-linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%); 
+    background:-webkit-linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%);
+    background:-o-linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%);
+    background: -ms-linear-gradient(150deg, rgba(0, 0, 0, 0.5) 11%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(150deg, rgba(0, 0, 0, 0.4) 11%, rgba(0, 0, 0, 9) 100%);
+    z-index: 2;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+.intro__description {
+    position: absolute;
+    z-index: 3;
 }
 .intro__description h2 {
     font-size: 2rem;
@@ -218,13 +223,20 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100%;
+        height: 90%;
         justify-content: center;
     }
     .login__intro {
         border-top-right-radius: 32px;
         border-bottom-left-radius: 0;
-        padding: 60px 32px;
+    }
+    .login__cover {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 32px;
+    }
+    .login__intro > img {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 32px;
     }
     .intro__description h2 {
         font-size: 2.5rem;
@@ -269,9 +281,6 @@
     }
     .afrimentary__login::before {
         background-color: rgba(19,85,11,0.4);
-    }
-    .login__intro {
-        padding: 32px;
     }
     .intro__description h2 {
         margin: 0 0 8px;

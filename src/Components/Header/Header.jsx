@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import "./header.css";
 import {RiMenu3Line, RiCloseLine} from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Cookies from "universal-cookie";
 import {useNavigate} from "react-router-dom";
+import { isExpired } from "react-jwt";
 
 function Header() {
     const cookies = new Cookies();
+    const SECRET_KEY = import.meta.env.VITE_SECRET_KEY;
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false);
     const {auth, setAuth} = useAuth();
-    const user = cookies.get("public_id");
+    const token = cookies.get("token");
+    // Logout function
     const logOut = () => {
         cookies.remove("token", {path: "/", sameSite: "None", secure:true});
         cookies.remove("public_id", {path: "/", sameSite: "None", secure:true});
@@ -19,6 +22,13 @@ function Header() {
         setAuth({});
         navigate("/");
     }
+    // Logout out automatically if the token is expired
+    useEffect (() => {
+        if (token) {
+            const expired = isExpired(token, SECRET_KEY);
+            expired ? logOut() : null
+        }
+    }, [])
     return (
         <header className="afrimentary__header">
             <nav className="afrimentary__nav">

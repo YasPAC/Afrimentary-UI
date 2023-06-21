@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import busy from "../../assets/busy.gif";
 import loading from "../../assets/loading.gif";
+import dash from "../../assets/sitting.jpg";
 
 const LoginSignupComponent = () => {
     const cookies = new Cookies();
@@ -64,7 +65,6 @@ const LoginSignupComponent = () => {
                 setIsLoading(false);
             })
             .catch(err => {
-                console.log(err);
                 const error = err?.response?.data;
                 if(error == "Incorrect Email") {
                     setErrorMsg("Sorry! Email doesn't exist");
@@ -106,6 +106,8 @@ const LoginSignupComponent = () => {
     <section className="afrimentary__login">
         <div className="login__inner">
             <div className="login__intro">
+                <img src={dash} alt="afrimentary"/>
+                <div className="login__cover"></div>
                 <div className="intro__description">
                     <h2>Welcome back to <span className="description__greens">Afrimentary</span></h2>
                     <p>Stay connected, login to continue.</p>

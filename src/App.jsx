@@ -3,14 +3,8 @@ import { Layout, RequireAuth } from './Components';
 import {Home, LoginSignupComponent, NotFound, 
   RespondentAccount, Signup, Unauthorized, Terms, About, Contact} from "./Pages";
 import {Routes, Route} from "react-router-dom";
-import { useEffect } from 'react';
 
 function App() {
-  useEffect(() => {
-    window.process = {
-      ...window.process,
-    };
-  }, []);
   return (
     <div className="afrimentary__main">
       <Routes>
