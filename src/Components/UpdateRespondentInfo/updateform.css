@@ -95,6 +95,7 @@
 .update__close:hover {
     transform: scale(1.05);
 }
+
 /* Media Queries */
 
 @media screen and (max-width: 900px) {
