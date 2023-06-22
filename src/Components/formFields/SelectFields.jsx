@@ -18,7 +18,7 @@ const EducationField = ({data, handleChange}) => {
     return (
         <section className="form__field form__field-select">
             <label htmlFor="education">Education Level</label>
-            <select name="education" id="education" required value={data.education_level} onChange={handleChange}>
+            <select name="education_level" id="education" required value={data.education_level} onChange={handleChange}>
                 <option value="">Select Education</option>
                 <option value="Certificate">Certificate</option>
                 <option value="Diploma">Diploma</option>
