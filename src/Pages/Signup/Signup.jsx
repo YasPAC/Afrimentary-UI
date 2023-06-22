@@ -26,7 +26,7 @@ function Signup() {
             age: "",
             password: "",
             confirmPass: "",
-            education: "",
+            education_level: "",
             gender: "",
             phone: "",
             email: "",
@@ -96,7 +96,7 @@ function Signup() {
                         navigate("/");
                         setRespondentData(
                             {
-                                l_name: "", f_name: "", age: "", password: "", confirmPass: "", education: "",
+                                l_name: "", f_name: "", age: "", password: "", confirmPass: "", education_level: "",
                                 gender: "", phone: "", email: "", language: "", city: "", county: "", country: "", referred_by: ""
                             }
                         );

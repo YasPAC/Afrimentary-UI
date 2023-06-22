@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {RiEditLine,RiExchangeFill} from "react-icons/ri";
 
 const Sidebar = ({data, update}) => {
-    
     return (
         <>
             <div className="respondentsidebar__info">

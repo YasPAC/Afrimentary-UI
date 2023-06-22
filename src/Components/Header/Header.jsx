@@ -26,7 +26,7 @@ function Header() {
     useEffect (() => {
         if (token) {
             const expired = isExpired(token, SECRET_KEY);
-            expired ? logOut() : null
+            expired && logOut();
         }
     }, [])
     return (

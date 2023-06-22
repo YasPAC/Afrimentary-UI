@@ -43,7 +43,7 @@ const RespondentAccount = () => {
         });
     }
 
-    useEffect (() => {
+    const fetchUserData = () => {
         // Load user Data
         const axiosConfig = {
             method: "get",
@@ -68,7 +68,10 @@ const RespondentAccount = () => {
                 navigate("/");
             }
         });
+    }
 
+    useEffect (() => {
+        fetchUserData();
     }, []);
 
     const toggleSidebar = () => {
@@ -98,7 +101,7 @@ const RespondentAccount = () => {
                     </div>
                 }
                 <section className="respondent__dash-main">
-                    {updateRespondent && <UpdateForm />}
+                    {updateRespondent && <UpdateForm token={token} data={respondentData} fetchData={fetchUserData}/>}
                     {updateRespondent && <div className="update__close" onClick={toggleUpdate}>
                         <RiCloseLine  color={"green"} size={48}/>
                     </div>}
