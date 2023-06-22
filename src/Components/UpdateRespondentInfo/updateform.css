@@ -8,14 +8,15 @@
     top: 0;
     padding: 32px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
 }
 .respondent__server-responses {
     position: absolute;
     z-index: 2;
     width: 100%;
     left: 0;
-    top: -40px;
-    height: 64px;
+    top: 0;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +24,6 @@
     font-size: 1.1rem;
     color: var(--greens);
     font-weight: 500;
-    border-radius: 12px;
 }
 .response-success {
     background-color: rgb(183, 255, 183);
