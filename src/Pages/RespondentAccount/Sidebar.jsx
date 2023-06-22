@@ -14,7 +14,7 @@ const Sidebar = ({data, update}) => {
             <hr />
             <div className="respondentsidebar__settings">
                 <p className="setting" onClick={update}>Edit Info <RiEditLine size={18} /></p>
-                <p><Link to="/" className="setting">Change Password <RiExchangeFill size={18}/></Link></p>
+                <p><Link to={`/respondent/changepass/${data.public_id}`} className="setting">Change Password <RiExchangeFill size={18}/></Link></p>
             </div>
         </>
     );

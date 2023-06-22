@@ -7,3 +7,4 @@ export {default as Unauthorized} from "./Unauthorized/Unauthorized";
 export {default as Terms} from "./Terms/Terms";
 export {default as About} from "./About/About";
 export {default as Contact} from "./Contact/Contact";
+export {default as ChangePassword} from "./ChangePassword/ChangePassword";
