@@ -16,6 +16,7 @@ const RequestPassReset = () => {
         setErrMsg("");
     }
     const handleSubmit = (e) => {
+        setWorking(true);
         e.preventDefault();
         const axiosConfig = {
             method: "post",
@@ -23,12 +24,14 @@ const RequestPassReset = () => {
             data: userEmail
         }
         axios(axiosConfig).then(response => {
+            setWorking(false);
             const apiResponse = response?.data?.message;
             setSuccessMsg(apiResponse);
         }).catch(
             err => {
+                setWorking(false);
                 const error = err?.response?.data?.message;
-                err?.response?.status === 505 ? setErrMsg("Server Err") : setErrMsg(error);
+                err?.response?.status === 505 ? setErrMsg("Server Error") : setErrMsg(error);
             }
         );
     }
