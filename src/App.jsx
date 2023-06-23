@@ -1,7 +1,7 @@
 import './App.css';
 import { Layout, RequireAuth } from './Components';
 import {Home, LoginSignupComponent, NotFound, 
-  RespondentAccount, Signup, Unauthorized, Terms, About, Contact, ChangePassword} from "./Pages";
+  RespondentAccount, Signup, Unauthorized, Terms, About, Contact, ChangePassword, RequestPassReset} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
           <Route path="terms" element={<Terms />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="respondent/requestreset" element={<RequestPassReset />} />
         
           {/* Protected Routes */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>

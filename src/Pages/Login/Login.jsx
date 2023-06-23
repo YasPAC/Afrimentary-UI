@@ -159,7 +159,7 @@ const LoginSignupComponent = () => {
                         />
                     </div>
                     <div className="submission__field">
-                        <div className="forgot_password"><Link to={isRespondent ? "/" : "/"}>Forgot password?</Link></div>
+                        <div className="forgot_password"><Link to={isRespondent ? "/respondent/requestreset" : "/"}>Forgot password?</Link></div>
                         <button className="form__submit" type="submit">Login</button>
                     </div>
                 </form> 
