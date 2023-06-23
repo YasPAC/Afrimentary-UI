@@ -23,7 +23,7 @@ const RespondentReset = () => {
     const handleSubmit = (e) => {
         setWorking(true);
         e.preventDefault();
-        if(password === confirmPassword) {
+        if(resetPasswords.password === resetPasswords.confirmPassword) {
             const axiosPassConfig = {
                 method: "put",
                 url: `https://afrimentary.onrender.com/API/respondents/password_reset/${token}`,
@@ -40,7 +40,7 @@ const RespondentReset = () => {
             });
 
         } else {
-            setErrorMsg("Password do not match!");
+            setErrorMsg("Passwords do not match!");
             setWorking(false);
         }
 
