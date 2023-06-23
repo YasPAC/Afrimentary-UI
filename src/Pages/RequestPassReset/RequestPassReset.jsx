@@ -27,6 +27,7 @@ const RequestPassReset = () => {
             setWorking(false);
             const apiResponse = response?.data?.message;
             setSuccessMsg(apiResponse);
+            setUserEmail({email: ""});
         }).catch(
             err => {
                 setWorking(false);
