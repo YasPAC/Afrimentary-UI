@@ -9,6 +9,8 @@ const RespondentReset = () => {
     const [resetPasswords, setResetPasswords] = useState({password: "", confirmPassword: ""});
     const [errorMsg, setErrorMsg] = useState("");
     const [working, setWorking] = useState(false);
+    const {token} = useParams();
+    const navigate = useNavigate();
     
     //Handle Change
     const handleChange = (e) => {
@@ -21,7 +23,26 @@ const RespondentReset = () => {
     const handleSubmit = (e) => {
         setWorking(true);
         e.preventDefault();
-        password != confirmPassword && setErrorMsg("Password do not match!")
+        if(password === confirmPassword) {
+            const axiosPassConfig = {
+                method: "put",
+                url: `https://afrimentary.onrender.com/API/respondents/password_reset/${token}`,
+                data: resetPasswords,
+            }
+            axios(axiosPassConfig).then(response => {
+                const resetResponse = response?.data?.message;
+                setWorking(false);
+                navigate("/login");
+            }).catch(err => {
+                const error = err?.response?.data?.message;
+                setWorking(false);
+                setErrorMsg(error);
+            });
+
+        } else {
+            setErrorMsg("Password do not match!");
+            setWorking(false);
+        }
 
     }
 
