@@ -5,57 +5,24 @@ import {Header} from "../../Components";
 const SurveyResponse = () => {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [surveyStarted, setSurveyStarted] = useState(false);
-    const [time, setTime] = useState({ minutes: 1, seconds: 0 });
-    const timerRef = useRef(null);
 
     const handleChange = (e) => {
         const image = e.target.files[0];
         setUploadedImage(image);
     }
     
-    const surveyCountdown = (mins) => {
-        if (timerRef.current === null) {
-        timerRef.current = setInterval(() => {
-            setTime((prevTime) => {
-            if (prevTime.seconds === 0 && prevTime.minutes === 0) {
-                // Countdown is complete
-                stopTimer();
-                return prevTime;
-            } else if (prevTime.seconds === 0) {
-                // If seconds reach 0, decrement minutes and set seconds to 59
-                return {
-                minutes: prevTime.minutes - 1,
-                seconds: 59,
-                };
-            } else {
-                // Otherwise, decrement seconds
-                return {
-                minutes: prevTime.minutes,
-                seconds: prevTime.seconds - 1,
-                };
-            }
-            });
-        }, 1000);
-        }
-    };
-    
-    const stopTimer = () => {
-        if (timerRef.current !== null) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-        }
-    };
     // Start Timer when survey is started
     const startSurvey = () => {
         setSurveyStarted(true);
-        surveyCountdown();
     }
     
     return (
         <section className="survey__response">
-            <Header />
             <div className="survey__response-inner">
                 <div className="survey__response-sidebar">
+                    <header className="sidebar__header">
+                        <h2>Afrimentary</h2>
+                    </header>
                     <div className="survey__info sidebar__sections">
                         <h3>This is the survey title </h3>
                         <p>Estimated survey time: <span>1 minute</span></p>
