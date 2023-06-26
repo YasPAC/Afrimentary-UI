@@ -10,3 +10,4 @@ export {default as Contact} from "./Contact/Contact";
 export {default as ChangePassword} from "./ChangePassword/ChangePassword";
 export {default as RequestPassReset} from "./RequestPassReset/RequestPassReset";
 export {default as RespondentReset} from "./RespondentPassReset/RespondentReset";
+export {default as SurveyResponse} from "./SurveyResponse/SurveyResponse";
