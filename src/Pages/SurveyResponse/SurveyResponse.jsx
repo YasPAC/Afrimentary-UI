@@ -60,16 +60,11 @@ const SurveyResponse = () => {
                         <h3>This is the survey title </h3>
                         <p>Estimated survey time: <span>1 minute</span></p>
                     </div>
-                    <div className="survey__timer sidebar__sections">
-                        {
-                            surveyStarted ? 
-                            <>
-                                <h3>Timer</h3>
-                                <h4>{time.minutes.toString().padStart(2, '0')}:{time.seconds.toString().padStart(2, '0')}</h4>
-                            </> :
+                    {
+                        !surveyStarted &&  <div className="survey__timer sidebar__sections">
                             <button onClick={startSurvey} className="start__survey">Start Survey</button>
-                        }
-                    </div>
+                        </div>
+                    }
                     <div className="response__container sidebar__sections">
                         <p className="note">
                             When done filling out the survey, take a screenshot of the last survey page and upload below.
