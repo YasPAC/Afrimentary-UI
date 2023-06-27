@@ -18,7 +18,7 @@ const RespondentAccount = () => {
     const role = cookies.get("role");
     const [respondentData, setRespondentData] = useState({
         age: "", city: "", country: "", county: "", education_level: "", email: "", first_name: "",
-        gender: "", language: "", last_name: "", phone: "", public_id: "", role: "", verified: ""
+        gender: "", language: "", last_name: "", phone: "", public_id: "", role: "", verified: "", surveys: ""
     });
     const [referred, setReferred] = useState(0);
     const [openSidebar, setOpenSidebar] = useState(false);
@@ -39,7 +39,7 @@ const RespondentAccount = () => {
                 setReferred(response?.data?.n_verified);
             }
         ).catch(err => {
-            // The error rediricts will happen inside useEffect
+            // The error redirects will happen inside useEffect
         });
     }
 
@@ -123,7 +123,7 @@ const RespondentAccount = () => {
                             <div className="respondent__card">
                                 <h4>Surveys completed</h4>
                                 <p className="respondent__survey-counts">
-                                    0
+                                    {respondentData.surveys}
                                 </p>
                             </div>
                             {

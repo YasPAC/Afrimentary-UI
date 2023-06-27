@@ -21,12 +21,14 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="respondent/requestreset" element={<RequestPassReset />} />
           <Route path="respondent/reset/:token" element={<RespondentReset />} />
-          <Route path="/survey" element={<SurveyResponse />} />
         
           {/* Protected Routes */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>
             <Route path="respondent/:id" element={<RespondentAccount />} />
             <Route path="respondent/changepass/:id" element={<ChangePassword />} />
+          </Route>
+          <Route element={<RequireAuth roles={["user", "admin", "associate", "researcher"]} />}>
+            <Route path="/survey/:id" element={<SurveyResponse />} />
           </Route>
           <Route  element={<RequireAuth roles={["admin"]} />}>
             <Route path="admin/:id" element={<RespondentAccount />} />
