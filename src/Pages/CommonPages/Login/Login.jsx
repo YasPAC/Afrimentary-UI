@@ -24,84 +24,60 @@ const LoginSignupComponent = () => {
     const errRef = useRef();
 
     useEffect(() => {
-            emailRef.current.focus()
+            emailRef.current.focus();
     }, [])
 
+    // Reset Error msg
     useEffect(() => {
-        setErrorMsg("")
-    }, [loginData])
+        setErrorMsg("");
+    }, [loginData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setLoginData((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
-        if (isRespondent) {
-            const axiosConfig = {
-                method: "post",
-                url: "https://afrimentary.onrender.com/API/respondents/login",
-                auth: {
-                    username: loginData.email,
-                    password: loginData.password
-                },
-                // headers: {'Authorization': 'Basic Auth'}
+        const axiosConfig = {
+            method: "post",
+            url: isRespondent ? "https://afrimentary.onrender.com/API/respondents/login" : "https://afrimentary.onrender.com/API/researchers/login",
+            auth: {
+                username: loginData.email,
+                password: loginData.password
+            },
+        }
+        axios(axiosConfig)
+        .then(response => {
+            const accessToken = response?.data?.Token;
+            const publicId = response?.data?.public_id;
+            const userRole = response?.data?.role;
+            // Set cookies
+            cookies.set("token", accessToken, {path: "/", sameSite: "None", secure:true});
+            cookies.set("public_id", publicId, {path: "/", sameSite: "None", secure:true});
+            cookies.set("role", userRole, {path: "/", sameSite: "None", secure:true});
+            setAuth({userId: publicId, token: accessToken, role: userRole});
+            // Reset login form
+            setLoginData({ email: '', password: '' });
+            navigate(from || isRespondent ? `/respondent/${publicId}`: `/researcher/${publicId}`, {replace: true});
+            setIsLoading(false);
+        })
+        .catch(err => {
+            const error = err?.response?.data;
+            if(error == "Incorrect Email") {
+                setErrorMsg("Sorry! Email doesn't exist");
+            } else if (error == "Incorrect password") {
+                setErrorMsg("Sorry! Incorrect password");
+            } else if (!error) {
+                setErrorMsg("Unable to login! Please try again");
+            } else {
+                setErrorMsg(error);
             }
-            axios(axiosConfig)
-            .then(response => {
-                const accessToken = response?.data?.Token;
-                const publicId = response?.data?.public_id;
-                const userRole = response?.data?.role;
-                // Set cookies
-                cookies.set("token", accessToken, {path: "/", sameSite: "None", secure:true});
-                cookies.set("public_id", publicId, {path: "/", sameSite: "None", secure:true});
-                cookies.set("role", userRole, {path: "/", sameSite: "None", secure:true});
-                setAuth({userId: publicId, token: accessToken, role: userRole});
-                // Reset login form
-                setLoginData({ email: '', password: '' });
-                navigate(from || `/respondent/${publicId}`, {replace: true});
-                setIsLoading(false);
-            })
-            .catch(err => {
-                const error = err?.response?.data;
-                if(error == "Incorrect Email") {
-                    setErrorMsg("Sorry! Email doesn't exist");
-                } else if (error == "Incorrect password") {
-                    setErrorMsg("Sorry! Incorrect password");
-                } else if (!error) {
-                    setErrorMsg("Unable to login! Please try again");
-                } else {
-                    setErrorMsg(error);
-                }
-                errRef.current.focus();
-                setIsLoading(false);
-            });
-        } 
-        // else {
-        //     const axiosConfig = {
-        //         method: "post",
-        //         url: "https://afrimentary.onrender.com/API/researchers/login",
-        //         auth: {
-        //             username: loginData.email,
-        //             password: loginData.password
-        //         },
-        //         // headers: {'Authorization': 'Basic Auth'}
-        //     }
-        //     axios(axiosConfig)
-        //     .then(response => {
-        //         console.log("Success")
-        //         const token = response.data.Token;
-        //         // Reset login form
-        //         setLoginData({ email: '', password: '' });
-        //     })
-        //     .catch(err => {
-        //         setErrorMsg(err.response.data);
-        //     });
-        // }
-    };
-
+            errRef.current.focus();
+            setIsLoading(false);
+        });
+    }    
   return (
     <section className="afrimentary__login">
         <div className="login__inner">
@@ -132,7 +108,6 @@ const LoginSignupComponent = () => {
                         <p>As Researcher</p>
                     </div>
                 </div>
-                {isRespondent ? 
                 <form className="respondent__form" onSubmit={handleSubmit}>
                     <div className="form__field">
                         <label htmlFor="respondent_email">Email</label>
@@ -163,12 +138,6 @@ const LoginSignupComponent = () => {
                         <button className="form__submit" type="submit">Login</button>
                     </div>
                 </form> 
-                : 
-                    <div className="coming-soon">
-                        <h2>We are working on this!</h2>
-                        <img className="busy__gif" src={busy} alt="busy-gif" />
-                    </div>
-                }
             </div>
         </div>
     </section>

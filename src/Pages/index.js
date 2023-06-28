@@ -2,7 +2,7 @@ export {default as Home} from "./CommonPages/Home/Home";
 export {default as LoginSignupComponent} from "./CommonPages/Login/Login";
 export {default as NotFound} from "./CommonPages/404/Err404";
 export {default as RespondentAccount} from "./Respondents/RespondentAccount/RespondentAccount";
-export {default as Signup} from "./Respondents/Signup/Signup";
+export {default as Signup} from "./CommonPages/Signup/Signup";
 export {default as Unauthorized} from "./CommonPages/Unauthorized/Unauthorized";
 export {default as Terms} from "./CommonPages/Terms/Terms";
 export {default as About} from "./CommonPages/About/About";
