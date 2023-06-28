@@ -168,6 +168,7 @@ function Signup() {
                 </div>
                 <div className="signup__container">
                     <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
+                    <p className="infoMsg" aria-live='assertive'>We are not accepting registrations at the moment</p>
                     {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                     <h3>Signup</h3>
                     <p className="signup__register">Already have an account? <Link to="/login">Login</Link></p>
@@ -190,7 +191,7 @@ function Signup() {
                         {step}
                         <div className="signup__controls">
                             {!isFirst && <button type="button" className="control control-prev" onClick={back}><><RiArrowLeftCircleFill /> Previous</></button>}
-                            <button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>
+                            <button disabled type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>
                         </div>
                     </form>
                     : 
