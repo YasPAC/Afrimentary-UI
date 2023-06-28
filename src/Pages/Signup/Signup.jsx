@@ -40,6 +40,7 @@ function Signup() {
     
     //Load Agents
     useEffect(() => {
+
         const controller = new AbortController();
         const getAssociates = async () => {
             try {
@@ -52,9 +53,12 @@ function Signup() {
                 setErrorMsg(err.response);
             }
         }
-        getAssociates()
-        return () => {
-            controller.abort();
+        // Get Associates only when signing up as respondent
+        if (isRespondent) {
+            getAssociates();
+            return () => {
+                controller.abort();
+            }
         }
     }, []);
 
