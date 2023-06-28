@@ -1,9 +1,9 @@
 import "./respondentreset.css";
-import { Header, SignupFields} from "../../Components";
+import { Header, SignupFields} from "../../../Components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import loading from "../../assets/loading.gif";
+import loading from "../../../assets/loading.gif";
 
 const RespondentReset = () => {
     const [resetPasswords, setResetPasswords] = useState({password: "", confirmPassword: ""});

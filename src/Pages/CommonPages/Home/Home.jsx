@@ -1,7 +1,7 @@
 import "./home.css"
-import { Header, ExpanderSection, Footer } from "../../Components";
+import { Header, ExpanderSection, Footer } from "../../../Components";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/hero-bg.jpg";
+import heroBg from "../../../assets/hero-bg.jpg";
 
 function Home() {
     return (

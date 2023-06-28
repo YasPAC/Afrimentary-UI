@@ -1,5 +1,5 @@
 import "./respondentAccount.css";
-import { Header, UpdateForm } from "../../Components";
+import { Header, UpdateForm } from "../../../Components";
 import Sidebar from "./Sidebar";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {Link, useNavigate, useParams} from "react-router-dom";

@@ -1,5 +1,5 @@
 import "./surveyresponse.css";
-import loader from "../../assets/loader_2.gif";
+import loader from "../../../assets/loader_2.gif";
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
@@ -32,10 +32,6 @@ const SurveyResponse = () => {
         const axiosConfig = {
             method: "get",
             url: `https://afrimentary.onrender.com/API/survey/${id}`,
-            headers: {
-                'Authorization': 'Basic Auth',
-                'x-access-token': token
-            }
         }
         axios(axiosConfig).then(
             response => {
@@ -88,7 +84,7 @@ const SurveyResponse = () => {
             formData.append("responseInfo", JSON.stringify(data));
             const axiosConfig = {
                 method: "post",
-                url: `https://afrimentary.onrender.com/API/respondent/survey/respond`,
+                url: `https://afrimentary.onrender.com/API/survey/respond`,
                 maxBodyLength: Infinity,
                 data: formData,
                 headers: {

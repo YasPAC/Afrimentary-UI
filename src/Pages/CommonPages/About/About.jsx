@@ -1,6 +1,6 @@
 import "./about.css";
-import {Header, Footer} from "../../Components";
-import aboutBg from "../../assets/about-hero.jpg";
+import {Header, Footer} from "../../../Components";
+import aboutBg from "../../../assets/about-hero.jpg";
 
 const About = () => {
     return (

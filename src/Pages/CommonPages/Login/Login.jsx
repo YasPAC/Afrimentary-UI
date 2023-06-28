@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef} from 'react';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import "./login.css";
 import {Link, useNavigate, useLocation} from "react-router-dom";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import busy from "../../assets/busy.gif";
-import loading from "../../assets/loading.gif";
-import dash from "../../assets/sitting.jpg";
+import busy from "../../../assets/busy.gif";
+import loading from "../../../assets/loading.gif";
+import dash from "../../../assets/sitting.jpg";
 
 const LoginSignupComponent = () => {
     const cookies = new Cookies();

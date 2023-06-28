@@ -1,8 +1,8 @@
 import "./requestpassreset.css";
 import axios from "axios";
-import { SignupFields, Header } from "../../Components";
+import { SignupFields, Header } from "../../../Components";
 import { useState } from "react";
-import loading from "../../assets/loading.gif";
+import loading from "../../../assets/loading.gif";
 
 
 const RequestPassReset = () => {

@@ -1,15 +1,15 @@
 import "./signup.css";
-import useMultipleStepForm from "../../Hooks/useMutliStepForm";
+import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {SignupFields} from "../../Components";
-import {ReferrerField,GenderField, EducationField, CheckBox} from "../../Components";
+import {SignupFields} from "../../../Components";
+import {ReferrerField,GenderField, EducationField, CheckBox} from "../../../Components";
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
-import busy from "../../assets/busy.gif";
-import loading from "../../assets/loading.gif";
-import dash from "../../assets/sitting.jpg";
+import busy from "../../../assets/busy.gif";
+import loading from "../../../assets/loading.gif";
+import dash from "../../../assets/sitting.jpg";
 
 
 function Signup() {

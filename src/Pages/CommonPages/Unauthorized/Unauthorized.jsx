@@ -1,5 +1,5 @@
 import "./unauthorized.css";
-import unauthorized from "../../assets/unauthorized.jpg";
+import unauthorized from "../../../assets/unauthorized.jpg";
 import {useNavigate} from "react-router-dom";
 
 const Unauthorized = () => {

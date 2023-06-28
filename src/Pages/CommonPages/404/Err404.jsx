@@ -1,6 +1,6 @@
 import "./err404.css";
 import {Link} from "react-router-dom";
-import sad404 from "../../assets/sad404.svg";
+import sad404 from "../../../assets/sad404.svg";
 const NotFound = () => {
     return (
         <main className='oopss'>

@@ -1,10 +1,10 @@
 import "./changepassword.css";
-import {Header, SignupFields} from "../../Components";
+import {Header, SignupFields} from "../../../Components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import loading from "../../assets/loading.gif";
+import loading from "../../../assets/loading.gif";
 
 
 const ChangePassword = () => {
