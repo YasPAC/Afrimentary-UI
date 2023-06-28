@@ -41,7 +41,7 @@ function Header() {
                             <li className="item"><Link to="/">Home</Link></li>
                             <li className="item"><Link to="/about">About</Link></li>
                             <li className="item"><Link to="/contact">Contact</Link></li>
-                            {auth?.userId  ? <li className="item"><Link to={`/respondent/${auth?.userId}`}>Account</Link></li>:
+                            {auth?.userId  ? <li className="item"><Link to={auth?.role === "researcher" ? `/researcher/${auth?.userId}` : `/respondent/${auth?.userId}` }>Account</Link></li>:
                                 null}
                         </ul>
                     </div>
