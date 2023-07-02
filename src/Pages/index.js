@@ -11,3 +11,6 @@ export {default as ChangePassword} from "./Respondents/ChangePassword/ChangePass
 export {default as RequestPassReset} from "./Respondents/RequestPassReset/RequestPassReset";
 export {default as RespondentReset} from "./Respondents/RespondentPassReset/RespondentReset";
 export {default as SurveyResponse} from "./Respondents/SurveyResponse/SurveyResponse";
+
+// Researcher
+export {default as ResearcherAccount} from "./Researchers/ResearcherAccount/ResearcherAccount";

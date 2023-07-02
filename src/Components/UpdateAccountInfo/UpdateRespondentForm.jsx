@@ -1,6 +1,6 @@
 import "./updateform.css";
-import {SignupFields} from "../../Components";
-import {EducationField} from "../../Components";
+import {SignupFields} from "..";
+import {EducationField} from "..";
 import { useState } from "react";
 import axios from "axios";
 
@@ -42,19 +42,19 @@ const UpdateForm = ({token, data, fetchData}) => {
         axios(axiosConfig).then(response => {
             const success = response?.data?.message;
             setSuccessMsg(success);
+            // Update the Data
+            fetchData();
         }).catch(err => {
             const error = err?.response?.data?.message;
             setErrorMsg(error);
         });
-        // Update the Data
-        fetchData();
     }
     return (
-        <section className="respondent__update">
-            {errMsg && <p className="respondent__server-responses">{errMsg}</p>}
-            {successMsg && <p className="respondent__server-responses response-success">success</p>}
+        <section className="info__update">
+            {errMsg && <p className="info__server-responses">{errMsg}</p>}
+            {successMsg && <p className="info__server-responses response-success">success</p>}
             <h4>Update profile Infomation</h4>
-            <form className="respondent__update-form" onSubmit={handleSubmit}>
+            <form className="info__update-form" onSubmit={handleSubmit}>
                 <SignupFields handleChange={handleRespondentChange} data={updateData} fields={{label: "Email", name: "email", type: "email"}} />
                 <SignupFields handleChange={handleRespondentChange} data={updateData} fields={{label: "Phone", name: "phone", type: "text"}} />
                 <SignupFields handleChange={handleRespondentChange} data={data} fields={{label: "Age", name: "age", type: "number"}} />

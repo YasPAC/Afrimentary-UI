@@ -1,0 +1,207 @@
+.researcher__account {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.researcher__dash {
+    width: 100%;
+    height: 100vh;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 32px;
+    position: relative;
+}
+.researcher__dash-sidebar {
+    padding: 64px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #fd7e50;
+}
+.researcher__main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+.survey__packages {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    background-color: #fff;
+}
+.package {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-top: 0.1px solid var(--primary-color);
+    border-radius: 12px;
+    position: relative;
+    background-color: #95d0d5;
+}
+.package h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--greens);
+    line-height: 1;
+}
+.package p {
+    font-size: 1rem;
+}
+.package__description {
+    font-size: 1rem;
+    list-style: none;
+}
+.package__pricing {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #474747;
+    margin: 6px 0 0;
+}
+.package__pricing > span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--greens);
+}
+.package a {
+    position: absolute;
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 24px;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+}
+.package a:hover {
+    font-size: 0.9rem;
+}
+.researcher__stats {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+.survey__groups {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 32px;
+}
+.stat__section {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-color: #71357c;
+    color: #fff;
+}
+.stat__section:last-child {
+    background-color: var(--primary-color);
+}
+.surveys__number {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 6px;
+}
+.stat__section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0 0 16px;
+    border-bottom: 0.1px solid rgb(191, 191, 191);
+}
+.stat__section .surveys__links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.stat__section .surveys__links p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s linear;
+    color: #ededed;
+}
+.stat__section .surveys__links p:hover {
+    color: rgb(255, 160, 101);
+}
+.survey__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 16px 16px;
+    color: var(--greens);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #95d0d5;
+    border-radius: 12px;
+    color: var(--greens);
+}
+.survey__info h4 {
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.responses__viz {
+    width: 100%; 
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+.survey__summary h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+.survey__summary p {
+    color:#71357c;
+    font-weight: 400;
+}

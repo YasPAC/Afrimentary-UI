@@ -53,6 +53,8 @@ const LoginSignupComponent = () => {
             const accessToken = response?.data?.Token;
             const publicId = response?.data?.public_id;
             const userRole = response?.data?.role;
+            // Redirect after login
+            const redirectTo = isRespondent ? `/respondent/${publicId}`: `/researcher/${publicId}`
             // Set cookies
             cookies.set("token", accessToken, {path: "/", sameSite: "None", secure:true});
             cookies.set("public_id", publicId, {path: "/", sameSite: "None", secure:true});
@@ -60,7 +62,7 @@ const LoginSignupComponent = () => {
             setAuth({userId: publicId, token: accessToken, role: userRole});
             // Reset login form
             setLoginData({ email: '', password: '' });
-            navigate(from || isRespondent ? `/respondent/${publicId}`: `/researcher/${publicId}`, {replace: true});
+            navigate(from || redirectTo, {replace: true});
             setIsLoading(false);
         })
         .catch(err => {

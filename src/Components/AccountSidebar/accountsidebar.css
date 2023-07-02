@@ -1,0 +1,96 @@
+.sidebar__info {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    color: #fff;
+}
+.name {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.institution {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.email {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+.sidebar__settings {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar__settings h5 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 0 8px;
+}
+.sidebar__settings .setting {
+    padding: 0;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 8px 0 0;
+    color: #fff;
+    padding: 0 0 6px 12px;
+}
+.setting > a {
+    color: #fff;
+}
+hr {
+    border: 1px solid #ffa483;
+}
+.researcher__controls {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+.researcher__controls button {
+    border: none;
+    padding: 8px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: left;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s linear;
+}
+.researcher__controls button.active {
+    background-color: #71357c;
+    padding-left: 12px;
+}
+.researcher__controls button:hover {
+    transform: scale(1.03);
+    color: #ececec;
+}
+@media screen and (max-width: 900px) {
+     .sidebar__unhide {
+         left: 0;
+     }
+ 
+     .sidebar__controls {
+         position: absolute;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 4;
+         width: 64px;
+         height: 64px;
+         background-color: var(--primary-color);
+         color: #fff;
+         border-radius: 100%;
+         top: 160px;
+         left: 16px;
+     }
+     .show__sidebar-btn {
+         z-index: 2;
+     }
+ }

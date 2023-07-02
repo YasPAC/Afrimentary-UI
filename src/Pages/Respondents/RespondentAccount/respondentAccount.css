@@ -12,9 +12,6 @@
     gap: 32px;
     position: relative;
 }
-.sidebar__controls {
-    display: none;
-}
 .respondent__dash-sidebar {
     padding: 64px 32px;
     display: flex;
@@ -22,43 +19,12 @@
     gap: 64px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--primary-color);
 }
-.respondentsidebar__info {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    color: var(--primary-color);
+.sidebar__controls {
+    display: none;
 }
-.respondent__name {
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-.respondent__email {
-    font-weight: 300;
-    font-size: 0.9rem;
-    font-style: italic;
-}
-.respondent__id {
-    font-weight: 300;
-    font-size: 0.7rem;
-    color: var(--greens);
-}
-.respondent__dash-sidebar hr {
-    border: 1px solid rgb(216, 216, 216);
-}
-.respondentsidebar__settings {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.respondentsidebar__settings .setting {
-    font-weight: 500;
-    color: var(--greens);
-    cursor: pointer;
-}
+
 
 /* MAIN */
 .respondent__dash-main {

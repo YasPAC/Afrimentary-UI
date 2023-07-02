@@ -3,8 +3,9 @@ import { Layout, RequireAuth } from './Components';
 import {Home, LoginSignupComponent, NotFound, 
   RespondentAccount, Signup, Unauthorized, Terms, 
   About, Contact, ChangePassword, RequestPassReset,
-  RespondentReset, SurveyResponse} from "./Pages";
+  RespondentReset, SurveyResponse, ResearcherAccount} from "./Pages";
 import {Routes, Route} from "react-router-dom";
+import ResearcherProvider from './Context/ResearcherAccountContext';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route element={<RequireAuth roles={["user", "admin", "associate", "researcher"]} />}>
             <Route path="/survey/:id" element={<SurveyResponse />} />
+          </Route>
+          <Route element={<RequireAuth roles={["admin", "researcher"]} />}>
+              <Route path="researcher/:id" element={<ResearcherProvider><ResearcherAccount /></ResearcherProvider>} />
           </Route>
           <Route  element={<RequireAuth roles={["admin"]} />}>
             <Route path="admin/:id" element={<RespondentAccount />} />

@@ -1,12 +1,10 @@
 import "./respondentAccount.css";
-import { Header, UpdateForm } from "../../../Components";
-import Sidebar from "./Sidebar";
+import { Header, UpdateForm, Sidebar } from "../../../Components";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { useState } from "react";
 import {RiCloseLine} from "react-icons/ri";
 
 const RespondentAccount = () => {
@@ -55,7 +53,7 @@ const RespondentAccount = () => {
         }
         axios(axiosConfig).then(response => {
             role != "user" ? getReferred() : null;
-            const userData = response.data.respondent;
+            const userData = response?.data?.respondent;
             setRespondentData(userData);
             setLoaded(true);
         }).catch(err => {
