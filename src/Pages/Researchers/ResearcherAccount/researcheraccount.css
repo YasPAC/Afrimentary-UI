@@ -21,6 +21,10 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #fd7e50;
 }
+.control__sidebar {
+    display: none;
+}
+
 .researcher__main {
     position: relative;
     width: 100%;
@@ -204,4 +208,82 @@
 .survey__summary p {
     color:#71357c;
     font-weight: 400;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+    .researcher__dash {
+        height: calc(100vh - 128px);
+        width: 100%;
+        padding: 48px 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .researcher__dash-sidebar {
+        position: absolute;
+        height: 100%;
+        z-index: 3;
+        background-color: #fff;
+        top: 0;
+        left: -500px;
+        width: 400px;
+        transition: all 0.3s linear;
+        border-radius: 0;
+        gap: 48px;
+    }
+    .display__sidebar {
+        left: 0;
+    }
+    .control__sidebar {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+        width: 64px;
+        height: 64px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border-radius: 100%;
+        top: 50%;
+        left: 16px;
+    }
+    .show__sidebar-btn {
+        z-index: 2;
+    }
+}
+@media screen and (max-width: 480px) {
+    .researcher__dash {
+        padding: 32px 8px;
+        height: auto;
+    }
+    .researcher__dash-sidebar {
+        width: 95%;
+    }
+    .control__sidebar {
+        transform: scale(0.6);
+        left: 0;
+    }
+    .researcher__main {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 8px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+    }
+    .survey__packages {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .researcher__stats {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 16px;
+    }
 }

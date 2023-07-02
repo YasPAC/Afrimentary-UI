@@ -23,10 +23,10 @@
 .sidebar__settings {
     display: flex;
     flex-direction: column;
+    color: #fff;
 }
 .sidebar__settings h5 {
     font-size: 1.1rem;
-    color: #fff;
     margin: 0 0 8px;
 }
 .sidebar__settings .setting {
@@ -35,7 +35,6 @@
     cursor: pointer;
     font-size: 0.8rem;
     padding: 8px 0 0;
-    color: #fff;
     padding: 0 0 6px 12px;
 }
 .setting > a {
@@ -72,25 +71,24 @@ hr {
     color: #ececec;
 }
 @media screen and (max-width: 900px) {
-     .sidebar__unhide {
-         left: 0;
-     }
- 
-     .sidebar__controls {
-         position: absolute;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         z-index: 4;
-         width: 64px;
-         height: 64px;
-         background-color: var(--primary-color);
-         color: #fff;
-         border-radius: 100%;
-         top: 160px;
-         left: 16px;
-     }
-     .show__sidebar-btn {
-         z-index: 2;
-     }
- }
+    .sidebar__info {
+        color: var(--primary-color);
+    }
+    .sidebar__settings {
+        color: var(--primary-color);
+    }
+    .setting > a {
+        color: var(--primary-color);
+    }
+    .researcher__controls {
+        gap: 16px
+    }
+    .researcher__controls button {
+        padding: 12px 0;
+        background-color: #fff;
+        color: var(--primary-color);
+    }
+    .researcher__controls button.active {
+        color: #fff;
+    }
+}

@@ -14,6 +14,7 @@ const ResearcherProvider= ({children}) => {
         }
     );
     const [snapShot, setSnapshot] = useState("");
+    const [openSidebar, setOpenSidebar] = useState(false);
     return <ResearcherContext.Provider 
         value = {{
             isLoaded, 
@@ -25,7 +26,9 @@ const ResearcherProvider= ({children}) => {
             researcherData, 
             setResearcherData,
             snapShot, 
-            setSnapshot
+            setSnapshot,
+            openSidebar, 
+            setOpenSidebar
         }}
     >
         {children}

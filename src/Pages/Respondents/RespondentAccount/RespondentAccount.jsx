@@ -1,7 +1,7 @@
 import "./respondentAccount.css";
 import { Header, UpdateForm, Sidebar } from "../../../Components";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";

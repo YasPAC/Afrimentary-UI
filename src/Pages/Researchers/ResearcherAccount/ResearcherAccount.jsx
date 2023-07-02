@@ -4,20 +4,21 @@ import {Header, ResearcherSidebar, ResearcherUpdateForm} from "../../../Componen
 import Packages from "./Packages";
 import SurveySnapshot from "./SurveySnapshot";
 import { useContext, useEffect, useState } from "react";
-import {RiCloseLine} from "react-icons/ri";
+import {RiCloseLine, RiSurveyFill} from "react-icons/ri";
+import {MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
 import uniqid from "uniqid";
 import  {ResearcherContext} from "../../../Context/ResearcherAccountContext";
-import {RiSurveyFill} from "react-icons/ri"
+
 
 const ResearcherAccount = () => {
     const cookies = new Cookies();
     const token = cookies.get("token");
     const {id} = useParams();
     const {
-        isLoaded, setLoaded, updateResearcher, setUpdateResearcher, 
+        isLoaded, setLoaded, updateResearcher, setUpdateResearcher, openSidebar, setOpenSidebar,
         showPackages,  setShowPackages, researcherData, setResearcherData, snapShot, setSnapshot
     } = useContext(ResearcherContext);
 
@@ -60,14 +61,28 @@ const ResearcherAccount = () => {
         showPackages ? setShowPackages(false): null;
         updateResearcher ? setUpdateResearcher(false): null;
     }
+    //Open Sidebar in smaller screens
+    const toggleSidebar = () => {
+        setOpenSidebar(prev => !prev);
+    }
+
     return (
         <section className="researcher__account">
             <Header />
             {isLoaded ?
             <div className="researcher__dash">
-                <section className="researcher__dash-sidebar">
+                <section className={!openSidebar ? "researcher__dash-sidebar" : "researcher__dash-sidebar display__sidebar"}>
                     <ResearcherSidebar data={researcherData} closeAll={close} fetchData={fetchData}/>
                 </section>
+                {openSidebar ? 
+                    <div onClick={toggleSidebar}  className="control__sidebar hide__sidebar-btn">
+                        <MdOutlineArrowBackIos size={32} />
+                    </div> 
+                    :
+                    <div onClick={toggleSidebar} className="control__sidebar show__sidebar-btn">
+                        <MdOutlineArrowForwardIos size={32} />
+                    </div>
+                }
                 <section className="researcher__main">
                     {updateResearcher && <ResearcherUpdateForm data={researcherData} token={token} fetchData={fetchData} />}
                     {(showPackages || updateResearcher) && <div className="update__close" onClick={close} >

@@ -28,7 +28,7 @@ const SurveySnapshot = () => {
     
         axios(axiosConfig).then(
             response => {
-                const data = response.data.data;
+                const data = response?.data?.data;
                 setSurveyInfo(data);
                 setLoadSurvey(true);
             }
