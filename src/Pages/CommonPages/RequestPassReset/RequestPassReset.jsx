@@ -21,7 +21,7 @@ const RequestPassReset = () => {
         e.preventDefault();
         const axiosConfig = {
             method: "post",
-            url: isRespondent ? "https://afrimentary.onrender.com/API/respondents/request_password" : "https://afrimentary.onrender.com/API/researcher/request_password",
+            url: isRespondent ? "https://afrimentary.onrender.com/API/respondent/request_password" : "https://afrimentary.onrender.com/API/researcher/request_password",
             data: userEmail
         }
         axios(axiosConfig).then(response => {

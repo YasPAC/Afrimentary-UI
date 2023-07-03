@@ -19,8 +19,9 @@ const Footer = () => {
                     </div>
             </div>
             <div className="copyright">
-                <span>Copyright © {date.getFullYear()} </span>
-                <span><Link to="/terms">Terms and conditions</Link></span>
+                <span>Copyright © {date.getFullYear()} | </span>
+                <span><Link to="/terms">Terms and conditions</Link> | </span>
+                <span>Built by Regan Muthomi</span>
             </div>
         </section>
     )
