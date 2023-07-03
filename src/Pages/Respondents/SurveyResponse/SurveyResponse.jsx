@@ -118,11 +118,11 @@ const SurveyResponse = () => {
                     <header className="sidebar__header">
                         <h2>Afrimentary</h2>
                     </header>
-                    <div className="survey__info sidebar__sections">
+                    <div className="survey__information sidebar__sections">
                         <h3>{surveyData.title} </h3>
                         <p>Estimated survey time: <span>{surveyData.time} minutes</span></p>
                         <p className="note">
-                            When done filling out the survey, take a screenshot of the last survey page and upload below.
+                            When done filling out the survey, take a screenshot of the last page and upload it below.
                         </p>
                     </div>
                     {

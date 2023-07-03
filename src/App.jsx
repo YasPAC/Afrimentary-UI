@@ -3,7 +3,7 @@ import { Layout, RequireAuth } from './Components';
 import {Home, LoginSignupComponent, NotFound, 
   RespondentAccount, Signup, Unauthorized, Terms, 
   About, Contact, ChangePassword, RequestPassReset,
-  RespondentReset, SurveyResponse, ResearcherAccount, CreateSurvey} from "./Pages";
+  RespondentReset, SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
 import RespondentProvider from './Context/RespondentAccountContext';
@@ -21,7 +21,7 @@ function App() {
           <Route path="terms" element={<Terms />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="respondent/requestreset" element={<RequestPassReset />} />
+          <Route path="requestreset" element={<RequestPassReset />} />
           <Route path="respondent/reset/:token" element={<RespondentReset />} />
         
           {/* Protected Routes */}
@@ -29,12 +29,13 @@ function App() {
             <Route path="respondent/:id" element={<RespondentProvider><RespondentAccount /></RespondentProvider>} />
             <Route path="respondent/changepass/:id" element={<ChangePassword />} />
           </Route>
-          <Route element={<RequireAuth roles={["user", "admin", "associate", "researcher"]} />}>
-            <Route path="/survey/:id" element={<SurveyResponse />} />
+          <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>
+            <Route path="survey/:id" element={<SurveyResponse />} />
           </Route>
           <Route element={<RequireAuth roles={["researcher"]} />}>
               <Route path="researcher/:id" element={<ResearcherProvider><ResearcherAccount /></ResearcherProvider>} />
               <Route path="survey/create/:packages" element={<CreateSurvey/>} />
+              <Route path="researcher/changepass/:id" element={<ChangeResearcherPassword/>} />
           </Route>
           <Route  element={<RequireAuth roles={["admin"]} />}>
             <Route path="admin/:id" element={<RespondentAccount />} />

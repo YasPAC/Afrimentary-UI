@@ -81,7 +81,7 @@ const CreateSurvey = () => {
             </div>,
             <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "IRB Number", name: "IRBNumber", type: "text"}} />
-                <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Department", name: "department", type: "text"}} />
+                <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Academic Department", name: "department", type: "text"}} />
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Number of Question", name: "numberQuestions", type: "number"}} />
             </div>,
             <div className="field__collection" key={uniqid}>

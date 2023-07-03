@@ -14,7 +14,7 @@
 .survey__response-sidebar {
     width: 100%;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: #faf6fc;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -36,28 +36,30 @@
     font-weight: 500;
 }
 .survey__response-sidebar h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 300;
     line-height: 1.2;
     margin: 0 0 8px;
+    color: var(--greens);
 }
 
 .sidebar__sections {
     padding: 0 16px;
 }
-.survey__info p {
+.survey__information p {
     font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--greens);
+    font-weight: 400;
+    color: var(--primary-color);
 }
-.survey__info span {
+.survey__information span {
     font-weight: 600;
 }
-.survey__info .note {
+.survey__information .note {
     font-size: 0.7rem;
     color: #000;
     text-align: justify;
     font-weight: 300;
+    margin: 8px 0 0;
 }
 .survey__timer {
     width: 100%;
@@ -73,11 +75,6 @@
     color: #fff;
     cursor: pointer;
 }
-.survey__timer h4 {
-    font-weight: 700;
-    color: var(--greens);
-    font-size: 1.3rem;
-}
 .response__container {
     position: relative;
     padding: 32px 16px 0;
@@ -88,8 +85,8 @@
 }
 .response__form label {
     font-size: 0.8rem;
-    color: var(--greens);
-    font-weight: 600;
+    color: var(--primary-color);
+    font-weight: 400;
 }
 .response__form input {
     width: 100;
@@ -171,10 +168,10 @@
         font-size: 1.8rem;
         margin: 0;
     }
-    .survey__info p {
+    .survey__information p {
         font-size: 1.2rem;
     }
-    .survey__info .note {
+    .survey__information .note {
         text-align: center;
         font-size: 0.8rem;
         width: 50%;
@@ -229,10 +226,10 @@
         font-size: 1.5rem;
         margin: 0;
     }
-    .survey__info p {
+    .survey__information p {
         font-size: 1.1rem;
     }
-    .survey__info .note {
+    .survey__information .note {
         width: 90%;
     }
     .response__container {

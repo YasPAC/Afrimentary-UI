@@ -8,10 +8,11 @@ export {default as Terms} from "./CommonPages/Terms/Terms";
 export {default as About} from "./CommonPages/About/About";
 export {default as Contact} from "./CommonPages/Contact/Contact";
 export {default as ChangePassword} from "./Respondents/ChangePassword/ChangePassword";
-export {default as RequestPassReset} from "./Respondents/RequestPassReset/RequestPassReset";
+export {default as RequestPassReset} from "./CommonPages/RequestPassReset/RequestPassReset";
 export {default as RespondentReset} from "./Respondents/RespondentPassReset/RespondentReset";
 export {default as SurveyResponse} from "./Respondents/SurveyResponse/SurveyResponse";
 
 // Researcher
 export {default as ResearcherAccount} from "./Researchers/ResearcherAccount/ResearcherAccount";
 export {default as CreateSurvey} from "./Researchers/CreateSurvey/CreateSurvey";
+export {default as ChangeResearcherPassword} from "./Researchers/ChangeResearcherPassword/ChangeResearcherPassword"

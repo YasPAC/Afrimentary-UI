@@ -65,6 +65,32 @@
     padding: 0 5px;
     border-bottom: 1px solid var(--primary-color);
 }
+.control__user {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.control__btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    background-color: rgba(244,136,71, 0.3);
+    cursor: pointer;
+    transition: all 0.2s linear;
+    color: var(--greens);
+}
+.control__btn:hover {
+    font-size: 1.07rem;
+}
+.control__btn.control__btn-active {
+    background-color: var(--primary-color);
+    color: #faf6fc;
+}
 .requestReset__form .form__field  input {
     background-color: rgb(249, 249, 249);
     height: 100px;
