@@ -1,15 +1,15 @@
-import "./respondentreset.css";
+import "./passwordreset.css";
 import { Header, SignupFields} from "../../../Components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import loading from "../../../assets/loading.gif";
 
-const RespondentReset = () => {
+const PasswordReset = () => {
     const [resetPasswords, setResetPasswords] = useState({password: "", confirmPassword: ""});
     const [errorMsg, setErrorMsg] = useState("");
     const [working, setWorking] = useState(false);
-    const {token} = useParams();
+    const {token, usertype} = useParams();
     const navigate = useNavigate();
     
     //Handle Change
@@ -22,14 +22,16 @@ const RespondentReset = () => {
     // Submit Form
     const handleSubmit = (e) => {
         setWorking(true);
+        const userTypes = ["researcher", "respondent"];
         e.preventDefault();
         if(resetPasswords.password === resetPasswords.confirmPassword) {
             const axiosPassConfig = {
                 method: "put",
-                url: `https://afrimentary.onrender.com/API/respondents/password_reset/${token}`,
+                url: `https://afrimentary.onrender.com/API/${usertype}/password_reset/${token}`,
                 data: resetPasswords,
             }
-            axios(axiosPassConfig).then(response => {
+
+            userTypes.includes(usertype) ? axios(axiosPassConfig).then(response => {
                 const resetResponse = response?.data?.message;
                 setWorking(false);
                 navigate("/login");
@@ -37,7 +39,7 @@ const RespondentReset = () => {
                 const error = err?.response?.data?.message;
                 setWorking(false);
                 setErrorMsg(error);
-            });
+            }) : setErrorMsg("Invalid reset link");
 
         } else {
             setErrorMsg("Passwords do not match!");
@@ -66,4 +68,4 @@ const RespondentReset = () => {
     )
 }
 
-export default RespondentReset;
+export default PasswordReset;

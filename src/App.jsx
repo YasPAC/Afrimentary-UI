@@ -3,7 +3,7 @@ import { Layout, RequireAuth } from './Components';
 import {Home, LoginSignupComponent, NotFound, 
   RespondentAccount, Signup, Unauthorized, Terms, 
   About, Contact, ChangePassword, RequestPassReset,
-  RespondentReset, SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword} from "./Pages";
+  PasswordReset, SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
 import RespondentProvider from './Context/RespondentAccountContext';
@@ -22,7 +22,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="requestreset" element={<RequestPassReset />} />
-          <Route path="respondent/reset/:token" element={<RespondentReset />} />
+          <Route path="reset/:usertype/:token" element={<PasswordReset />} />
         
           {/* Protected Routes */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>

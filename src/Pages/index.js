@@ -9,7 +9,7 @@ export {default as About} from "./CommonPages/About/About";
 export {default as Contact} from "./CommonPages/Contact/Contact";
 export {default as ChangePassword} from "./Respondents/ChangePassword/ChangePassword";
 export {default as RequestPassReset} from "./CommonPages/RequestPassReset/RequestPassReset";
-export {default as RespondentReset} from "./Respondents/RespondentPassReset/RespondentReset";
+export {default as PasswordReset} from "./CommonPages/RespondentPassReset/PasswordReset";
 export {default as SurveyResponse} from "./Respondents/SurveyResponse/SurveyResponse";
 
 // Researcher
