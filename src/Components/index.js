@@ -7,6 +7,6 @@ export {default as UpdateForm} from "./UpdateAccountInfo/UpdateRespondentForm";
 export {default as SignupFields} from "./formFields/SignupFields";
 export {default as ReferrerField} from "./formFields/SelectFields";
 export {EducationField, GenderField, CheckBox} from "./formFields/SelectFields";
-export {default as Sidebar} from "./AccountSidebar/Sidebar";
+export {default as Sidebar} from "./AccountSidebar/RespondentSidebar";
 export {default as ResearcherSidebar} from "./AccountSidebar/ResearcherSidebar";
 export {default as ResearcherUpdateForm} from "./UpdateAccountInfo/UpdateResearcherForm";

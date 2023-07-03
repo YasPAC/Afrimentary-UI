@@ -2,10 +2,11 @@ import "./respondentAccount.css";
 import { Header, UpdateForm, Sidebar } from "../../../Components";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {useNavigate, useParams} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import {RiCloseLine} from "react-icons/ri";
+import {RespondentContext} from "../../../Context/RespondentAccountContext";
 
 const RespondentAccount = () => {
     const cookies = new Cookies();
@@ -14,13 +15,8 @@ const RespondentAccount = () => {
     const [isLoaded, setLoaded] = useState(false);
     const token = cookies.get("token");
     const role = cookies.get("role");
-    const [respondentData, setRespondentData] = useState({
-        age: "", city: "", country: "", county: "", education_level: "", email: "", first_name: "",
-        gender: "", language: "", last_name: "", phone: "", public_id: "", role: "", verified: "", surveys: ""
-    });
-    const [referred, setReferred] = useState(0);
-    const [openSidebar, setOpenSidebar] = useState(false);
-    const [updateRespondent, setUpdateRespondent] = useState(false);
+    const {respondentData, setRespondentData, referred, setReferred,
+        openSidebar, setOpenSidebar, updateRespondent, setUpdateRespondent} = useContext(RespondentContext);
     
     // Get users referred by this user if associate
     const getReferred = () => {
@@ -99,7 +95,7 @@ const RespondentAccount = () => {
                     </div>
                 }
                 <section className="respondent__dash-main">
-                    {updateRespondent && <UpdateForm token={token} data={respondentData} fetchData={fetchUserData}/>}
+                    {updateRespondent && <UpdateForm token={token} fetchData={fetchUserData}/>}
                     {updateRespondent && <div className="update__close" onClick={toggleUpdate}>
                         <RiCloseLine  color={"green"} size={48}/>
                     </div>}
