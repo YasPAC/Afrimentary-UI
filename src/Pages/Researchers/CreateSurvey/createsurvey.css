@@ -1,0 +1,146 @@
+.create__survey-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.create__survey {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+.create__survey-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    padding: 48px 32px;
+}
+.create__survey-intro img {
+    width: 250px;
+    height: 250px;
+}
+.create__survey-intro h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    width: 12ch;
+    margin: 0 auto 8px;
+    line-height: 1.1;
+    color: var(--primary-color);
+}
+.create__survey-intro p {
+    font-size: 0.9rem;
+    color: #646464;
+}
+.survey__arrow {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--greens);
+}
+
+.surveyform__container {
+    width: 100%;
+    height: 100%;
+    background-color: #faf6fc;
+    padding: 32px 128px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.surveyform__container h2 {
+    font-weight: 400;
+    color: var(--greens);
+    font-size: 1.3rem;
+}
+.form__progress {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.progress__btn {
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 100%;
+}
+.survey__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    background-color: #fff;
+    padding: 48px 32px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.fields__section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.survey__form .form__field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    height: 72px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0 5px;
+    border-bottom: 1px solid var(--greens);
+}
+.survey__form .form__field label {
+    font-size: 1rem;
+    color: #595959;
+}
+.survey__form .form__field  input {
+    background-color: rgb(249, 249, 249);
+    height: 80px;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+.survey__form .form__field-select select {
+    background-color: rgb(249, 249, 249);
+    height: 80px;
+    padding: 5px;
+    font-size: 0.9rem;
+    border: none;
+}
+.survey__buttons {
+    width: 100%;
+    height: 48px;
+    position: relative;
+}
+.survey__control {
+    position: absolute;
+    top: 50%;
+    width: max-content;
+    border: none;
+    padding: 8px 16px;
+    background-color: var(--greens);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    border-radius: 32px;
+    cursor: pointer;
+}
+.survey__control-prev {
+    left: 0;
+}
+.survey__control-next {
+    right: 0;
+}
+.submit__survey {
+    background-color: var(--primary-color);
+}

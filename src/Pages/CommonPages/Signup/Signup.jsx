@@ -7,7 +7,6 @@ import {ReferrerField,GenderField, EducationField, CheckBox} from "../../../Comp
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
-import busy from "../../../assets/busy.gif";
 import loading from "../../../assets/loading.gif";
 import dash from "../../../assets/sitting.jpg";
 
