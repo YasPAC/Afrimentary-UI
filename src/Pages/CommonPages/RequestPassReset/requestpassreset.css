@@ -122,4 +122,7 @@
         padding: 48px 16px 32px;
         gap: 32px;
     }
+    .password_change-msg {
+        font-size: 0.8rem;
+    }
 }
