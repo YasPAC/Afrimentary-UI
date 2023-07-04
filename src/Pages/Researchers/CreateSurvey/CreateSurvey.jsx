@@ -8,6 +8,7 @@ import uniqid from "uniqid";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import survey from "../../../assets/survey.jpg";
+import loading from "../../../assets/loading.gif";
 
 
 const CreateSurvey = () => {
@@ -18,6 +19,7 @@ const CreateSurvey = () => {
     const publicId = cookies.get("public_id");
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [surveyInfo, setSurveyInfo] = useState(
         {
@@ -47,6 +49,7 @@ const CreateSurvey = () => {
     const handleRespondentSubmit = (e) => {
         e.preventDefault();
         if(isLast){
+            setIsLoading(true);
             const axiosConfig = {
                 method: "post",
                 url: `https://afrimentary.onrender.com/API/survey/create`,
@@ -59,6 +62,7 @@ const CreateSurvey = () => {
             axios(axiosConfig).then(
                 response => {
                     const responseMsg = response?.data?.message;
+                    setIsLoading(false);
                     setSuccessMsg(responseMsg);
                     setTimeout(()=> {
                         setSuccessMsg("");
@@ -67,6 +71,7 @@ const CreateSurvey = () => {
                 }
             ).catch(
                 error => {
+                    setIsLoading(false);
                     if (error?.response?.status === 409) {
                         const errorMessage = error?.response?.data?.message;
                         setErrorMsg(errorMessage);
@@ -167,6 +172,7 @@ const CreateSurvey = () => {
                     <form className="survey__form" onSubmit={handleRespondentSubmit}>
                         {errorMsg && <div className="create__responses error">{errorMsg}</div>}
                         {successMsg && <div className="create__responses success">{successMsg}</div>}
+                        {isLoading && <img className="loadingSubmit" src={loading} alt="loading"/>}
                         <div className="form__progress">
                             <div style={{"left": `${progress}%`}} className="progress__btn"></div>
                         </div>
