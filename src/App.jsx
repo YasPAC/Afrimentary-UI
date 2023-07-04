@@ -24,7 +24,7 @@ function App() {
           <Route path="requestreset" element={<RequestPassReset />} />
           <Route path="reset/:usertype/:token" element={<PasswordReset />} />
         
-          {/* Protected Routes */}
+          {/* Protected Routes/Role based authorization */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>
             <Route path="respondent/:id" element={<RespondentProvider><RespondentAccount /></RespondentProvider>} />
             <Route path="respondent/changepass/:id" element={<ChangePassword />} />

@@ -1,14 +1,24 @@
 import "./createsurvey.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {Header, SignupFields, GeneralSelectField} from "../../../Components";
 import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
 import { useState } from "react";
 import {RiArrowRightFill, RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri";
 import uniqid from "uniqid";
+import Cookies from "universal-cookie";
+import axios from "axios";
 import survey from "../../../assets/survey.jpg";
 
+
 const CreateSurvey = () => {
+    const cookies = new Cookies();
     const {packages} = useParams();
+    const [progress, setProgress] = useState(0);
+    const token = cookies.get("token");
+    const publicId = cookies.get("public_id");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
+    const navigate = useNavigate();
     const [surveyInfo, setSurveyInfo] = useState(
         {
             title: "", numberQuestions: "", field: "", surveyRegion: "", genderRatio: "",
@@ -16,25 +26,56 @@ const CreateSurvey = () => {
             noRespondents: "", IRBNumber: "", package: packages,
         }
     );
-    const [progress, setProgress] = useState(0);
 
+    // Progress Bar Increment
     const formProgress = () => {
         setProgress(
             prevProgress => {
                 return progress < 100 ? prevProgress + 33: prevProgress;
             });
     };
+    // Handle Input changes
     const handleChange = (e) => {
         const {name, value} = e.target;
         setSurveyInfo(prev => {
             return {...prev, [name]: value}
         });
+        setErrorMsg("");
     }
 
     // Submit form
     const handleRespondentSubmit = (e) => {
         e.preventDefault();
-        if(!isLast) {
+        if(isLast){
+            const axiosConfig = {
+                method: "post",
+                url: `https://afrimentary.onrender.com/API/survey/create`,
+                data: surveyInfo,
+                headers: {
+                    'Authorization': 'Basic Auth',
+                    'x-access-token': token
+                }
+            }
+            axios(axiosConfig).then(
+                response => {
+                    const responseMsg = response?.data?.message;
+                    setSuccessMsg(responseMsg);
+                    setTimeout(()=> {
+                        setSuccessMsg("");
+                        navigate(`/researcher/${publicId}`);
+                    }, 3000);
+                }
+            ).catch(
+                error => {
+                    if (error?.response?.status === 409) {
+                        const errorMessage = error?.response?.data?.message;
+                        setErrorMsg(errorMessage);
+                    } else {
+                        setErrorMsg("Error occurred. Please try again!");
+                    }
+                }
+            )
+        } else if (!isLast) {
             next();
             formProgress();
         }
@@ -82,7 +123,7 @@ const CreateSurvey = () => {
             <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "IRB Number", name: "IRBNumber", type: "text"}} />
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Academic Department", name: "department", type: "text"}} />
-                <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Number of Question", name: "numberQuestions", type: "number"}} />
+                <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Number of Questions", name: "numberQuestions", type: "number"}} />
             </div>,
             <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Number of Respondents", name: "noRespondents", type: "number"}} />
@@ -124,6 +165,8 @@ const CreateSurvey = () => {
                 <div className="surveyform__container">
                     <h2>Create Survey</h2>
                     <form className="survey__form" onSubmit={handleRespondentSubmit}>
+                        {errorMsg && <div className="create__responses error">{errorMsg}</div>}
+                        {successMsg && <div className="create__responses success">{successMsg}</div>}
                         <div className="form__progress">
                             <div style={{"left": `${progress}%`}} className="progress__btn"></div>
                         </div>

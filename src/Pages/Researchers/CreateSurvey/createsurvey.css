@@ -77,6 +77,7 @@
     border-radius: 100%;
 }
 .survey__form {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
@@ -84,6 +85,26 @@
     padding: 48px 32px;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+}
+.create__responses {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 48px;
+    width: 100%;
+    background-color: rgb(255, 132, 132);
+    color: var(--greens);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.create__responses.success {
+    background-color: rgb(183, 255, 183);
 }
 .fields__section {
     display: flex;
