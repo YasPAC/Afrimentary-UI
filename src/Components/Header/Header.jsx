@@ -33,7 +33,7 @@ function Header() {
         <header className="afrimentary__header">
             <nav className="afrimentary__nav">
                 <div className="afrimentary__logo">
-                    <h1>Afrimentary</h1>
+                    <Link to="/">Afrimentary</Link>
                 </div>
                 <div className={showMenu ? "afrimentary__menu hide__menu" : "afrimentary__menu"}>
                     <div className="nav__menu">

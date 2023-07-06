@@ -28,7 +28,7 @@
 .notification__message {
     font-weight: 400;
     font-size: 0.7rem;
-    color: var(--greens);
+    color: #6e6e6e;
     line-height: 0.9;
     width: 100%;
 }

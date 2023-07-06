@@ -55,7 +55,6 @@ const GeneralSelectField = ({options, fields, data, handleChange}) => {
         <section className="form__field form__field-select">
             <label htmlFor={fields.name}> {fields.label} </label>
             <select name={fields.name} id={fields.name} required value={data[fields.name]} onChange={handleChange}>
-                <option value="">Select--</option>
                 {
                     options.map(opt => {
                         return <option key={uniqid()} value={opt.value}>{opt.label}</option>

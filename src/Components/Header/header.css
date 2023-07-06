@@ -16,9 +16,10 @@
     color: #fff;
 }
 
-.afrimentary__logo h1 {
-    font-size: 1.5rem;
-    font-weight: 500;
+.afrimentary__logo a {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #fff;
 }
 .afrimentary__menu {
     position: absolute;
@@ -102,7 +103,7 @@
     }
 }
 @media screen and (min-width: 900px) {
-    .afrimentary__logo h1 {
+    .afrimentary__logo a {
         font-size: 2rem;
     }
     .afrimentary__menu {

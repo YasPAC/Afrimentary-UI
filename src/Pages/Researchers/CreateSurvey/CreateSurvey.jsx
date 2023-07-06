@@ -2,7 +2,7 @@ import "./createsurvey.css";
 import { useParams, useNavigate } from "react-router-dom";
 import {Header, SignupFields, GeneralSelectField} from "../../../Components";
 import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {RiArrowRightFill, RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri";
 import uniqid from "uniqid";
 import Cookies from "universal-cookie";
@@ -23,11 +23,22 @@ const CreateSurvey = () => {
     const navigate = useNavigate();
     const [surveyInfo, setSurveyInfo] = useState(
         {
-            title: "", numberQuestions: "", field: "", surveyRegion: "", genderRatio: "",
-            endDate: "", surveyLink: "", department: "", responseTime: "", ageBracket: "",
+            title: "", numberQuestions: "", field: "",
+            endDate: "", surveyLink: "", department: "", responseTime: "",
             noRespondents: "", IRBNumber: "", package: packages,
         }
     );
+
+    // Make sure the packages we create are actualy available packages
+    useEffect(() => {
+        const packagesOffered = ["bronze", "silver", "gold"];
+        if(!packagesOffered.includes(packages.toLowerCase())) {
+            setErrorMsg(`${packages.toUpperCase()} is not available. Select another package.`);
+            setTimeout(() => {
+                navigate(`/researcher/${publicId}`);
+            }, 2000);
+        }
+    }, []);
 
     // Progress Bar Increment
     const formProgress = () => {
@@ -89,32 +100,15 @@ const CreateSurvey = () => {
     // Select boxes data
     const ageBracketData = {
         options: [
-            {label: "21-25", value: 25}, 
-            {label: "26-30", value: 30}, 
-            {label: "31-35", value: 35},
-            {label: "36-40", value: 40},
-            {label: "41-45", value: 45},
-            {label: "46-50", value: 50},
-            {label: "Over 50", value: 51},
+            {label: "Random", value: "random"},
         ],
         fields: {label: "Age Group", name: "ageBracket"}
     };
     const genderRatioData = {
         options: [
-            {label: "50-50", value: 50},
             {label: "Random", value: "random"},
         ],
         fields: {label: "Gender Ratio", name: "genderRatio"}
-    }
-    const regionData = {
-        options: [
-            {label: "Nairobi Region", value: "Nairobi"},
-            {label: "Coastal Kenya", value: "Coast"},
-            {label: "Western Kenya", value: "Western"},
-            {label: "Eastern/Central Kenya", value: "Eastern"},
-            {label: "All Regions", value: "All"}
-        ],
-        fields: {label: "Region of Interest", name: "surveyRegion"}
     }
 
     // form steps
@@ -140,9 +134,6 @@ const CreateSurvey = () => {
                     data={surveyInfo}
                 />
                 <GeneralSelectField handleChange={handleChange} fields={genderRatioData.fields} options={genderRatioData.options} 
-                    data={surveyInfo}
-                />
-                <GeneralSelectField handleChange={handleChange} fields={regionData .fields} options={regionData .options} 
                     data={surveyInfo}
                 />
             </div>
