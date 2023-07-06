@@ -1,6 +1,7 @@
 import "./about.css";
 import {Header, Footer} from "../../../Components";
 import aboutBg from "../../../assets/about-hero.jpg";
+import mission from "../../../assets/mission.jpg";
 
 const About = () => {
     return (
@@ -47,10 +48,11 @@ const About = () => {
                         </p>
                     </div>
                 </div>
-                <div className="mission__title titles">
-                    <p>
+                <div className="mission__img">
+                    {/* <p>
                         What's our mission?
-                    </p>
+                    </p> */}
+                    <img src={mission} alt="Afrimentary mission" />
                 </div>
             </div>
             <div className="about__why">

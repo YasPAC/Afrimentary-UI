@@ -19,7 +19,7 @@ const ResearcherAccount = () => {
     const {id} = useParams();
     const {
         isLoaded, setLoaded, updateResearcher, setUpdateResearcher, openSidebar, setOpenSidebar,
-        showPackages,  setShowPackages, researcherData, setResearcherData, snapShot, setSnapshot
+        showDashboard, setShowDashboard, researcherData, setResearcherData, snapShot, setSnapshot
     } = useContext(ResearcherContext);
 
     const fetchData = () => {
@@ -58,7 +58,7 @@ const ResearcherAccount = () => {
 
     //Close the packages and info update form
     const close = () => {
-        showPackages ? setShowPackages(false): null;
+        showDashboard ? setShowDashboard(false): null;
         updateResearcher ? setUpdateResearcher(false): null;
     }
     //Open Sidebar in smaller screens
@@ -84,11 +84,12 @@ const ResearcherAccount = () => {
                     </div>
                 }
                 <section className="researcher__main">
-                    {updateResearcher && <ResearcherUpdateForm data={researcherData} token={token} fetchData={fetchData} />}
-                    {(showPackages || updateResearcher) && <div className="update__close" onClick={close} >
+                    {(showDashboard || updateResearcher) && <div className="update__close" onClick={close} >
                         <RiCloseLine  color={"green"} size={48}/>
                     </div>}
-                    {showPackages && <Packages  />}
+                    {updateResearcher && <ResearcherUpdateForm data={researcherData} token={token} fetchData={fetchData} />}
+                    {updateResearcher ? null : showDashboard ? null : <Packages  />}
+                    {showDashboard &&
                     <div className="researcher__stats">
                         <div className="survey__groups">
                             <div className="stat__section">
@@ -98,7 +99,10 @@ const ResearcherAccount = () => {
                                 <h3>Active Surveys</h3>
                                 <div className="surveys__links">
                                     {researcherData?.activeSurveys?.length > 0 && researcherData.activeSurveys.map(survey => {
-                                        return <p  id={survey.public_id} key={uniqid()} onClick={(e) => {setSnapshot(e.target.id)}}><RiSurveyFill/> {survey.title}</p>
+                                        return <p  id={survey.public_id} key={uniqid()} onClick={(e) => {setSnapshot(e.target.id)}}>
+                                            <RiSurveyFill/> {survey.title}
+                                            {!survey.paid && <small className="survey__unpaid">Not Paid</small>}
+                                         </p>
                                     })}
                                 </div>
                             </div>
@@ -119,9 +123,9 @@ const ResearcherAccount = () => {
                                     snapShot && <SurveySnapshot />
                                 }
                         </div>
-                    </div>
+                    </div>}
                 </section>
-            </div>: <div className="survey__loader"><img src={loader} alt="loader"/></div> }
+            </div>  : <div className="survey__loader"><img src={loader} alt="loader"/></div> }
         </section>
     )
 }

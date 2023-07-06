@@ -1,0 +1,79 @@
+.notifications {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 8px;
+}
+.notification {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transition: all 0.2s linear;
+    padding: 6px 8px;
+    background-color: #faf6fc;
+    border-radius: 6px;
+    border: 0.1px solid #6e6e6e;
+}
+.notification:hover{
+    transform: scale(0.98);
+}
+.notification__subject {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 0.9;
+    margin: 0 0 4px;
+}
+.notification__message {
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: var(--greens);
+    line-height: 0.9;
+    width: 100%;
+}
+.read__note {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    padding: 4px 12px;
+    background-color: var(--primary-color);
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #fff;
+    border-radius: 16px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.read__note:hover {
+    color: #dbdbdb;
+}
+.regular__note {
+    background-color: #6e6e6e;
+    top: 2px;
+    transform: translateY(0);
+    font-size: 0.6rem;
+    padding: 2px 8px;
+}
+.idling {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transform: translateY(-50%);
+}
+.no_notifications {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    transform: translateY(-50%)
+}

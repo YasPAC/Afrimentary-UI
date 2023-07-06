@@ -1,5 +1,5 @@
 import "./respondentAccount.css";
-import { Header, UpdateForm, Sidebar } from "../../../Components";
+import { Header, UpdateForm, Sidebar, Notifications } from "../../../Components";
 import {MdVerified, MdCancel, MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import {useNavigate, useParams} from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
@@ -13,21 +13,28 @@ const RespondentAccount = () => {
     const {id} = useParams();
     const navigate = useNavigate();
     const [isLoaded, setLoaded] = useState(false);
-    const token = cookies.get("token");
     const role = cookies.get("role");
-    const {respondentData, setRespondentData, referred, setReferred,
+    const token = cookies.get("token");
+    const {respondentData, setRespondentData, referred, setReferred, setToken,
         openSidebar, setOpenSidebar, updateRespondent, setUpdateRespondent} = useContext(RespondentContext);
     
-    // Get users referred by this user if associate
-    const getReferred = () => {
-        const axiosReferrerConfig = {
-            method: "get",
-            url: `https://afrimentary.onrender.com/API/respondents/${id}/references`,
+    
+    // request config
+    const requestConfig = (url, method) => {
+        const axiosConfig = {
+            method: method,
+            url: url,
             headers: {
                 'Authorization': 'Basic Auth',
                 'x-access-token': token
             }
-        }
+        } 
+        return axiosConfig;
+    }
+    
+    // Get users referred by this user if associate
+    const getReferred = () => {
+        const axiosReferrerConfig = requestConfig(`https://afrimentary.onrender.com/API/respondents/${id}/references`, "get");
         axios(axiosReferrerConfig).then(
             response => {
                 setReferred(response?.data?.n_verified);
@@ -37,17 +44,11 @@ const RespondentAccount = () => {
         });
     }
 
+
     const fetchUserData = () => {
         // Load user Data
-        const axiosConfig = {
-            method: "get",
-            url: `https://afrimentary.onrender.com/API/respondents/${id}`,
-            headers: {
-                'Authorization': 'Basic Auth',
-                'x-access-token': token
-            }
-        }
-        axios(axiosConfig).then(response => {
+        const userDataConfig = requestConfig(`https://afrimentary.onrender.com/API/respondents/${id}`, "get");
+        axios(userDataConfig).then(response => {
             role != "user" ? getReferred() : null;
             const userData = response?.data?.respondent;
             setRespondentData(userData);
@@ -65,6 +66,7 @@ const RespondentAccount = () => {
     }
 
     useEffect (() => {
+        setToken(token);
         fetchUserData();
     }, []);
 
@@ -131,16 +133,12 @@ const RespondentAccount = () => {
                                 </div>: null 
                             }
                         </div>
-                        <div className="active__surveys">
-                            <div>
-                                <h4>Active Surveys</h4>
-                                <p>You've been selected for these surveys</p>
+                        <div className="message__board">
+                            <div className="board__header">
+                                <h4>Notifications</h4>
+                                <p>Your unread notifications appear here</p>
                             </div>
-                            <div className="active__surveys-list">
-                                {/* <Link to="/">Survey 1</Link>
-                                <Link to="/">Survey 2</Link>
-                                <Link to="/">Survey 3</Link> */}
-                            </div>
+                            <Notifications />
                         </div>
                     </div>
                 </section>

@@ -5,7 +5,7 @@ const ResearcherContext = createContext();
 const ResearcherProvider= ({children}) => {
     const [isLoaded, setLoaded] = useState(false);
     const [updateResearcher, setUpdateResearcher] = useState(false);
-    const [showPackages, setShowPackages] = useState(false);
+    const [showDashboard, setShowDashboard] = useState(false);
     const [researcherData, setResearcherData] = useState(
         {
             public_id: "", last_name: "", first_name: "", phone: "",
@@ -20,8 +20,8 @@ const ResearcherProvider= ({children}) => {
             setLoaded, 
             updateResearcher, 
             setUpdateResearcher, 
-            showPackages, 
-            setShowPackages, 
+            showDashboard, 
+            setShowDashboard, 
             researcherData, 
             setResearcherData,
             snapShot, 

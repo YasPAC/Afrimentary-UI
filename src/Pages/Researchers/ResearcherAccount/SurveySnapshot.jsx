@@ -2,6 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from 'react-chartjs-2';
 import {useContext, useEffect, useState} from "react";
 import { ResearcherContext } from "../../../Context/ResearcherAccountContext";
+import {MdOutlineDateRange, MdGroups, MdSubscriptions, MdAppRegistration} from "react-icons/md";
 import axios from "axios";
 
 
@@ -53,10 +54,10 @@ const SurveySnapshot = () => {
             </div>
             <div className="survey__summary">
                 <h6>Survey Summary</h6>
-                <p>Due Date: <span>{surveyInfo.dueDate}</span></p>
-                <p>Respondents: <span>{surveyInfo.noRespondents}</span></p>
-                <p>Package: <span>{surveyInfo.package}</span></p>
-                <p>IRB Number: <span>{surveyInfo.irbNumber}</span></p>
+                <p><MdOutlineDateRange /> Due Date | <span>{surveyInfo.dueDate}</span></p>
+                <p><MdGroups /> Respondents | <span>{surveyInfo.noRespondents}</span></p>
+                <p><MdSubscriptions />Package | <span>{surveyInfo.package}</span></p>
+                <p><MdAppRegistration />IRB Number | <span>{surveyInfo.irbNumber}</span></p>
             </div>
             </> : <p>Loading...</p>
         }

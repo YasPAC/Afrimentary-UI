@@ -24,7 +24,9 @@ const SurveyResponse = () => {
         questions: "",
         time: "",
         title: "",
-        active: ""
+        active: "",
+        noRespondents: "",
+        responses: ""
     });
 
     // Load survey data
@@ -36,8 +38,8 @@ const SurveyResponse = () => {
         axios(axiosConfig).then(
             response => {
                 const data = response.data.data;
-                if (!data.active){
-                    setErrorMsg("This survey is accepting responses!");
+                if (!data.active || data.responses >= data.noRespondents){
+                    setErrorMsg("This survey is not accepting responses!");
                 } 
                 else if (!data.accessible){
                     setErrorMsg("This survey is not accessible!");

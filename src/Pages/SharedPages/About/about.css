@@ -98,17 +98,24 @@
     margin: 0 auto;
     height: auto;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
 }
-
 .mission__info {
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: justify;
 }
-.mission__title {
-    text-align: center;
+.mission__img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mission__img img {
+    width: 80%;
+    height: auto;
 }
 .info__header {
     font-size: 1.3rem;

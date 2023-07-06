@@ -10,3 +10,4 @@ export {EducationField, GenderField, CheckBox, GeneralSelectField} from "./formF
 export {default as Sidebar} from "./AccountSidebar/RespondentSidebar";
 export {default as ResearcherSidebar} from "./AccountSidebar/ResearcherSidebar";
 export {default as ResearcherUpdateForm} from "./UpdateAccountInfo/UpdateResearcherForm";
+export {default as Notifications} from "./Notifications/Notifications"

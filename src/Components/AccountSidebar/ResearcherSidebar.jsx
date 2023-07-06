@@ -6,18 +6,18 @@ import { ResearcherContext } from "../../Context/ResearcherAccountContext";
 import { useContext } from "react";
 
 const ResearcherSidebar = ({closeAll}) => {
-    const {setOpenSidebar, showPackages, setUpdateResearcher, setShowPackages, researcherData} = useContext(ResearcherContext);
+    const {setOpenSidebar, showDashboard, setUpdateResearcher, setShowDashboard, researcherData} = useContext(ResearcherContext);
     const toggleUpdate = () => {
         setUpdateResearcher(prev => !prev);
-        setShowPackages(false);
+        setShowDashboard(false);
         setOpenSidebar(false);
     }
     const togglePackages = () => {
-        setShowPackages(prev => !prev);
+        setShowDashboard(prev => !prev);
         setUpdateResearcher(false);
         setOpenSidebar(false);
     }
-    const showDashboard = () => {
+    const showPackages = () => {
         setOpenSidebar(false);
         closeAll();
     }
@@ -32,8 +32,8 @@ const ResearcherSidebar = ({closeAll}) => {
             </div>
             <hr />
             <div className="researcher__controls">
-                <button className={!showPackages ?  "active": null} onClick={showDashboard}><RxDashboard /> Dashboard</button>
-                <button className={showPackages ?  "active" : null} onClick={togglePackages}><MdDescription /> Packages</button>
+                <button className={!showDashboard ?  "active" : null} onClick={showPackages}><MdDescription /> Packages</button>
+                <button className={showDashboard ?  "active": null} onClick={togglePackages}><RxDashboard /> Dashboard</button>
             </div>
             <hr />
             <div className="sidebar__settings">

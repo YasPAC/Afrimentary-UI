@@ -10,6 +10,7 @@ const RespondentProvider = ({children}) => {
     const [referred, setReferred] = useState(0);
     const [openSidebar, setOpenSidebar] = useState(false);
     const [updateRespondent, setUpdateRespondent] = useState(false);
+    const [token, setToken] = useState("");
     return (
         <RespondentContext.Provider
             value={{
@@ -20,7 +21,9 @@ const RespondentProvider = ({children}) => {
                 openSidebar, 
                 setOpenSidebar,
                 updateRespondent, 
-                setUpdateRespondent
+                setUpdateRespondent,
+                token,
+                setToken
             }}
         >
             {children}

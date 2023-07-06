@@ -15,6 +15,7 @@ const Sidebar = ({update}) => {
                     <p className="email">{respondentData?.email}</p>
                 </div>
             </div>
+            <hr />
             <div className="sidebar__settings">
             <h5><MdOutlineSettings /> Settings</h5>
                 <p className="setting" onClick={update}>Edit Profile</p>

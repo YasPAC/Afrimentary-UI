@@ -220,4 +220,10 @@
     .survey__form {
         padding: 32px 12px;
     }
+    .loadingSubmit {
+        width: 20px; 
+        height: 20px;
+        top: 6px;
+        right:6px;
+    }
 }
