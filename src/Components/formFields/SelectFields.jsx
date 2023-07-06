@@ -1,5 +1,6 @@
 import uniqid from "uniqid";
 import {Link} from "react-router-dom";
+import {counties} from "../../Utilities";
 const ReferrerField = ({agents, data, handleChange}) => {
     return (
             <section className="form__field form__field-select">
@@ -50,6 +51,23 @@ const CheckBox = () => {
         </section>
     )
 }
+
+const Counties = ({data, handleChange}) => {
+    return (
+        <section className="form__field form__field-select">
+            <label htmlFor="county"> County </label>
+            <select name="county" id="county" required value={data.county} onChange={handleChange}>
+                <option key={uniqid()} value="">Select--</option>
+                {
+                    counties.map(county => {
+                        return <option key={uniqid()} value={county}>{county}</option>
+                    })
+                }
+            </select>
+        </section>
+    )
+}
+
 const GeneralSelectField = ({options, fields, data, handleChange}) => {
     return (
         <section className="form__field form__field-select">
@@ -67,4 +85,4 @@ const GeneralSelectField = ({options, fields, data, handleChange}) => {
 
 
 export default ReferrerField;
-export {EducationField, GenderField, CheckBox, GeneralSelectField};
+export {EducationField, GenderField, CheckBox, GeneralSelectField, Counties};
