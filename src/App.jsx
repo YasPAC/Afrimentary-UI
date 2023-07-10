@@ -1,9 +1,11 @@
 import './App.css';
 import { Layout, RequireAuth } from './Components';
-import {Home, LoginSignupComponent, NotFound, 
-  RespondentAccount, Signup, Unauthorized, Terms, 
-  About, Contact, ChangePassword, RequestPassReset,
-  PasswordReset, SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword} from "./Pages";
+import {
+  Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized, 
+  Terms, About, Contact, ChangePassword, RequestPassReset, PasswordReset, 
+  SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword,
+  SurveyPayment
+} from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
 import RespondentProvider from './Context/RespondentAccountContext';
@@ -36,6 +38,7 @@ function App() {
               <Route path="researcher/:id" element={<ResearcherProvider><ResearcherAccount /></ResearcherProvider>} />
               <Route path="survey/create/:packages" element={<CreateSurvey/>} />
               <Route path="researcher/changepass/:id" element={<ChangeResearcherPassword/>} />
+              <Route path="researcher/payment/:packages" element={<SurveyPayment />} />
           </Route>
           <Route  element={<RequireAuth roles={["admin"]} />}>
             <Route path="admin/:id" element={<RespondentAccount />} />

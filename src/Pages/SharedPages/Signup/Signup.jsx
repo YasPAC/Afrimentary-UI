@@ -114,7 +114,7 @@ function Signup() {
     // SignUp
     const handleSignUp = (data) => {
         if (isLast) {
-            if (data.password != data.confirmPass) {
+            if (data?.password != data?.confirmPass) {
                 setErrorMsg("Passwords are not same");
                 errRef.current.focus();
             } else if (data?.gender === "" || data?.referred_by === "" || data?.education==="") {
@@ -253,7 +253,7 @@ function Signup() {
                         {step}
                         <div className="signup__controls">
                             {!isFirst && <button type="button" className="control control-prev" onClick={back}><><RiArrowLeftCircleFill /> Previous</></button>}
-                            {!isRespondent && <button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>}
+                            {<button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>}
                         </div>
                     </form>
                 </div>

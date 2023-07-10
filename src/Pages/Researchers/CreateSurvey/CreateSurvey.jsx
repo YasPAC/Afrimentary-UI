@@ -31,7 +31,7 @@ const CreateSurvey = () => {
 
     // Make sure the packages we create are actualy available packages
     useEffect(() => {
-        const packagesOffered = ["bronze", "silver", "gold"];
+        const packagesOffered = ["pilot250", "500r", "1000r", "1500r"];
         if(!packagesOffered.includes(packages.toLowerCase())) {
             setErrorMsg(`${packages.toUpperCase()} is not available. Select another package.`);
             setTimeout(() => {

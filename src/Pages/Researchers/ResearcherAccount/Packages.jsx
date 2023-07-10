@@ -14,33 +14,33 @@ const Packages = () => {
             <div className="survey__packages">
                 <div className="package">
                     <img src={bronze} alt="bronze_package" />
-                    <h4>Bronze</h4>
+                    <h4>Pilot 250</h4>
                     <ul className="package__description">
-                        <li>1000 Respondents</li>
+                        <li>250 Respondents</li>
                         <li>15 max questions</li>
                     </ul>
                     <div className="package__pricing"><sup>$</sup>1000<span>/survey</span> </div>
-                    <Link to="/survey/create/bronze">Create Survey</Link>
+                    <Link to="/survey/create/pilot250">Create Survey</Link>
                 </div>
                 <div className="package">
                     <img src={silver} alt="silver_package" />
-                    <h4>Silver</h4>
+                    <h4>500R</h4>
                     <ul className="package__description">
-                        <li>1500 Respondents</li>
+                        <li>500 Respondents</li>
                         <li>20 max questions</li>
                     </ul>
                     <div className="package__pricing"><sup>$</sup>1500<span>/survey</span> </div>
-                    <Link to="/survey/create/silver">Create Survey</Link>
+                    <Link to="/survey/create/500r">Create Survey</Link>
                 </div>
                 <div className="package">
                     <img src={gold} alt="gold_package" />
-                    <h4>Gold</h4>
+                    <h4>1000R</h4>
                     <ul className="package__description">
-                        <li>2000 Respondents</li>
+                        <li>1000 Respondents</li>
                         <li>25 max questions</li>
                     </ul>
                     <div className="package__pricing"><sup>$</sup>2000<span>/survey</span> </div>
-                    <Link to="/survey/create/gold">Create Survey</Link>
+                    <Link to="/survey/create/1000r">Create Survey</Link>
                 </div>
                 <div className="package">
                     <img src={custom} alt="custom_packages" />

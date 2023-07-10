@@ -1,0 +1,58 @@
+.survey__payment {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px
+}
+.payment__form {
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    padding: 32px;
+    gap: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 12px;
+    background-color: #faf6fc;
+}
+.payment__header {
+    width: 100%;
+    color: #565656;
+    border-bottom: 0.1px solid #949494;
+    padding: 0 0 16px;
+}
+.payment__header h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.payment__header p {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+.payment__header a {
+    color: #71357c;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.form__fields {
+    width: 100%;
+}
+.payment__form button {
+    border: none;
+    background-color: var(--primary-color);
+    padding: 8px 24px;
+    font-size: 1.1rem;
+    color: #fff;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+.payment__form button:hover {
+    transform: scale(1.03);
+}

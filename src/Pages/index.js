@@ -16,3 +16,4 @@ export {default as SurveyResponse} from "./Respondents/SurveyResponse/SurveyResp
 export {default as ResearcherAccount} from "./Researchers/ResearcherAccount/ResearcherAccount";
 export {default as CreateSurvey} from "./Researchers/CreateSurvey/CreateSurvey";
 export {default as ChangeResearcherPassword} from "./Researchers/ChangeResearcherPassword/ChangeResearcherPassword"
+export {default as SurveyPayment} from "./Researchers/SurveyPayment/SurveyPayment";
