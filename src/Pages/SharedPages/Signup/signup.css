@@ -107,23 +107,6 @@
     align-items: center;
     padding: 8px;
 }
-/* To be romoeved */
-.infoMsg {
-    position: absolute;
-    width: calc(100% - 120px);
-    min-height: 32px;
-    color: #dbdbdb;
-    top: 8px;
-    background-color: rgb(161, 225, 255);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    font-size: 0.8rem;
-    color: #000
-}
-/*  */
 .signup__container h3 {
     font-size: 1.8rem;
     color: var(--greens);

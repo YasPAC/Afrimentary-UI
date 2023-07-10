@@ -231,7 +231,6 @@ function Signup() {
                 </div>
                 <div className="signup__container">
                     <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
-                    {isRespondent && <p className="infoMsg" aria-live='assertive'>We are not accepting registrations at the moment</p>}
                     {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                     <h3>Signup</h3>
                     <p className="signup__register">Already have an account? <Link to="/login">Login</Link></p>
