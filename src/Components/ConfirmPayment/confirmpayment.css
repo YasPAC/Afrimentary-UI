@@ -1,0 +1,51 @@
+.confirm__payment {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(230, 230, 230, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirm__card {
+    width: 50%;
+    height: 80%;
+    background-color: #faf6fc;
+    padding: 64px 32px;
+    border-radius: 12px;
+}
+.confirm__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.confirm__info img {
+    width: 64px;
+    height: 64px;
+}
+.confirm__info .info {
+    text-align: center;
+}
+.confirm__info h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.confirm__info p {
+    font-weight: 300;
+    color: #4a4a4a;
+}
+.confirm__info button {
+    border: none;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 24px;
+    cursor: pointer;
+}

@@ -73,11 +73,12 @@ const CreateSurvey = () => {
             axios(axiosConfig).then(
                 response => {
                     const responseMsg = response?.data?.message;
+                    const surveyID = response?.data?.survey_id;
                     setIsLoading(false);
                     setSuccessMsg(responseMsg);
                     setTimeout(()=> {
                         setSuccessMsg("");
-                        navigate(`/researcher/${publicId}`);
+                        navigate(`/survey/payment/${packages}/${surveyID}`);
                     }, 3000);
                 }
             ).catch(

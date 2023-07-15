@@ -9,44 +9,56 @@ const Packages = () => {
         <section className="offered__packages">
             <div className="packages__header">
                 <h3>Pricing</h3>
-                <p>All our packages are paid for per survey. We also offer personalized survey packages.</p>
+                <p>All our packages are paid for per survey.</p>
+                <div className="custom">
+                    <p>For personalized survey packages, </p>
+                    <a href="/contact">Contact Us</a>
+                </div>
             </div>
             <div className="survey__packages">
                 <div className="package">
-                    <img src={bronze} alt="bronze_package" />
+                    <img src={bronze} alt="Pilot250" />
                     <h4>Pilot 250</h4>
                     <ul className="package__description">
                         <li>250 Respondents</li>
-                        <li>15 max questions</li>
+                        <li>Up to 20 questions</li>
+                        <li>25 minutes or less</li>
                     </ul>
-                    <div className="package__pricing"><sup>$</sup>1000<span>/survey</span> </div>
+                    <div className="package__pricing"><sup>$</sup>750<span>/survey</span> </div>
                     <Link to="/survey/create/pilot250">Create Survey</Link>
                 </div>
                 <div className="package">
-                    <img src={silver} alt="silver_package" />
+                    <img src={silver} alt="500R" />
                     <h4>500R</h4>
                     <ul className="package__description">
                         <li>500 Respondents</li>
-                        <li>20 max questions</li>
+                        <li>Up to 20 questions</li>
+                        <li>25 minutes or less</li>
                     </ul>
-                    <div className="package__pricing"><sup>$</sup>1500<span>/survey</span> </div>
+                    <div className="package__pricing"><sup>$</sup>1350<span>/survey</span> </div>
                     <Link to="/survey/create/500r">Create Survey</Link>
                 </div>
                 <div className="package">
-                    <img src={gold} alt="gold_package" />
+                    <img src={gold} alt="1000R" />
                     <h4>1000R</h4>
                     <ul className="package__description">
                         <li>1000 Respondents</li>
-                        <li>25 max questions</li>
+                        <li>Up to 20 questions</li>
+                        <li>25 minutes or less</li>
                     </ul>
-                    <div className="package__pricing"><sup>$</sup>2000<span>/survey</span> </div>
+                    <div className="package__pricing"><sup>$</sup>2500<span>/survey</span> </div>
                     <Link to="/survey/create/1000r">Create Survey</Link>
                 </div>
                 <div className="package">
-                    <img src={custom} alt="custom_packages" />
-                    <h4>Custom</h4>
-                    <p>Reach out to our team for custom packages.</p>
-                    <a href="#">Contact Us</a>
+                    <img src={gold} alt="1500R" />
+                    <h4>1500R</h4>
+                    <ul className="package__description">
+                        <li>1500 Respondents</li>
+                        <li>Up to 20 questions</li>
+                        <li>25 minutes or less</li>
+                    </ul>
+                    <div className="package__pricing"><sup>$</sup>3000<span>/survey</span> </div>
+                    <Link to="/survey/create/1000r">Create Survey</Link>
                 </div>
             </div>
         </section>

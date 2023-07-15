@@ -1,51 +1,73 @@
 import "./surveypayment.css";
-import {Elements, PaymentElement} from '@stripe/react-stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState, Context, useContext} from "react";
+import CheckoutForm from "./CheckoutForm";
+import {ConfirmPayment} from "../../../Components";
+import { SurveyPaymentContext } from "../../../Context/SurveyPaymentContext";
 
-
-const CheckoutForm = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
-    return (
-      <form className="payment__form" onSubmit={handleSubmit}>
-        <div className="payment__header">
-            <h3>Make payment</h3>
-            <p>All our payments are processed by <a href="https://stripe.com/" target="_blank" rel="noopener noreferrer">Stripe</a></p>
-            <p>Afrimentary does not store any payment related information like card numbers.</p>
-        </div>
-        <PaymentElement className="form__fields" />
-        <button>Pay</button>
-      </form>
-    );
-  }
 
 const SurveyPayment = () => {
+    const cookies = new Cookies();
+    const {packages, survey_id} = useParams();
+    const [clientSecret, setClientSecret] = useState("");
+    const [loading, setLoading] = useState(true);
+    const {confirmPayment} = useContext(SurveyPaymentContext);
+    const token = cookies.get("token");
+    const publicId = cookies.get("public_id");
+    const navigation = useNavigate();
     // Accept payment from Researcher for surveys created.
-const stripePromise = loadStripe('pk_test_51NRKk3L1Uo2xvTSmi2d56EyjA5gCCmXEaOEs53iRvqe2qTBaVQaCMQGRWSamanQTYCAve3shRzjATujNc6ybKOiU00cGWMRlfJ');
-
-const getClientSecret = () => {
-    const axiosConfig = {
-        method: "get",
-        url: `http://127.0.0.1:5000/payment/intent`,
-        headers: {
-            'Authorization': 'Basic Auth',
-            'x-access-token': token
-        }
-    }
-
-}
+    const stripePromise = loadStripe("pk_test_51NRKk3L1Uo2xvTSmi2d56EyjA5gCCmXEaOEs53iRvqe2qTBaVQaCMQGRWSamanQTYCAve3shRzjATujNc6ybKOiU00cGWMRlfJ")
     const options = {
         // passing the client secret obtained from the server
-        clientSecret: 'pi_3NSG9aL1Uo2xvTSm1N9bTA86_secret_HijKoSKsHNGdVGUloGcHYgNsF',
-      };
+        clientSecret: clientSecret
+    };
+
+    const requestConfig = (url, method) => {
+        const config = {
+            method: method,
+            url: url,
+            data: {package: packages, survey_id: survey_id},
+            headers: {
+                'Authorization': 'Basic Auth',
+                'x-access-token': token
+            }
+        }
+        return config;
+    }
+
+    const getClientSecret = () => {
+        // Load client secret
+        const getClientSecretConfig = requestConfig("https://afrimentary.onrender.com/payment/intent", "post");
+        axios(getClientSecretConfig).then(
+            response => {
+                setClientSecret(response.data.client_secret);
+                setLoading(false);
+            }
+        ).catch(error => {
+            console.log(error?.response?.data?.message);
+            setLoading(false);
+            navigation(`/researcher/${publicId}`);
+        });
+    }
+
+    useEffect(() => {
+        getClientSecret();
+    }, []);
+
+
     return (
         <section className="survey__payment">
+        {!loading ?
             <Elements stripe={stripePromise} options={options}>
-                <CheckoutForm />
+                <CheckoutForm packages={packages} surveyID={survey_id} />
+                {confirmPayment && <ConfirmPayment clientSecret={clientSecret} token={token} surveyID={survey_id} />}
             </Elements>
+        : <p>Loading...</p>
+        }
         </section>
     )
 }

@@ -11,3 +11,4 @@ export {default as Sidebar} from "./AccountSidebar/RespondentSidebar";
 export {default as ResearcherSidebar} from "./AccountSidebar/ResearcherSidebar";
 export {default as ResearcherUpdateForm} from "./UpdateAccountInfo/UpdateResearcherForm";
 export {default as Notifications} from "./Notifications/Notifications"
+export {default as ConfirmPayment} from "./ConfirmPayment/ConfirmPayment";

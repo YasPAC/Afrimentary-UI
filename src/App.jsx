@@ -9,6 +9,7 @@ import {
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
 import RespondentProvider from './Context/RespondentAccountContext';
+import { SurveyPaymentProvider } from './Context/SurveyPaymentContext';
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
               <Route path="researcher/:id" element={<ResearcherProvider><ResearcherAccount /></ResearcherProvider>} />
               <Route path="survey/create/:packages" element={<CreateSurvey/>} />
               <Route path="researcher/changepass/:id" element={<ChangeResearcherPassword/>} />
-              <Route path="researcher/payment/:packages" element={<SurveyPayment />} />
+              <Route path="survey/payment/:packages/:survey_id" element={<SurveyPaymentProvider><SurveyPayment /></SurveyPaymentProvider>} />
+              {/* <Route path="confirm_payment/:packages/:survey_id" element={<ConfirmPayment />} /> */}
           </Route>
           <Route  element={<RequireAuth roles={["admin"]} />}>
             <Route path="admin/:id" element={<RespondentAccount />} />
