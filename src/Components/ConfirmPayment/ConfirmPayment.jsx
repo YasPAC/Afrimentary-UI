@@ -5,9 +5,14 @@ import check from "../../assets/check.png";
 import unsuccessful from "../../assets/fail.png";
 import { SurveyPaymentContext } from "../../Context/SurveyPaymentContext";
 import axios from "axios";
+import Cookies from "universal-cookie";
+import { Link } from "react-router-dom";
 
 
 const ConfirmPayment = ({clientSecret, token, surveyID}) => {
+  
+    const cookies = new Cookies();
+    const publicId = cookies.get("public_id");
     const [success, setSuccess] = useState(false);
     const [fail, setFail] = useState(false);
     const stripe = useStripe();
@@ -77,6 +82,7 @@ const ConfirmPayment = ({clientSecret, token, surveyID}) => {
               <h3>Success</h3>
               <p>{message}</p>
             </div>
+            <Link to={`/researcher/${publicId}`}>Go to Account</Link>
           </div>}
           {fail && <div className="confirm__info fail">
           <img src={unsuccessful} alt="fail" />

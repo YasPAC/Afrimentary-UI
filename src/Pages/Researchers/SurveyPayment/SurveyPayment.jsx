@@ -4,7 +4,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import Cookies from "universal-cookie";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState, Context, useContext} from "react";
+import { useEffect, useState, useContext} from "react";
 import CheckoutForm from "./CheckoutForm";
 import {ConfirmPayment} from "../../../Components";
 import { SurveyPaymentContext } from "../../../Context/SurveyPaymentContext";
@@ -48,7 +48,6 @@ const SurveyPayment = () => {
                 setLoading(false);
             }
         ).catch(error => {
-            console.log(error?.response?.data?.message);
             setLoading(false);
             navigation(`/researcher/${publicId}`);
         });
