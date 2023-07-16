@@ -101,13 +101,13 @@ const CreateSurvey = () => {
     // Select boxes data
     const ageBracketData = {
         options: [
-            {label: "Random", value: "random"},
+            {label: "Randomized", value: "random"},
         ],
         fields: {label: "Age Group", name: "ageBracket"}
     };
     const genderRatioData = {
         options: [
-            {label: "Random", value: "random"},
+            {label: "Randomized", value: "random"},
         ],
         fields: {label: "Gender Ratio", name: "genderRatio"}
     }
@@ -155,7 +155,6 @@ const CreateSurvey = () => {
                     <img src={survey} alt="createsurvey" />
                     <div>
                         <h3>Create your survey today.</h3>
-                        <p>We will help you reach your target audience.</p>
                     </div>
                     <div className="survey__arrow"><RiArrowRightFill size="32px" /></div>
                 </div>

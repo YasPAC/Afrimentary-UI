@@ -3,7 +3,7 @@ import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {SignupFields} from "../../../Components";
-import {ReferrerField,GenderField, EducationField, CheckBox, Counties} from "../../../Components";
+import {ReferrerField,GenderField, EducationField, CheckBox, Counties, Countries} from "../../../Components";
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
@@ -17,7 +17,9 @@ function Signup() {
     const [associates, setAssociates] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
     const errRef = useRef();
+    const successRef = useRef();
     const [respondentData, setRespondentData]  = useState(
         {
             l_name: "",
@@ -133,7 +135,9 @@ function Signup() {
                 axios(axiosConfig)
                 .then(response => {
                     if (response.data.message) {
-                        navigate("/login");
+                        setSuccessMsg("Your account has been created");
+                        successRef.current.focus();
+                        setTimeout(() => {navigate("/login")}, 2000);
                         setIsLoading(false);
                         resetUserData();
                     }
@@ -175,16 +179,19 @@ function Signup() {
             ,
             <div className="field__collection" key={uniqid}>
                 <EducationField data={respondentData} handleChange={handleRespondentChange} />
-                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Mother Tongue", name: "language" , type: "text"}} />
+                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Native Language", name: "language" , type: "text"}} />
+            </div>
+            ,
+            <div className="field__collection" key={uniqid}>
+                <Countries data={respondentData} handleChange={handleRespondentChange} />
+                {respondentData.country === "Kenya" ?
+                 <Counties data={respondentData} handleChange={handleRespondentChange} />:
+                    <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Province/State", name: "county" , type: "text"}} />
+                 }
             </div>
             ,
             <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "City", name: "city" , type: "text"}} />
-                <Counties data={respondentData} handleChange={handleRespondentChange} />
-            </div>
-            ,
-            <div className="field__collection" key={uniqid}>
-                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Country", name: "country" , type: "text"}} />
                 <ReferrerField agents={associates} data={respondentData} handleChange={handleRespondentChange} />
             </div>
             ,
@@ -226,11 +233,11 @@ function Signup() {
                     <div className="signup__cover"></div>
                     <div className="intro__description">
                         <h2>Welcome to <span className="description__greens">Afrimentary</span></h2>
-                        <p>Signup, share your opinion, earn.</p>
                     </div>
                 </div>
                 <div className="signup__container">
-                    <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live='assertive'>{errMsg}</p>
+                    <p ref={errRef} className={errMsg ? "message error" : "offscreen"} aria-live='assertive'>{errMsg}</p>
+                    <p ref={successRef} className={errMsg ? "message success" : "offscreen"} aria-live='assertive'>{successMsg}</p>
                     {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                     <h3>Signup</h3>
                     <p className="signup__register">Already have an account? <Link to="/login">Login</Link></p>

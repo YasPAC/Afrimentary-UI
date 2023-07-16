@@ -94,18 +94,21 @@
     border-bottom-right-radius: 32px;
     border-top-right-radius: 32px;
 }
-.signup__container .errMsg {
+.signup__container .message {
     position: absolute;
     width: calc(100% - 120px);
     min-height: 32px;
     color: #dbdbdb;
     top: 8px;
-    background-color: rgb(255, 99, 99);
     border-radius: 8px;
+    background-color: rgb(183, 255, 183);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px;
+}
+.signup__container .message.error {
+    background-color: rgb(255, 99, 99);
 }
 .signup__container h3 {
     font-size: 1.8rem;
@@ -130,6 +133,7 @@
     font-size: 0.9rem;
     font-weight: 400;
     border: 0.5px solid #fff;
+    gap: 6px;
     margin: 20px 0;
 }
 .toggle__button {
@@ -311,7 +315,7 @@
     .intro__description p {
         font-size: 1.5rem;
     }
-    .signup__container .errMsg {
+    .signup__container .message {
         width: calc(100% - 112px);
         top: 0;
     }
@@ -353,7 +357,7 @@
     .signup__container {
         padding: 16px;
     }
-    .signup__container .errMsg {
+    .signup__container .message {
         width: calc(100% - 32px);
     }
     .signup__container h3 {

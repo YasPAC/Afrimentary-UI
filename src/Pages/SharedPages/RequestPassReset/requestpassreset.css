@@ -71,6 +71,7 @@
     height: 48px;
     border-radius: 8px;
     overflow: hidden;
+    gap: 6px;
 }
 .control__btn {
     width: 100%;

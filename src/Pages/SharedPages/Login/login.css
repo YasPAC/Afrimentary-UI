@@ -138,6 +138,7 @@
     font-weight: 400;
     border: 0.5px solid #fff;
     margin: 20px 0;
+    gap: 6px;
 }
 .toggle__button {
     height: 100%;
