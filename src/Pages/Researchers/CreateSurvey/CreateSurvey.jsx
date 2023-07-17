@@ -60,38 +60,44 @@ const CreateSurvey = () => {
     const handleRespondentSubmit = (e) => {
         e.preventDefault();
         if(isLast){
-            setIsLoading(true);
-            const axiosConfig = {
-                method: "post",
-                url: `https://afrimentary.onrender.com/API/survey/create`,
-                data: surveyInfo,
-                headers: {
-                    'Authorization': 'Basic Auth',
-                    'x-access-token': token
-                }
-            }
-            axios(axiosConfig).then(
-                response => {
-                    const responseMsg = response?.data?.message;
-                    const surveyID = response?.data?.survey_id;
-                    setIsLoading(false);
-                    setSuccessMsg(responseMsg);
-                    setTimeout(()=> {
-                        setSuccessMsg("");
-                        navigate(`/survey/payment/${packages}/${surveyID}`);
-                    }, 3000);
-                }
-            ).catch(
-                error => {
-                    setIsLoading(false);
-                    if (error?.response?.status === 409) {
-                        const errorMessage = error?.response?.data?.message;
-                        setErrorMsg(errorMessage);
-                    } else {
-                        setErrorMsg("Error occurred. Please try again!");
+            if (surveyInfo.numberQuestions > 20 ) {
+                setErrorMsg("Questions must be less than 20")
+            } else if (surveyInfo.responseTime > 25) {
+                setErrorMsg("Survey time must be less than 25 minutes")
+            } else {
+                setIsLoading(true);
+                const axiosConfig = {
+                    method: "post",
+                    url: `https://afrimentary.onrender.com/API/survey/create`,
+                    data: surveyInfo,
+                    headers: {
+                        'Authorization': 'Basic Auth',
+                        'x-access-token': token
                     }
                 }
-            )
+                axios(axiosConfig).then(
+                    response => {
+                        const responseMsg = response?.data?.message;
+                        const surveyID = response?.data?.survey_id;
+                        setIsLoading(false);
+                        setSuccessMsg(responseMsg);
+                        setTimeout(()=> {
+                            setSuccessMsg("");
+                            navigate(`/survey/payment/${packages}/${surveyID}`);
+                        }, 3000);
+                    }
+                ).catch(
+                    error => {
+                        setIsLoading(false);
+                        if (error?.response?.status === 409) {
+                            const errorMessage = error?.response?.data?.message;
+                            setErrorMsg(errorMessage);
+                        } else {
+                            setErrorMsg("Error occurred. Please try again!");
+                        }
+                    }
+                )
+            }
         } else if (!isLast) {
             next();
             formProgress();

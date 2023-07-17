@@ -3,7 +3,7 @@ import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {SignupFields} from "../../../Components";
-import {ReferrerField,GenderField, EducationField, CheckBox, Counties, Countries} from "../../../Components";
+import {ReferrerField, GenderField, EducationField, CheckBox, Counties, Countries} from "../../../Components";
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
@@ -237,7 +237,7 @@ function Signup() {
                 </div>
                 <div className="signup__container">
                     <p ref={errRef} className={errMsg ? "message error" : "offscreen"} aria-live='assertive'>{errMsg}</p>
-                    <p ref={successRef} className={errMsg ? "message success" : "offscreen"} aria-live='assertive'>{successMsg}</p>
+                    <p ref={successRef} className={successMsg ? "message success" : "offscreen"} aria-live='assertive'>{successMsg}</p>
                     {isLoading && <img className="loadingMsg" src={loading} alt="logging-in"/>}
                     <h3>Signup</h3>
                     <p className="signup__register">Already have an account? <Link to="/login">Login</Link></p>

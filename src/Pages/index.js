@@ -11,6 +11,7 @@ export {default as ChangePassword} from "./Respondents/ChangePassword/ChangePass
 export {default as RequestPassReset} from "./SharedPages/RequestPassReset/RequestPassReset";
 export {default as PasswordReset} from "./SharedPages/PasswordReset/PasswordReset";
 export {default as SurveyResponse} from "./Respondents/SurveyResponse/SurveyResponse";
+export {default as VerifyAccount} from "./SharedPages/VerifyAccount/VerifyAccount";
 
 // Researcher
 export {default as ResearcherAccount} from "./Researchers/ResearcherAccount/ResearcherAccount";

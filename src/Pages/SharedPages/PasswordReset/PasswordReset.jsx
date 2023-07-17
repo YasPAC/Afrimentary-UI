@@ -31,7 +31,7 @@ const PasswordReset = () => {
                 data: resetPasswords,
             }
 
-            userTypes.includes(usertype) ? axios(axiosPassConfig).then(response => {
+            userTypes.includes(usertype.toLowerCase()) ? axios(axiosPassConfig).then(response => {
                 const resetResponse = response?.data?.message;
                 setWorking(false);
                 navigate("/login");

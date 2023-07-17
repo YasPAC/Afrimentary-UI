@@ -4,7 +4,7 @@ import {
   Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized, 
   Terms, About, Contact, ChangePassword, RequestPassReset, PasswordReset, 
   SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword,
-  SurveyPayment
+  SurveyPayment, VerifyAccount
 } from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
@@ -26,6 +26,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="requestreset" element={<RequestPassReset />} />
           <Route path="reset/:usertype/:token" element={<PasswordReset />} />
+          <Route path="verify/:usertype/:token" element={<VerifyAccount />} />
         
           {/* Protected Routes/Role based authorization */}
           <Route element={<RequireAuth roles={["user", "admin", "associate"]} />}>

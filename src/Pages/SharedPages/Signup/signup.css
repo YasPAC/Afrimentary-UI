@@ -98,7 +98,7 @@
     position: absolute;
     width: calc(100% - 120px);
     min-height: 32px;
-    color: #dbdbdb;
+    color: var(--greens);
     top: 8px;
     border-radius: 8px;
     background-color: rgb(183, 255, 183);
@@ -109,6 +109,7 @@
 }
 .signup__container .message.error {
     background-color: rgb(255, 99, 99);
+    color: #dbdbdb;
 }
 .signup__container h3 {
     font-size: 1.8rem;
