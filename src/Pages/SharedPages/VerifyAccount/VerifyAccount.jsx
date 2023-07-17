@@ -1,7 +1,7 @@
 import "./verifyaccount.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 const VerifyAccount = () => {
@@ -9,6 +9,7 @@ const VerifyAccount = () => {
     const [verifyFail, setVerifyFail] = useState("");
     const [invalidUrl, setInvalidUrl] = useState(false);
     const {usertype, token} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const userTypes = ["researcher", "respondent"];
