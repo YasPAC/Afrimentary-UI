@@ -30,6 +30,14 @@ const About = () => {
                 </div>
             </div>
             <div className="about__mission">
+                <div className="mission__img">
+                    <div className="why__title titles">
+                        <p>
+                            Our mission
+                        </p>
+                    </div>
+                    <img src={mission} alt="Afrimentary mission" />
+                </div>
                 <div className="mission__info">
                     <p className="info__header">
                         Our mission is clear and impactful: we aim to bridge the gap between researchers 
@@ -47,12 +55,6 @@ const About = () => {
                             ensuring that their valuable insights are acknowledged and rewarded.
                         </p>
                     </div>
-                </div>
-                <div className="mission__img">
-                    {/* <p>
-                        What's our mission?
-                    </p> */}
-                    <img src={mission} alt="Afrimentary mission" />
                 </div>
             </div>
             <div className="about__why">

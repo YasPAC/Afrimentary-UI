@@ -18,13 +18,14 @@
     margin: 32px 0;
 }
 .copyright {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-top: 0.5px solid var(--greens);
-    padding: 12px 0 0;
+    padding: 12px 0;
     text-align: center;
 }
 .copyright a {
     color: var(--greens);
+    text-decoration: underline;
 }
 @media screen and (min-width: 480px) {
     .afrimentary__footer {
@@ -47,12 +48,12 @@
         width: 40ch;
     }
     .copyright {
-        font-size: 1.1rem;
-        padding: 16px 0 0;
+        font-size: 1rem;
+        padding: 16px 0;
     }
 }
 @media screen and (min-width: 1024px) {
     .copyright {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
 }

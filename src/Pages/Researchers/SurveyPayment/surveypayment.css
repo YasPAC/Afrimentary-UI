@@ -126,8 +126,32 @@
     border-radius: 24px;
     cursor: pointer;
     transition: all 0.3s linear;
-    margin: 16px 0 0;
+    margin: 24px 0 0;
 }
 .payment__form button:hover {
     transform: scale(1.03);
+}
+
+
+@media screen and (max-width: 900px) {
+    .survey__payment {
+        padding: 32px;
+    }
+    .survey__payment-inner {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .survey__payment {
+        height: auto;
+        padding: 0;
+    }
+    .survey__payment-inner {
+        padding: 24px 12px;
+    }
+    .payment__container {
+        display:flex;
+        flex-direction: column;
+        gap: 16px;
+    }
 }

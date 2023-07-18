@@ -1,5 +1,5 @@
 .about__intro {
-    width: 80%;
+    width: 90%;
     height: auto;
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -98,7 +98,8 @@
     margin: 0 auto;
     height: auto;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px
 }
 .mission__info {
     display: flex;
@@ -112,6 +113,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .mission__img img {
     width: 80%;
@@ -131,7 +133,7 @@
     width: 80%;
     margin: 0 auto;
     padding: 48px 0;
-    gap: 64px;
+    gap: 32px;
 }
 .why__info {
     display: flex;
@@ -140,7 +142,7 @@
     text-align: justify;
 }
 .why__title {
-    justify-content: flex-end;
+    justify-content: center;
 }
 .about__footer {
     width: 80%;
@@ -164,7 +166,7 @@
         width: 90%;
         display: flex;
         gap: 32px;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .about__why {
         width: 90%;
