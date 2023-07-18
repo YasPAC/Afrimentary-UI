@@ -75,3 +75,32 @@
     transform: scale(0.97);
     color: #a2a2a2;
 }
+
+
+/* Media Queries */
+@media screen and (max-width: 900px) {
+    .verify__container {
+        width: 80%;
+        height: 60%;
+    }
+    .verify__container button {
+        font-size: 1.2rem;
+        padding: 12px 32px;
+    }
+    .verify__container p {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .verify__container {
+        width: 90%;
+        height: 60%;
+    }
+    .verify__container button {
+        font-size: 1rem;
+        padding: 8px 24px;
+    }
+    .verify__container p {
+        font-size: 1rem;
+    }
+}
