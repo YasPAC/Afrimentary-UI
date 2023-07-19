@@ -21,7 +21,7 @@ function Home() {
             </div>
             <div className="afrimentary__brief">
                 <p className="mission__brief">
-                    We bridge the gap between knowledge creation and <br />harnessing insights!
+                    We bridge the gap between knowledge creation and harnessing insights!
                 </p>
             </div>
             <div className="afrimentary__mission">
@@ -42,10 +42,22 @@ function Home() {
                     <p>How it works</p>
                 </div>
                 <div className="how__text">
-                    <p>
-                        <span className="how__text-dark">Respond to academic <br /> surveys, get </span>
-                        <span className="how__text-greens">paid!</span>
-                    </p>
+                    <div className="text__section">
+                        <h4>Respondents</h4>
+                        <p>
+                            <span className="how__text-dark">Respond to academic surveys, get </span>
+                            <span className="how__text-greens">paid!</span>
+                        </p>
+                    </div>
+                    <div className="text__section">
+                        <h4>
+                            Researchers
+                        </h4>
+                        <p>
+                            Upload survey link (intergrated with Qualtrics),
+                            select your package, and send them to our pool of respondents
+                        </p>
+                    </div>
                 </div>
                 <div className="how__cta">
                     <p>Register today!</p>

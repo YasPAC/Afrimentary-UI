@@ -1,7 +1,6 @@
 import "./about.css";
 import {Header, Footer} from "../../../Components";
 import aboutBg from "../../../assets/about-hero.jpg";
-import mission from "../../../assets/mission.jpg";
 
 const About = () => {
     return (
@@ -14,12 +13,15 @@ const About = () => {
                 <div className="image_dot three"></div>
             </div>
             <div className="about__intro">
-                <div className="intro__bold">
+                <div className="titles">
                     <p>
-                        Transforming the landscape of academic quantitative surveys and survey experiments in Africa.
+                        Afrimentary:
                     </p>
                 </div>
                 <div className="intro__light">
+                    <p className="info__header">
+                        Transforming the landscape of academic quantitative surveys and survey experiments in Africa.
+                    </p>
                     <p>
                         Our online platform is dedicated to revolutionizing the connection between researchers and Africa-
                         based respondents, fostering a collaborative environment that drives valuable research and insights.
@@ -33,10 +35,9 @@ const About = () => {
                 <div className="mission__img">
                     <div className="why__title titles">
                         <p>
-                            Our mission
+                            Our mission:
                         </p>
                     </div>
-                    <img src={mission} alt="Afrimentary mission" />
                 </div>
                 <div className="mission__info">
                     <p className="info__header">
@@ -60,7 +61,7 @@ const About = () => {
             <div className="about__why">
                 <div className="why__title titles">
                     <p>
-                        Why you should choose Afrimentary
+                        Why Afrimentary:
                     </p>
                 </div>
                 <div className="why__info">

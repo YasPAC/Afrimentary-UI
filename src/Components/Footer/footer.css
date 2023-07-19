@@ -9,7 +9,10 @@
 }
 .footer__info h3 {
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+}
+.footer__info span {
+    color: var(--greens); 
 }
 .footer__menu {
     color: var(--greens);
@@ -26,6 +29,7 @@
 .copyright a {
     color: var(--greens);
     text-decoration: underline;
+    text-transform: uppercase;
 }
 @media screen and (min-width: 480px) {
     .afrimentary__footer {
@@ -44,8 +48,7 @@
     }
     .footer__info h3 {
         font-weight: 400;
-        font-size: 1.5rem;
-        width: 40ch;
+        font-size: 1.3rem;
     }
     .copyright {
         font-size: 1rem;

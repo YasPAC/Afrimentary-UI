@@ -1,3 +1,4 @@
+/* Mobile first */
 .afrimentary__hero {
     position: relative;
     width: 100%;
@@ -5,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    clip-path: polygon(90% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%, 0% 0%);
 }
 .hero__bg {
     width: 100%;
@@ -24,28 +26,6 @@
     background: linear-gradient(150deg, rgba(0, 0, 0, 0.4) 11%, rgba(0, 0, 0, 9) 100%);
     z-index: 2;
 }
-.afrimentary__hero::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 112px;
-    background-color: #FFF;
-    top: calc(100% - 32px);
-    left: -50%;
-    transform: rotate(4deg);
-    z-index: 3;
-}
-.afrimentary__hero::after {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 100px;
-    background-color: #FFF;
-    top: calc(100% - 32px);
-    left: -50%;
-    transform: rotate(-1deg);
-    z-index: 3;
-}
 .hero__heading {
     position: absolute;
     font-size: 3rem;
@@ -53,6 +33,8 @@
     letter-spacing: 2px;
     padding: 32px;
     z-index: 4;
+    top: 30%; 
+    transform: translateY(-30%); 
 }
 .heading-primary {
     color: var(--primary-color);
@@ -73,28 +55,27 @@
     transform: translateX(-50%);
     top: 100%;
 }
-
 .afrimentary__brief {
     position: relative;
-    padding: 64px 32px;
-    font-size: 2.5rem;
+    padding: 48px 16px;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--greens);
+    text-align: center;
 }
-
 .afrimentary__mission {
     position: relative;
     background-color: var(--primary-color);
     height: auto;
-    padding: 80px 32px;
+    padding: 80px 32px 96px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 56.08% 95.78%, 0% 90.08%, 0% 0%);
 }
-
 .mission_sidebar p {
     color: #fff;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     margin: 0 0 16px;
     letter-spacing: 2px;
@@ -109,37 +90,38 @@
 .afrimentary__how {
     position: relative;
     height: auto;
-    padding: 128px 32px 80px;
+    padding: 32px ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     border: none;
 }
-.afrimentary__how::after {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 100px;
-    background-color: var(--primary-color);
-    bottom: calc(100% - 32px);
-    left: -50%;
-    transform: rotate(5deg);
-}
 .how__title p {
     color: var(--primary-color);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin: 0 0 16px;
 }
 .how__text {
-    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.text__section {
+    display: flex;
+    flex-direction: column;
+}
+.text__section h4 {
+    color: var(--greens);
     font-weight: 500;
-    line-height: 1;
+    font-size: 1.8rem;
 }
 .how__text-greens {
     position: relative;
     color: var(--greens);
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 .how__text-greens::after {
     content: "";
@@ -147,7 +129,7 @@
     height: 5px;
     background-color: var(--primary-color);
     position: absolute;
-    bottom: 0;
+    top: 100%;
     right: 0;
 }
 .how__cta {
@@ -155,12 +137,12 @@
 }
 .how__cta p {
     color: var(--greens);
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0 0 16px;
 }
 .cta__btn {
     border: none;
-    padding: 16px 48px;
+    padding: 8px 32px;
     background-color: var(--primary-color);
     transition: all 0.2s ease-in-out;
     border-radius: 32px;
@@ -191,6 +173,10 @@
 }
 
 @media screen and (min-width: 480px) {
+    .afrimentary__hero {
+        height: calc(100vh - 80px);
+        clip-path: polygon(90% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 0%);
+    }
     .hero__heading {
         font-size: 4.5rem;
         word-spacing: 10px;
@@ -198,33 +184,35 @@
     .afrimentary__brief {
         font-size: 3.5rem;
         font-weight: 500;
-        margin: 80px 0;
     }
     .mission_sidebar h3 {
         font-size: 3.5rem;
     }
     .afrimentary__mission {
-        padding: 96px 32px;
+        padding: 96px 32px 112px;
+        clip-path: polygon(90% 0%, 100% 0%, 100% 100%, 50.10% 93.59%, 0% 87.45%, 0% 0%);
     }
     .mission__main > p {
         font-size: 2rem;
         font-weight: 600;
     }
     .afrimentary__how {
-        padding: 144px 32px 96px;
+        padding: 48px 32px;
     }
-    .afrimentary__how::after {
-        bottom: calc(100% - 48px);
+    .text__section h4 {
+        font-size: 2rem;
     }
     .how__title p {
         font-size: 3.5rem;
     }
-    .how__text {
-        font-size: 2rem;
+    .how__text p {
+        font-size: 1.3rem;
         font-weight: 500;
+        width: 40ch;
+        margin: 0 auto;
     }
     .how__cta p {
-        font-size: 3rem;
+        font-size: 1.5rem;
     }
     .afrimentary__faq {
         padding: 96px 32px;
@@ -239,31 +227,23 @@
     }
     
 }
-@media screen and (min-width: 769px) {
-    .afrimentary__how::after {
-        bottom: calc(100% - 64px);
-        transform: rotate(3deg);
-    }  
-}
 @media screen and (min-width: 1024px) {
     .afrimentary__hero {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 128px);
     }
     .hero__heading {
         font-size: 3.5rem;
         width: 80%;
     }
     .afrimentary__brief {
-        width: 80%;
         font-size: 4rem;
-        font-weight: 500;
-        height: 300px;
+        font-weight: 400;
+        height: auto;
         display: flex;
         align-items: center;
-        margin: 96px auto;
     }
     .afrimentary__mission  {
         display: grid;
@@ -281,7 +261,7 @@
         padding: 0;
     }
     .cta__btn {
-        padding: 12px 32px;
+        padding: 8px 32px;
         font-size: 1.6rem;
         border-radius: 48px;
         transition: all 0.3s ease-in;
@@ -291,10 +271,9 @@
     }
     .how__text {
         font-size: 3rem;
-        letter-spacing: 2px;
     }
     .how__cta p {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
     .afrimentary__faq {
         display: flex;
