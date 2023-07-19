@@ -41,10 +41,6 @@ const Notifications = () => {
         const notificationId = e.target.id;
         const readConfig = requestConfig(`https://afrimentary.onrender.com/API/respondent/read/${notificationId}`, "put")
         const notificationToRead = notifications.filter(note => {return note.id === notificationId});
-        setNotifications(prev => {
-            return prev.filter(notification => {
-                return notification.id != notificationId;
-        })});
         axios(readConfig).then(response => {
             if (notificationToRead[0].subject === "New Survey") {
                 navigate(`/survey/${notificationToRead[0].id}`);
@@ -54,6 +50,10 @@ const Notifications = () => {
                 // 
             }
         );
+        setNotifications(prev => {
+            return prev.filter(notification => {
+                return notification.id != notificationId;
+        })});
     }
 
     useEffect(() => {
@@ -84,11 +84,11 @@ const Notifications = () => {
             }
             </>
             : 
-            <p className="no_notifications">No new notifications</p>
+            <div className="no_notifications"><p>No new notifications</p></div>
         }      
         </div> 
         : 
-            <p className="idling">Loading notifications...</p> 
+        <div className="idling"><p>Loading notifications...</p></div>
         }
         </> 
     )

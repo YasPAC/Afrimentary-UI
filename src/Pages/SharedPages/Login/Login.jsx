@@ -4,11 +4,12 @@ import "./login.css";
 import {Link, useNavigate, useLocation} from "react-router-dom";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import busy from "../../../assets/busy.gif";
 import loading from "../../../assets/loading.gif";
 import dash from "../../../assets/sitting.jpg";
+import { DocTitle } from "../../../Utilities";
 
 const LoginSignupComponent = () => {
+    DocTitle("Afrimentary Login - Welcome back")
     const cookies = new Cookies();
     const {setAuth} = useAuth();
     const navigate = useNavigate();

@@ -16,8 +16,6 @@ const RespondentProvider = ({children}) => {
             value={{
                 respondentData, 
                 setRespondentData,
-                referred, 
-                setReferred,
                 openSidebar, 
                 setOpenSidebar,
                 updateRespondent, 

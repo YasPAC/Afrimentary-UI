@@ -9,9 +9,11 @@ import uniqid from "uniqid";
 import axios from "axios";
 import loading from "../../../assets/loading.gif";
 import dash from "../../../assets/sitting.jpg";
+import { DocTitle } from "../../../Utilities";
 
 
 function Signup() {
+    DocTitle("Afrimentary Signup - Welcome to Afrimentary");
     const navigate = useNavigate();
     const [isRespondent, setIsRespondent] = useState(true);
     const [associates, setAssociates] = useState([]);

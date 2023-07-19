@@ -1,8 +1,10 @@
 import "./about.css";
 import {Header, Footer} from "../../../Components";
 import aboutBg from "../../../assets/about-hero.jpg";
+import { DocTitle } from "../../../Utilities";
 
 const About = () => {
+    DocTitle("About Afrimentary - We aim to bridge the gap between researchers and the diverse communities across Africa")
     return (
         <main className="afrimentary__about">
             <Header />

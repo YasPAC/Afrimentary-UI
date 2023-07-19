@@ -11,9 +11,11 @@ import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
 import uniqid from "uniqid";
 import  {ResearcherContext} from "../../../Context/ResearcherAccountContext";
+import { DocTitle } from "../../../Utilities";
 
 
 const ResearcherAccount = () => {
+    DocTitle("Researcher Account - We aim to bridge the gap between researchers and the diverse communities across Africa")
     const cookies = new Cookies();
     const token = cookies.get("token");
     const {id} = useParams();

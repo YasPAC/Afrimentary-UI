@@ -7,15 +7,17 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import {RiCloseLine} from "react-icons/ri";
 import {RespondentContext} from "../../../Context/RespondentAccountContext";
+import { DocTitle } from "../../../Utilities";
 
 const RespondentAccount = () => {
+    DocTitle("Respondent Account - Harness your insights, create knowledge, and get paid ♡");
     const cookies = new Cookies();
     const {id} = useParams();
     const navigate = useNavigate();
     const [isLoaded, setLoaded] = useState(false);
     const role = cookies.get("role");
     const token = cookies.get("token");
-    const {respondentData, setRespondentData, referred, setReferred, setToken,
+    const {respondentData, setRespondentData, setToken,
         openSidebar, setOpenSidebar, updateRespondent, setUpdateRespondent} = useContext(RespondentContext);
     
     
@@ -31,25 +33,11 @@ const RespondentAccount = () => {
         } 
         return axiosConfig;
     }
-    
-    // Get users referred by this user if associate
-    const getReferred = () => {
-        const axiosReferrerConfig = requestConfig(`https://afrimentary.onrender.com/API/respondents/${id}/references`, "get");
-        axios(axiosReferrerConfig).then(
-            response => {
-                setReferred(response?.data?.n_verified);
-            }
-        ).catch(err => {
-            // The error redirects will happen inside useEffect
-        });
-    }
-
 
     const fetchUserData = () => {
         // Load user Data
         const userDataConfig = requestConfig(`https://afrimentary.onrender.com/API/respondents/${id}`, "get");
         axios(userDataConfig).then(response => {
-            role != "user" ? getReferred() : null;
             const userData = response?.data?.respondent;
             setRespondentData(userData);
             setLoaded(true);
@@ -104,7 +92,7 @@ const RespondentAccount = () => {
                     <div className="dash__main-top">
                         <p className="respondent__greeting">Hello, <span>{respondentData.first_name}</span></p>
                         <div className="dash__main-controls">
-                            {respondentData.role !== "user"? 
+                            {respondentData.role !== "user" ? 
                                 <p className="role">{respondentData.role}</p>:
                                 null
                             }
@@ -122,16 +110,6 @@ const RespondentAccount = () => {
                                     {respondentData.surveys}
                                 </p>
                             </div>
-                            {
-                                respondentData.role !== "user" ? 
-                                <div className="respondent__card">
-                                    <h4>Users Referred</h4>
-                                    <small>Verified</small>
-                                    <p className="referral__count">
-                                        {referred}
-                                    </p>
-                                </div>: null 
-                            }
                         </div>
                         <div className="message__board">
                             <div className="board__header">
