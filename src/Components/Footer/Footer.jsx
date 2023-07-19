@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="footer__info">
                         <h2>Afrimentary,</h2>
                         <h3>
-                            Harness your insights, <span>create knowledge</span> and get paid ♡
+                            Harness your insights, <span>create knowledge,</span> and get paid ♡
                         </h3>
                     </div>
                     <div className="footer__socials">
