@@ -1,8 +1,15 @@
 import "./admin.css";
-import { truncateText } from "../../../Utilities";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
+
+const truncateText = (text, limit) => {
+    if (text.length > limit) {
+        return `${text.substring(0, limit)} ...`
+    } else {
+        return text
+    }
+};
 
 const Admin = () => {
     const cookies = new Cookies();
