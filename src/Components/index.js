@@ -10,5 +10,7 @@ export {EducationField, GenderField, CheckBox, GeneralSelectField, Counties, Cou
 export {default as Sidebar} from "./AccountSidebar/RespondentSidebar";
 export {default as ResearcherSidebar} from "./AccountSidebar/ResearcherSidebar";
 export {default as ResearcherUpdateForm} from "./UpdateAccountInfo/UpdateResearcherForm";
-export {default as Notifications} from "./Notifications/Notifications"
+export {default as Notifications} from "./Notifications/Notifications";
 export {default as ConfirmPayment} from "./ConfirmPayment/ConfirmPayment";
+export {default as AdminSidebar} from "./AdminSidebar/AdminSidebar";
+export {default as AdminLayout} from "./AdminLayout/AdminLayout";

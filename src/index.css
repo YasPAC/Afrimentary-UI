@@ -4,6 +4,8 @@
   --primary-color: #fd7e50;
   --greens: rgb(19,85,11);
   --primary-font: 'Poppins', sans-serif;
+  --error-color: rgb(255, 99, 99);
+  --success-color: rgb(183, 255, 183);
 }
 
 * {

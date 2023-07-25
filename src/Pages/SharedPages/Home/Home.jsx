@@ -51,7 +51,7 @@ function Home() {
                     <div className="text__section">
                         <h4>Researchers:</h4>
                         <p>
-                            Upload survey link (intergrated with Qualtrics),
+                            Upload survey link (integrated with Qualtrics),
                             select your package, and send them to <br /> our pool of respondents
                         </p>
                     </div>

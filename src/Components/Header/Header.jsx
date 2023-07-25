@@ -13,7 +13,6 @@ function Header() {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false);
     const {auth, setAuth} = useAuth();
-    const token = cookies.get("token");
     // Logout function
     const logOut = () => {
         cookies.remove("token", {path: "/", sameSite: "None", secure:true});
@@ -24,11 +23,11 @@ function Header() {
     }
     // Logout out automatically if the token is expired
     useEffect (() => {
-        if (token) {
-            const expired = isExpired(token, SECRET_KEY);
+        if (auth.token) {
+            const expired = isExpired(auth.token, SECRET_KEY);
             expired && logOut();
         }
-    }, [])
+    }, []);
     return (
         <header className="afrimentary__header">
             <nav className="afrimentary__nav">
@@ -43,6 +42,7 @@ function Header() {
                             <li className="item"><Link to="/contact">Contact</Link></li>
                             {auth?.userId  ? <li className="item"><Link to={auth?.role === "researcher" ? `/researcher/${auth?.userId}` : `/respondent/${auth?.userId}` }>Account</Link></li>:
                                 null}
+                            {auth?.role === "admin" && <li className="item"><Link to={`/admin/${auth?.userId}`}>Admin</Link></li>}
                         </ul>
                     </div>
                     <div className="nav__btns">

@@ -7,7 +7,7 @@ const NotFound = () => {
             <div className='error-text'>
                 <span>4<img src={sad404} alt="404" />4</span>
                 <p className="p-a">
-                    Page not be found!
+                    Page not found!
                 </p>
                 <Link className="back" to="/">Back to Home</Link>
             </div>

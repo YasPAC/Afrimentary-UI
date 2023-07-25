@@ -18,3 +18,10 @@ export {default as ResearcherAccount} from "./Researchers/ResearcherAccount/Rese
 export {default as CreateSurvey} from "./Researchers/CreateSurvey/CreateSurvey";
 export {default as ChangeResearcherPassword} from "./Researchers/ChangeResearcherPassword/ChangeResearcherPassword"
 export {default as SurveyPayment} from "./Researchers/SurveyPayment/SurveyPayment";
+
+// Admin
+export {default as Admin} from "./AdminPage/AdminDashboard/Admin";
+export {default as AdminRespondents} from "./AdminPage/AdminLists/AdminRespondents";
+export {default as AdminResearchers} from "./AdminPage/AdminLists/AdminResearchers";
+export {default as AdminSurveys} from "./AdminPage/AdminLists/AdminSurveys";
+export {default as SurveyResponses} from "./AdminPage/AdminLists/SurveyResponses";

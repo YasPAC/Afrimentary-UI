@@ -1,0 +1,49 @@
+.admin__sidebar {
+    background-color: #002d3d;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    position: relative;
+}
+.admin__header {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0 0 8px;
+    letter-spacing: 2px;
+}
+.sidebar__item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.item__title {
+    margin: 0 0 8px;
+    text-transform: capitalize;
+    color: var(--primary-color);
+    font-weight: 400;
+    border-bottom: 0.1px solid rgb(103, 103, 103);
+}
+.item__link {
+    display: flex;
+    gap: 6px;
+    height: 32px;
+    align-items: center;
+    color: #acacac;
+    font-weight: 300;
+    padding: 0 0 0 12px;
+    font-size: 0.9rem;
+}
+.item__link.admin__logout {
+    cursor: pointer;
+}
+.item__link:hover {
+    background-color: rgb(0, 30, 49);
+}
+.item__link img {
+    width: 16px;
+    height: 16px;
+}

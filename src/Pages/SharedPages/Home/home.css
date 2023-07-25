@@ -101,7 +101,7 @@
 .how__title p {
     color: var(--primary-color);
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 16px;
 }
 .how__text {
@@ -238,11 +238,12 @@
         width: 80%;
     }
     .afrimentary__brief {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 400;
         height: auto;
         display: flex;
         align-items: center;
+        line-height: 48px;
     }
     .afrimentary__mission  {
         display: grid;

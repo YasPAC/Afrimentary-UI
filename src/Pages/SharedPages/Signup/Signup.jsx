@@ -84,7 +84,7 @@ function Signup() {
     const handleRespondentChange = (e) => {
         const {name, value} = e.target
         setRespondentData(prev => {
-            return {...prev, [name]: value}
+            return {...prev, [name]: value.trimStart()}
         });
     }
 
@@ -92,14 +92,9 @@ function Signup() {
     const handleResearcherChange = (e) => {
         const {name, value} = e.target
         setResearcherData(prev => {
-            return {...prev, [name]: value}
+            return {...prev, [name]: value.trimStart()}
         });
     }
-
-    // Reset error
-    useEffect(() => {
-        setErrorMsg("")
-    }, [respondentData]);
     // Reset User Data
     const resetUserData = () => {
         isRespondent ? setRespondentData(

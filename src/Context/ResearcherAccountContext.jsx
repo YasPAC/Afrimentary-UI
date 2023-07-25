@@ -16,17 +16,17 @@ const ResearcherProvider= ({children}) => {
     const [openSidebar, setOpenSidebar] = useState(false);
     return <ResearcherContext.Provider 
         value = {{
-            isLoaded, 
-            setLoaded, 
-            updateResearcher, 
-            setUpdateResearcher, 
-            showDashboard, 
-            setShowDashboard, 
-            researcherData, 
+            isLoaded,
+            setLoaded,
+            updateResearcher,
+            setUpdateResearcher,
+            showDashboard,
+            setShowDashboard,
+            researcherData,
             setResearcherData,
-            snapShot, 
+            snapShot,
             setSnapshot,
-            openSidebar, 
+            openSidebar,
             setOpenSidebar
         }}
     >

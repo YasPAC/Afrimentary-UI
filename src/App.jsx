@@ -1,10 +1,10 @@
 import './App.css';
-import { Layout, RequireAuth } from './Components';
+import { Layout, RequireAuth, AdminLayout } from './Components';
 import {
   Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized, 
   Terms, About, Contact, ChangePassword, RequestPassReset, PasswordReset, 
   SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword,
-  SurveyPayment, VerifyAccount
+  SurveyPayment, VerifyAccount, Admin, AdminRespondents, AdminResearchers, AdminSurveys, SurveyResponses
 } from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
@@ -43,11 +43,17 @@ function App() {
               <Route path="survey/payment/:packages/:survey_id" element={<SurveyPaymentProvider><SurveyPayment /></SurveyPaymentProvider>} />
               {/* <Route path="confirm_payment/:packages/:survey_id" element={<ConfirmPayment />} /> */}
           </Route>
-          <Route  element={<RequireAuth roles={["admin"]} />}>
-            <Route path="admin/:id" element={<RespondentAccount />} />
-          </Route>
           {/* Catch 404 */}
           <Route path="*" element={<NotFound />}/>
+        </Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route  element={<RequireAuth roles={["admin"]} />}>
+            <Route path=":id" element={<Admin />} />
+            <Route path="respondents" element={<AdminRespondents />} />
+            <Route path="researchers" element={<AdminResearchers />} />
+            <Route path="surveys" element={<AdminSurveys/>} />
+            <Route path="responses/:id" element={<SurveyResponses/>} />
+          </Route>
         </Route>
       </Routes>
     </div>

@@ -101,14 +101,14 @@
     color: var(--greens);
     top: 8px;
     border-radius: 8px;
-    background-color: rgb(183, 255, 183);
+    background-color: var(--success-color);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px;
 }
 .signup__container .message.error {
-    background-color: rgb(255, 99, 99);
+    background-color: var(--error-color);
     color: #dbdbdb;
 }
 .signup__container h3 {
