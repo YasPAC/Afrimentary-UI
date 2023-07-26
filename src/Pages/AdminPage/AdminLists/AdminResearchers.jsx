@@ -124,7 +124,7 @@ const AdminResearcher = () => {
   // suspend Respondent
   const suspendResearcher = (password) => {
     // Configure suspend request
-    const url = `http://127.0.0.1:5000/API/suspend/researcher/${researcherId.id}`;
+    const url = `https://afrimentary.onrender.com/API/suspend/researcher/${researcherId.id}`;
     const method = "put";
     const data = password;
     const requestConfig = actionsRequestConfig(url, method, data);
@@ -143,7 +143,7 @@ const AdminResearcher = () => {
     const getResearchers = async () =>  {
       try {
         const response = await axios.get(
-            "http://127.0.0.1:5000/API/all/researchers",
+            "https://afrimentary.onrender.com/API/all/researchers",
             {headers: {
               'Authorization': 'Basic Auth',
               'x-access-token': token
