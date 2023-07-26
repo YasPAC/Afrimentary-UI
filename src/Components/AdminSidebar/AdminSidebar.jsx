@@ -4,10 +4,22 @@ import {menu, home, chart} from "../../Utilities";
 import {RiLogoutCircleLine} from "react-icons/ri";
 import uniqid from "uniqid";
 import useAuth from "../../Hooks/useAuth";
+import Cookies from "universal-cookie";
+import {useNavigate} from "react-router-dom";
+
 
 
 const AdminSidebar = () => {
-    const {auth} = useAuth();
+    const cookies =  new Cookies();
+    const navigate = useNavigate()
+    const {auth, setAuth} = useAuth();
+    const logOut = () => {
+        cookies.remove("token", {path: "/", sameSite: "None", secure:true});
+        cookies.remove("public_id", {path: "/", sameSite: "None", secure:true});
+        cookies.remove("role", {path: "/", sameSite: "None", secure:true});
+        setAuth({});
+        navigate("/");
+    }
     return (
         <section className="admin__sidebar">
             <Link to="/" className="admin__header">Afrimentary</Link>
@@ -27,7 +39,7 @@ const AdminSidebar = () => {
                 </div>
             ))
             }
-            <div className="item__link admin__logout">
+            <div className="item__link admin__logout" onClick={logOut}>
                 <RiLogoutCircleLine color="#fff" size="16px" /> Logout
             </div>
         </section>

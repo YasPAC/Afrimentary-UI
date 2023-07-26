@@ -53,8 +53,9 @@ const SurveyResponses = () => {
                 }},
                 {signal: controller.signal},
             );
-            !controller.signal.abort && setResponses(response?.data?.responses)
+            !controller.signal.abort && setResponses(response?.data?.responses);
             setSurveyTitle(response?.data?.surveyTitle);
+            console.log(response?.data?.responses)
           } catch(err) {
             setErrorMessage(err?.response?.message);
           }

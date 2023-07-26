@@ -17,6 +17,7 @@ const CreateSurvey = () => {
     const [progress, setProgress] = useState(0);
     const token = cookies.get("token");
     const publicId = cookies.get("public_id");
+    const role = cookies.get("role");
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -25,13 +26,13 @@ const CreateSurvey = () => {
         {
             title: "", numberQuestions: "", field: "",
             endDate: "", surveyLink: "", department: "", responseTime: "",
-            noRespondents: "", IRBNumber: "", package: packages,
+            noRespondents: "", IRBNumber: "", package: packages, researcherId: ""
         }
     );
 
     // Make sure the packages we create are actualy available packages
     useEffect(() => {
-        const packagesOffered = ["pilot250", "500r", "1000r", "1500r"];
+        const packagesOffered = ["pilot250", "500r", "1000r", "1500r", role.toLowerCase() === "admin" && "custom"];
         if(!packagesOffered.includes(packages.toLowerCase())) {
             setErrorMsg(`${packages.toUpperCase()} is not available. Select another package.`);
             setTimeout(() => {
@@ -59,45 +60,39 @@ const CreateSurvey = () => {
     // Submit form
     const handleRespondentSubmit = (e) => {
         e.preventDefault();
-        if(isLast){
-            if (surveyInfo.numberQuestions > 20 ) {
-                setErrorMsg("Questions must be less than 20")
-            } else if (surveyInfo.responseTime > 25) {
-                setErrorMsg("Survey time must be less than 25 minutes")
-            } else {
-                setIsLoading(true);
-                const axiosConfig = {
-                    method: "post",
-                    url: `https://afrimentary.onrender.com/API/survey/create`,
-                    data: surveyInfo,
-                    headers: {
-                        'Authorization': 'Basic Auth',
-                        'x-access-token': token
+        if(isLast) {
+            setIsLoading(true);
+            const axiosConfig = {
+                method: "post",
+                url: `https://afrimentary.onrender.com/API/survey/create`,
+                data: surveyInfo,
+                headers: {
+                    'Authorization': 'Basic Auth',
+                    'x-access-token': token
+                }
+            }
+            axios(axiosConfig).then(
+                response => {
+                    const responseMsg = response?.data?.message;
+                    const surveyID = response?.data?.survey_id;
+                    setIsLoading(false);
+                    setSuccessMsg(responseMsg);
+                    setTimeout(()=> {
+                        setSuccessMsg("");
+                        role.toLowerCase() == "admin" ? navigate(`/admin/surveys`) : navigate(`/survey/payment/${packages}/${surveyID}`);
+                    }, 3000);
+                }
+            ).catch(
+                error => {
+                    setIsLoading(false);
+                    if (error?.response?.status === 409) {
+                        const errorMessage = error?.response?.data?.message;
+                        setErrorMsg(errorMessage);
+                    } else {
+                        setErrorMsg("Error occurred. Please try again!");
                     }
                 }
-                axios(axiosConfig).then(
-                    response => {
-                        const responseMsg = response?.data?.message;
-                        const surveyID = response?.data?.survey_id;
-                        setIsLoading(false);
-                        setSuccessMsg(responseMsg);
-                        setTimeout(()=> {
-                            setSuccessMsg("");
-                            navigate(`/survey/payment/${packages}/${surveyID}`);
-                        }, 3000);
-                    }
-                ).catch(
-                    error => {
-                        setIsLoading(false);
-                        if (error?.response?.status === 409) {
-                            const errorMessage = error?.response?.data?.message;
-                            setErrorMsg(errorMessage);
-                        } else {
-                            setErrorMsg("Error occurred. Please try again!");
-                        }
-                    }
-                )
-            }
+            )
         } else if (!isLast) {
             next();
             formProgress();
@@ -122,6 +117,8 @@ const CreateSurvey = () => {
     const {next, back, step, isFirst, isLast} = useMultipleStepForm(
         [
             <div className="field__collection" key={uniqid}>
+                {role.toLowerCase() === "admin" && surveyInfo.package.toLowerCase() === "custom" && 
+                <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Researcher ID", name: "researcherId", type: "number"}} />}
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Survey Title", name: "title", type: "text"}} />
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Survey Link", name: "surveyLink", type: "text"}} />
                 <SignupFields handleChange={handleChange} data={surveyInfo} fields={{label: "Field of Study", name: "field", type: "text"}} />

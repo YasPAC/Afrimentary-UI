@@ -55,6 +55,22 @@
 .actions__buttons:hover {
     transform: scale(0.96);
 }
+
+/* surveys */
+.surveys__header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.surveys__header > a {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 32px;
+    padding: 8px 24px;
+}
+
 .survey_responses .responses {
     color: var(--primary-color);
     text-decoration: underline;

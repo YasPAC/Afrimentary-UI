@@ -136,7 +136,10 @@ const AdminSurveys = () => {
         <section className="all__lists">
           {errorMessage && <div className="all_lists-messages">{errorMessage}</div>}
           {successMessage && <div className="all_lists-messages success">{successMessage}</div>}
-          <h3>Surveys</h3>
+          <div className="surveys__header">
+            <h3>Surveys</h3>
+            <Link to="/survey/create/custom">Create Survey</Link>
+          </div>
           <div className="lists__table">
             {pageLoaded ?
               <DataTable rows={surveys} columns={columns} /> :

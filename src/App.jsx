@@ -38,10 +38,12 @@ function App() {
           </Route>
           <Route element={<RequireAuth roles={["researcher"]} />}>
               <Route path="researcher/:id" element={<ResearcherProvider><ResearcherAccount /></ResearcherProvider>} />
-              <Route path="survey/create/:packages" element={<CreateSurvey/>} />
               <Route path="researcher/changepass/:id" element={<ChangeResearcherPassword/>} />
               <Route path="survey/payment/:packages/:survey_id" element={<SurveyPaymentProvider><SurveyPayment /></SurveyPaymentProvider>} />
               {/* <Route path="confirm_payment/:packages/:survey_id" element={<ConfirmPayment />} /> */}
+          </Route>
+          <Route element={<RequireAuth roles={["researcher", "admin"]} />}>
+            <Route path="survey/create/:packages" element={<CreateSurvey/>} />
           </Route>
           {/* Catch 404 */}
           <Route path="*" element={<NotFound />}/>
