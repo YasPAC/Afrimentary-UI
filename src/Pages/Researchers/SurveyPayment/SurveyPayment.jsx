@@ -14,6 +14,7 @@ const SurveyPayment = () => {
     const cookies = new Cookies();
     const {packages, survey_id} = useParams();
     const [clientSecret, setClientSecret] = useState("");
+    const [price, setPrice] = useState("");
     const [loading, setLoading] = useState(true);
     const {confirmPayment} = useContext(SurveyPaymentContext);
     const token = cookies.get("token");
@@ -50,7 +51,8 @@ const SurveyPayment = () => {
         const getClientSecretConfig = requestConfig("https://afrimentary.onrender.com/payment/intent", "post");
         axios(getClientSecretConfig).then(
             response => {
-                setClientSecret(response.data.client_secret);
+                setClientSecret(response?.data?.response?.client_secret);
+                setPrice(response?.data?.response?.price)
                 setLoading(false);
             }
         ).catch(error => {
@@ -82,11 +84,11 @@ const SurveyPayment = () => {
                             <div className="package__info">
                                 <div className="info__item">
                                     <p>Package {packages}</p>
-                                    <h6>${packagePricing[packages]}</h6>
+                                    <h6>${price}</h6>
                                 </div>
                                 <div className="info__item">
                                     <p>Total</p>
-                                    <h6>${packagePricing[packages]}</h6>
+                                    <h6>${price}</h6>
                                 </div>
                             </div>
                             <div className="powered_by">

@@ -2,6 +2,7 @@ import "./admin.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import uniqid from "uniqid";
 
 const truncateText = (text, limit) => {
     if (text.length > limit) {
@@ -72,7 +73,7 @@ const Admin = () => {
                     <h3>Recent Surveys</h3>
                     <div className="recents__container recent__surveys-container">
                         {summaryData.recentSurveys.map(survey => (
-                        <div className="recents__snapshot">
+                        <div key={uniqid()} className="recents__snapshot">
                             <p className="snapshot__title">{truncateText(survey.title, 25)}</p>
                             <p>Package: {survey.package}</p>
                             <p>Responses: {survey.responses}</p>
@@ -84,7 +85,7 @@ const Admin = () => {
                     <h3>Recent Researchers</h3>
                     <div className="recents__container recent__researchers-container">
                         {summaryData.recentResearchers.map(researcher => (
-                        <div className="recents__snapshot">
+                        <div key={uniqid()} className="recents__snapshot">
                             <p className="snapshot__title">{truncateText(researcher.name, 20)}</p>
                             <p>{researcher.institution}</p>
                             <p>{researcher.country}</p>
@@ -98,7 +99,7 @@ const Admin = () => {
                     <div className="recents__container recent__respondents-container">
                         {
                             summaryData.recentRespondents.map(respondent => (
-                                <div className="recents__snapshot">
+                                <div key={uniqid()} className="recents__snapshot">
                                     <p className="snapshot__title">{truncateText(respondent.name, 20)}</p>
                                     <p>{respondent.country}</p>
                                     <p>{respondent.gender}</p>

@@ -16,7 +16,6 @@ const CreateSurvey = () => {
     const {packages} = useParams();
     const [progress, setProgress] = useState(0);
     const token = cookies.get("token");
-    const publicId = cookies.get("public_id");
     const role = cookies.get("role");
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
@@ -29,17 +28,6 @@ const CreateSurvey = () => {
             noRespondents: "", IRBNumber: "", package: packages, researcherId: ""
         }
     );
-
-    // Make sure the packages we create are actualy available packages
-    useEffect(() => {
-        const packagesOffered = ["pilot250", "500r", "1000r", "1500r", role.toLowerCase() === "admin" && "custom"];
-        if(!packagesOffered.includes(packages.toLowerCase())) {
-            setErrorMsg(`${packages.toUpperCase()} is not available. Select another package.`);
-            setTimeout(() => {
-                navigate(`/researcher/${publicId}`);
-            }, 2000);
-        }
-    }, []);
 
     // Progress Bar Increment
     const formProgress = () => {

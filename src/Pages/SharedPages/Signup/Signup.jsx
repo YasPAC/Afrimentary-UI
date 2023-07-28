@@ -256,7 +256,11 @@ function Signup() {
                         {step}
                         <div className="signup__controls">
                             {!isFirst && <button type="button" className="control control-prev" onClick={back}><><RiArrowLeftCircleFill /> Previous</></button>}
-                            {<button type="submit" className={!isLast? "control control-next": "form__submit"}>{!isLast ? <>Next <RiArrowRightCircleFill /></> : "Sign Up"}</button>}
+                            {
+                                <button disabled={isLast && isLoading} type="submit" className={!isLast? "control control-next": "form__submit"}>
+                                {!isLast ? <>Next <RiArrowRightCircleFill /></> : isLoading ? "Signing up..." : "Sign Up"}
+                                </button>
+                            }
                         </div>
                     </form>
                 </div>

@@ -9,7 +9,8 @@ const ResearcherProvider= ({children}) => {
     const [researcherData, setResearcherData] = useState(
         {
             public_id: "", last_name: "", first_name: "", phone: "",
-            email: "", country: "", institution: "", role: "", completedSurveys: "", activeSurveys: ""
+            email: "", country: "", institution: "", role: "", 
+            completedSurveys: "", activeSurveys: "", packages: ""
         }
     );
     const [snapShot, setSnapshot] = useState("");

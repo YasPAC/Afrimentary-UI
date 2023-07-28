@@ -3,21 +3,30 @@ import loader from "../../../assets/loader_2.gif";
 import {Header, ResearcherSidebar, ResearcherUpdateForm} from "../../../Components";
 import Packages from "./Packages";
 import SurveySnapshot from "./SurveySnapshot";
-import { useContext, useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import {RiCloseLine, RiSurveyFill} from "react-icons/ri";
 import {MdOutlineArrowBackIos, MdOutlineArrowForwardIos} from "react-icons/md";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import uniqid from "uniqid";
 import  {ResearcherContext} from "../../../Context/ResearcherAccountContext";
 import { DocTitle } from "../../../Utilities";
 
+const truncateText = (text, limit) => {
+    if (text.length > limit) {
+        return `${text.substring(0, limit)} ...`
+    } else {
+        return text
+    }
+};
 
 const ResearcherAccount = () => {
     DocTitle("Researcher Account - We aim to bridge the gap between researchers and the diverse communities across Africa")
     const cookies = new Cookies();
     const token = cookies.get("token");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const {id} = useParams();
     const {
         isLoaded, setLoaded, updateResearcher, setUpdateResearcher, openSidebar, setOpenSidebar,
@@ -56,7 +65,7 @@ const ResearcherAccount = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [successMessage]);
 
     //Close the packages and info update form
     const close = () => {
@@ -68,6 +77,26 @@ const ResearcherAccount = () => {
         setOpenSidebar(prev => !prev);
     }
 
+    // Delete survey
+    const deleteSurvey = (e) => {
+        const id = e.target.id;
+        const axiosConfig = {
+            method: "delete",
+            url: `https://afrimentary.onrender.com/API/survey/delete/${id}`,
+            headers: {
+                'Authorization': 'Basic Auth',
+                'x-access-token': token
+            }
+        }
+        axios(axiosConfig).then(res => {
+            setSuccessMessage(res?.data?.message);
+        }).catch(err => {
+            setErrorMessage(err?.response?.data?.message);
+        });
+    }
+    // Close error message & success message after 5seconds
+    errorMessage && setTimeout(() => {setErrorMessage(false)}, 5000);
+    successMessage && setTimeout(() => {setSuccessMessage(false)}, 5000);
     return (
         <section className="researcher__account">
             <Header />
@@ -86,6 +115,8 @@ const ResearcherAccount = () => {
                     </div>
                 }
                 <section className="researcher__main">
+                    {errorMessage && <div className="response__messages">{errorMessage}</div>}
+                    {successMessage && <div className="response__messages success">{successMessage}</div>}
                     {(showDashboard || updateResearcher) && <div className="update__close" onClick={close} >
                         <RiCloseLine  color={"green"} size={48}/>
                     </div>}
@@ -100,11 +131,17 @@ const ResearcherAccount = () => {
                                 </div>
                                 <h3>Active Surveys</h3>
                                 <div className="surveys__links">
-                                    {researcherData?.activeSurveys?.length > 0 && researcherData.activeSurveys.map(survey => {
-                                        return <p  id={survey.public_id} key={uniqid()} onClick={(e) => {setSnapshot(e.target.id)}}>
-                                            <RiSurveyFill/> {survey.title}
-                                            {!survey.paid && <small className="survey__unpaid">Not Paid</small>}
-                                         </p>
+                                    {researcherData?.activeSurveys?.length > 0 && researcherData.activeSurveys.slice(0,3).map(survey => {
+                                        return <div  key={uniqid()} className="surveysLinks__container">
+                                            <p  id={survey.public_id} key={uniqid()} onClick={(e) => {setSnapshot(e.target.id)}}>
+                                                <RiSurveyFill/> {truncateText(survey.title, 25)}
+                                            </p>
+                                            {!survey.paid && <>
+                                                <Link to={`/survey/payment/${survey?.package}/${survey?.public_id}`} className="survey__actions">Pay</Link>
+                                                <div id={survey?.public_id} onClick = {(e) => deleteSurvey(e)} className="survey__actions delete">Delete</div>
+                                                </>
+                                            }
+                                         </div>
                                     })}
                                 </div>
                             </div>
@@ -114,8 +151,8 @@ const ResearcherAccount = () => {
                                 </div>
                                 <h3>Completed Surveys</h3>
                                 <div className="surveys__links">
-                                    {researcherData?.completedSurveys?.length > 0 && researcherData.completedSurveys.map(survey => {
-                                        return <p id={survey.public_id} key={uniqid()}><RiSurveyFill/> {survey.title}</p>
+                                    {researcherData?.completedSurveys?.length > 0 && researcherData.completedSurveys.slice(0,4).map(survey => {
+                                        return survey.paid && <p id={survey.public_id} key={uniqid()}><RiSurveyFill/> {truncateText(survey.title, 25)}</p>
                                     })}
                                 </div>
                             </div>

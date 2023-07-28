@@ -4,7 +4,8 @@ import {
   Home, LoginSignupComponent, NotFound, RespondentAccount, Signup, Unauthorized, 
   Terms, About, Contact, ChangePassword, RequestPassReset, PasswordReset, 
   SurveyResponse, ResearcherAccount, CreateSurvey, ChangeResearcherPassword,
-  SurveyPayment, VerifyAccount, Admin, AdminRespondents, AdminResearchers, AdminSurveys, SurveyResponses
+  SurveyPayment, VerifyAccount, Admin, AdminRespondents, AdminResearchers, AdminSurveys, 
+  SurveyResponses, AdminPackages, SendEmail
 } from "./Pages";
 import {Routes, Route} from "react-router-dom";
 import ResearcherProvider from './Context/ResearcherAccountContext';
@@ -55,6 +56,8 @@ function App() {
             <Route path="researchers" element={<AdminResearchers />} />
             <Route path="surveys" element={<AdminSurveys/>} />
             <Route path="responses/:id" element={<SurveyResponses/>} />
+            <Route path="packages" element={<AdminPackages/>} />
+            <Route path="send_email" element={<SendEmail/>} />
           </Route>
         </Route>
       </Routes>

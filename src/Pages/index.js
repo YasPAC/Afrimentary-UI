@@ -25,3 +25,5 @@ export {default as AdminRespondents} from "./AdminPage/AdminLists/AdminResponden
 export {default as AdminResearchers} from "./AdminPage/AdminLists/AdminResearchers";
 export {default as AdminSurveys} from "./AdminPage/AdminLists/AdminSurveys";
 export {default as SurveyResponses} from "./AdminPage/AdminLists/SurveyResponses";
+export {default as AdminPackages} from "./AdminPage/AdminLists/AdminPackages";
+export {default as SendEmail} from "./AdminPage/SendEmails/SendEmail";

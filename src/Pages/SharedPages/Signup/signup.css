@@ -241,6 +241,10 @@
     right: 0;
     bottom: 0;
 }
+.signup__form .form__submit:disabled {
+    background-color: #ffb59a;
+    cursor: not-allowed;
+}
 .signup__controls {
     position: relative;
     width: 100%;

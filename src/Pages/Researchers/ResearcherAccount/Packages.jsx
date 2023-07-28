@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import custom from "../../../assets/custom.png";
-import gold from "../../../assets/gold.png";
-import silver from "../../../assets/silver.png";
-import bronze from "../../../assets/bronze.png";
+import packageIcon from "../../../assets/gold.png";
+import { useContext } from "react";
+import  {ResearcherContext} from "../../../Context/ResearcherAccountContext";
 
 const Packages = () => {
+    const {researcherData} = useContext(ResearcherContext);
+    
     return (
         <section className="offered__packages">
             <div className="packages__header">
@@ -16,50 +17,21 @@ const Packages = () => {
                 </div>
             </div>
             <div className="survey__packages">
-                <div className="package">
-                    <img src={bronze} alt="Pilot250" />
-                    <h4>Pilot 250</h4>
-                    <ul className="package__description">
-                        <li>250 Respondents</li>
-                        <li>Up to 20 questions</li>
-                        <li>25 minutes or less</li>
-                    </ul>
-                    <div className="package__pricing"><sup>$</sup>750<span>/survey</span> </div>
-                    <Link to="/survey/create/pilot250">Create Survey</Link>
-                </div>
-                <div className="package">
-                    <img src={silver} alt="500R" />
-                    <h4>500R</h4>
-                    <ul className="package__description">
-                        <li>500 Respondents</li>
-                        <li>Up to 20 questions</li>
-                        <li>25 minutes or less</li>
-                    </ul>
-                    <div className="package__pricing"><sup>$</sup>1350<span>/survey</span> </div>
-                    <Link to="/survey/create/500r">Create Survey</Link>
-                </div>
-                <div className="package">
-                    <img src={gold} alt="1000R" />
-                    <h4>1000R</h4>
-                    <ul className="package__description">
-                        <li>1000 Respondents</li>
-                        <li>Up to 20 questions</li>
-                        <li>25 minutes or less</li>
-                    </ul>
-                    <div className="package__pricing"><sup>$</sup>2500<span>/survey</span> </div>
-                    <Link to="/survey/create/1000r">Create Survey</Link>
-                </div>
-                <div className="package">
-                    <img src={gold} alt="1500R" />
-                    <h4>1500R</h4>
-                    <ul className="package__description">
-                        <li>1500 Respondents</li>
-                        <li>Up to 20 questions</li>
-                        <li>25 minutes or less</li>
-                    </ul>
-                    <div className="package__pricing"><sup>$</sup>3000<span>/survey</span> </div>
-                    <Link to="/survey/create/1000r">Create Survey</Link>
-                </div>
+                {
+                   researcherData.packages.map(data => (
+                    <div className="package" key={data.package}>
+                        <img src={packageIcon} alt="" />
+                        <h4>{data.package}</h4>
+                        <ul className="package__description">
+                            <li>{data.respondents} Respondents</li>
+                            <li>Up to {data.questions} questions</li>
+                            <li>{data.time} minutes or less</li>
+                        </ul>
+                        <div className="package__pricing"><sup>$</sup>{data.price}<span>/survey</span> </div>
+                        <Link to={`/survey/create/${data.package}`}>Create Survey</Link>
+                    </div>
+                   ))
+                }
             </div>
         </section>
     )

@@ -138,7 +138,7 @@ const LoginSignupComponent = () => {
                     </div>
                     <div className="submission__field">
                         <div className="forgot_password"><Link to={"/requestreset"}>Forgot password?</Link></div>
-                        <button className="form__submit" type="submit">Login</button>
+                        <button disabled = {isLoading} className="form__submit" type="submit">{!isLoading ? "Login": "Logging..."}</button>
                     </div>
                 </form> 
             </div>
