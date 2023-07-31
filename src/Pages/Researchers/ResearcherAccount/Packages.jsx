@@ -19,6 +19,7 @@ const Packages = () => {
             <div className="survey__packages">
                 {
                    researcherData.packages.map(data => (
+                    data.active &&
                     <div className="package" key={data.package}>
                         <img src={packageIcon} alt="" />
                         <h4>{data.package}</h4>

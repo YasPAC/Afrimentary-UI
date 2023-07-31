@@ -193,11 +193,26 @@
 .create_package {
     grid-row: span 2;
     padding: 32px;
+    position: relative;
 }
 .packages__form {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+.packages__form .warning {
+    position: absolute;
+    bottom: 100%;
+    color: red;
+    font-size: 0.6rem;
+}
+.submit__loading {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    right: 8px;
 }
 .packages__form > div {
     display: flex;
@@ -225,6 +240,10 @@
     height: 32px;
     cursor: pointer;
 }
+.packages__form button:disabled {
+    background-color: #ffa381;
+    cursor: not-allowed;
+}
 .packages__visualization {
     display: flex;
     justify-content: center;
@@ -234,4 +253,48 @@
     display: flex;
     justify-content: center;
     height: 180px;
+}
+.packages__actions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.packages__actions h4 {
+    font-weight: 400;
+    color: var(--greens);
+}
+.package__delete-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.package__delete-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.package__delete-container label {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+.package__delete-container select {
+    height: 32px;
+    color: #002d3d;
+    border: 0.1px solid #002d3d;
+}
+.package__delete-form button {
+    color: #fff;
+    background-color: var(--error-color);
+    padding: 8px 0;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 300;
+}
+.package__delete-form button:disabled {
+    background-color: rgb(255, 167, 167);
+    cursor: not-allowed;
 }
