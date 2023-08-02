@@ -2,8 +2,10 @@ import "./home.css"
 import { Header, ExpanderSection, Footer } from "../../../Components";
 import { Link } from "react-router-dom";
 import heroBg from "../../../assets/hero-bg.jpg";
+import { DocTitle } from "../../../Utilities";
 
 function Home() {
+    DocTitle("Afrimentary - Transforming the landscape of academic quantitative surveys and survey experiments in Africa.");
     return (
         <main className="afrimentary__home">
             <Header />

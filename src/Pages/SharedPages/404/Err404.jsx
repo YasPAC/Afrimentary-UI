@@ -1,7 +1,9 @@
 import "./err404.css";
 import {Link} from "react-router-dom";
 import sad404 from "../../../assets/sad404.svg";
+import { DocTitle } from "../../../Utilities";
 const NotFound = () => {
+    DocTitle("Page Not Found");
     return (
         <main className='oopss'>
             <div className='error-text'>

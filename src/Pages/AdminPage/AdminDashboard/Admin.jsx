@@ -21,6 +21,7 @@ const Admin = () => {
         recentRespondents : "",
         recentResearchers : "",
         recentSurveys : "",
+        user: ""
     });
     const token = cookies.get("token");
     const [pageLoaded, setPageLoaded] = useState(false);
@@ -112,8 +113,8 @@ const Admin = () => {
             }
             <div className="admin__profile">
                 <div className="profile">
-                    <h4>Regan Muthomi</h4>
-                    <p>Regansomi@gmail.com</p>
+                    <h4>{summaryData.user.name}</h4>
+                    <p>{summaryData.user.email}</p>
                     <p>Admin</p>
                 </div>
             </div>
