@@ -6,11 +6,11 @@ const CheckoutForm = ({packages, surveyID}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState(null);
-    // const [processing, setProcessing] = useState(false);
+    const [processing, setProcessing] = useState(false);
     const {setConfirmPayment} = useContext(SurveyPaymentContext);
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setProcessing(true);
         if (!stripe || !elements) {
             // Stripe.js hasn't yet loaded.
             // Make sure to disable form submission until Stripe.js has loaded.
@@ -27,15 +27,17 @@ const CheckoutForm = ({packages, surveyID}) => {
         });
         if (error) {
             setErrorMessage(error.message);
+            setProcessing(false);
         } else {
           setConfirmPayment(true);
+          setProcessing(false);
         }
     }
     return (
       <form className="payment__form" onSubmit={handleSubmit}>
         {errorMessage && <div className="error_message">{errorMessage}</div>}
         <PaymentElement className="form__fields" />
-        <button disabled={!stripe}>Pay</button>
+        <button disabled={processing}>Pay</button>
       </form>
     );
 }

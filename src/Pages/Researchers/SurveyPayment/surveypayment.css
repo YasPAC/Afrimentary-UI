@@ -1,13 +1,14 @@
 .survey__payment {
     position: relative;
     width: 100%;
-    height: calc(100vh + 64px);
+    height: auto;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 12px
+    gap: 12px;
+    padding: 32px 0;
 }
 .survey__payment-inner {
     width: 70%;
@@ -84,8 +85,8 @@
 .error_message {
     position: absolute;
     top: 4px;
-    width: calc(100% - 64px);
-    min-height: 32px;
+    width: calc(100% - 32px);
+    min-height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,6 +133,10 @@
 .payment__form button:hover {
     transform: scale(1.03);
 }
+.payment__form button:disabled {
+    background-color: #ffb59a;
+    cursor: not-allowed;
+}
 
 
 @media screen and (max-width: 900px) {
@@ -144,7 +149,6 @@
 }
 @media screen and (max-width: 480px) {
     .survey__payment {
-        height: auto;
         padding: 0;
     }
     .survey__payment-inner {
