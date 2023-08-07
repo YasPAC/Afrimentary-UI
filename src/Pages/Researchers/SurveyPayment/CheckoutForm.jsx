@@ -32,6 +32,7 @@ const CheckoutForm = ({packages, surveyID}) => {
           setConfirmPayment(true);
           setProcessing(false);
         }
+        errorMessage && setTimeout(() => {setErrorMessage(null)}, 2000);
     }
     return (
       <form className="payment__form" onSubmit={handleSubmit}>
