@@ -21,17 +21,11 @@ const SurveyPayment = () => {
     const publicId = cookies.get("public_id");
     const navigation = useNavigate();
     // Accept payment from Researcher for surveys created.
-    const stripePromise = loadStripe("pk_test_51NRKk3L1Uo2xvTSmi2d56EyjA5gCCmXEaOEs53iRvqe2qTBaVQaCMQGRWSamanQTYCAve3shRzjATujNc6ybKOiU00cGWMRlfJ")
+    const stripePromise = loadStripe("pk_live_51NTrHwJpbjh94q8FU1m92lrQJgGYlPvPusbn8pSz8zCKafF7UHDaZtlD2EoDoBsriMGQ8d1X2YWSEbTM6WKLflKG00sAfHSZ6w");
     const options = {
         // passing the client secret obtained from the server
         clientSecret: clientSecret
     };
-    const packagePricing = {
-        "pilot250": 750,
-        "500r": 1350,
-        "1000r": 2500,
-        "1500r": 3000
-    }
 
     const requestConfig = (url, method) => {
         const config = {

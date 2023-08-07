@@ -46,10 +46,9 @@ const Admin = () => {
             setPageLoaded(true);
         }).catch(
           err => {
-            // 
+            //
           }
         );
-
     }, []);
     
     return (
@@ -59,25 +58,25 @@ const Admin = () => {
                 <div className="admin__summary">
                     <div className="summary__numbers researchers__total">
                         <h5>Researchers</h5>
-                        <p>{summaryData.nResearchers}</p>
+                        <p>{summaryData?.nResearchers}</p>
                     </div>
                     <div className="summary__numbers respondents__total">
                         <h5>Respondents</h5>
-                        <p>{summaryData.nRespondents}</p>
+                        <p>{summaryData?.nRespondents}</p>
                     </div>
                     <div className="summary__numbers surveys__summary">
                         <h5>Surveys</h5>
-                        <p>{summaryData.nSurveys}</p>
+                        <p>{summaryData?.nSurveys}</p>
                     </div>
                 </div>
                 <div className="recents recent__surveys">
                     <h3>Recent Surveys</h3>
                     <div className="recents__container recent__surveys-container">
-                        {summaryData.recentSurveys.map(survey => (
+                        {summaryData?.recentSurveys.map(survey => (
                         <div key={uniqid()} className="recents__snapshot">
-                            <p className="snapshot__title">{truncateText(survey.title, 25)}</p>
-                            <p>Package: {survey.package}</p>
-                            <p>Responses: {survey.responses}</p>
+                            <p className="snapshot__title">{truncateText(survey?.title, 25)}</p>
+                            <p>Package: {survey?.package}</p>
+                            <p>Responses: {survey?.responses}</p>
                         </div>
                         ))}
                     </div>
@@ -85,11 +84,11 @@ const Admin = () => {
                 <div className=" recents recent__researchers">
                     <h3>Recent Researchers</h3>
                     <div className="recents__container recent__researchers-container">
-                        {summaryData.recentResearchers.map(researcher => (
+                        {summaryData?.recentResearchers.map(researcher => (
                         <div key={uniqid()} className="recents__snapshot">
-                            <p className="snapshot__title">{truncateText(researcher.name, 20)}</p>
-                            <p>{researcher.institution}</p>
-                            <p>{researcher.country}</p>
+                            <p className="snapshot__title">{truncateText(researcher?.name, 20)}</p>
+                            <p>{researcher?.institution}</p>
+                            <p>{researcher?.country}</p>
                         </div>
                         ))}
                         
@@ -99,11 +98,11 @@ const Admin = () => {
                     <h3>Recent Respondents</h3>
                     <div className="recents__container recent__respondents-container">
                         {
-                            summaryData.recentRespondents.map(respondent => (
+                            summaryData?.recentRespondents.map(respondent => (
                                 <div key={uniqid()} className="recents__snapshot">
-                                    <p className="snapshot__title">{truncateText(respondent.name, 20)}</p>
-                                    <p>{respondent.country}</p>
-                                    <p>{respondent.gender}</p>
+                                    <p className="snapshot__title">{truncateText(respondent?.name, 20)}</p>
+                                    <p>{respondent?.country}</p>
+                                    <p>{respondent?.gender}</p>
                                 </div>
                             ))
                         }
@@ -113,8 +112,8 @@ const Admin = () => {
             }
             <div className="admin__profile">
                 <div className="profile">
-                    <h4>{summaryData.user.name}</h4>
-                    <p>{summaryData.user.email}</p>
+                    <h4>{summaryData?.user?.name}</h4>
+                    <p>{summaryData?.user?.email}</p>
                     <p>Admin</p>
                 </div>
             </div>
