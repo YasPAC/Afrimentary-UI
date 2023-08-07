@@ -1,6 +1,6 @@
 import "./about.css";
 import {Header, Footer} from "../../../Components";
-import aboutBg from "../../../assets/about-hero.jpg";
+import aboutBg from "../../../assets/about-hero.webp";
 import { DocTitle } from "../../../Utilities";
 
 const About = () => {

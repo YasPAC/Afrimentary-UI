@@ -8,7 +8,7 @@ import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
 import loading from "../../../assets/loading.gif";
-import dash from "../../../assets/sitting.jpg";
+import dash from "../../../assets/sitting.webp";
 import { DocTitle } from "../../../Utilities";
 
 

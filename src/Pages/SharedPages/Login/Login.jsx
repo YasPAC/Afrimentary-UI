@@ -5,7 +5,7 @@ import {Link, useNavigate, useLocation} from "react-router-dom";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import loading from "../../../assets/loading.gif";
-import dash from "../../../assets/sitting.jpg";
+import dash from "../../../assets/sitting.webp";
 import { DocTitle } from "../../../Utilities";
 
 const LoginSignupComponent = () => {
