@@ -144,7 +144,7 @@ const SurveyResponse = () => {
                     }
                 </div>
                 <div className="survey__response-main">
-                    {surveyStarted && <iframe src="https://stanforduniversity.qualtrics.com/jfe/form/SV_0D1J7Xiddy3uRj8" frameBorder="0"></iframe>}
+                    {surveyStarted && <iframe src={surveyData.link} frameBorder="0"></iframe>}
                 </div>
             </div> 
             : errorMsg ? 
