@@ -10,7 +10,7 @@ function Home() {
         <main className="afrimentary__home">
             <Header />
             <div className="afrimentary__hero">
-                <img className="hero__bg" src={heroBg} alt="afrimentary-hero-bg"/>
+                <img className="hero__bg" src={heroBg} alt="afrimentary-hero-bg" loading="lazy" />
                 <div className="hero__bg-cover"></div>
                 <h2 className="hero__heading">
                     <span className="heading heading-primary">Harnessing </span>

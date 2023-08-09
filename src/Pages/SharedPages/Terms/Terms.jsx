@@ -1,13 +1,15 @@
 import "./terms.css";
 import AssociatesTerms from "./AssociatesTerms";
 import RespondentsTerms from "./RespondentsTerms";
+import { Header} from "../../../Components";
 
 const Terms = () => {
     return (
-        <main className="afrimentary__terms">
+        <div className="afrimentary__terms">
+        <Header />
         <div className="terms_wrapper">
             <section className="terms__groups">
-                <h3>Terms and Conditions</h3>
+                <h3>Afrimentary Terms and Conditions</h3>
                 <div className="respondent_terms group">
                     <div className="group__title">
                         <h4>Terms and Conditions for “Users” and “Respondents”</h4>
@@ -36,7 +38,7 @@ const Terms = () => {
                 </div>
             </section>
             </div>
-        </main>
+        </div>
     )
 }
 
