@@ -5,7 +5,6 @@ export {default as RequireAuth} from "./RequireAuth";
 export {default as Footer} from "./Footer/Footer";
 export {default as UpdateForm} from "./UpdateAccountInfo/UpdateRespondentForm";
 export {default as SignupFields} from "./formFields/SignupFields";
-export {default as ReferrerField} from "./formFields/SelectFields";
 export {EducationField, GenderField, CheckBox, GeneralSelectField, Counties, Countries} from "./formFields/SelectFields";
 export {default as Sidebar} from "./AccountSidebar/RespondentSidebar";
 export {default as ResearcherSidebar} from "./AccountSidebar/ResearcherSidebar";

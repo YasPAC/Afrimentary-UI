@@ -3,20 +3,19 @@ import useMultipleStepForm from "../../../Hooks/useMutliStepForm";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {SignupFields} from "../../../Components";
-import {ReferrerField, GenderField, EducationField, CheckBox, Counties, Countries} from "../../../Components";
+import {GenderField, EducationField, CheckBox, Counties, Countries} from "../../../Components";
 import {RiArrowRightCircleFill, RiArrowLeftCircleFill} from "react-icons/ri"
 import uniqid from "uniqid";
 import axios from "axios";
 import loading from "../../../assets/loading.gif";
 import dash from "../../../assets/sitting.webp";
-import { DocTitle } from "../../../Utilities";
+import { DocTitle, countries } from "../../../Utilities";
 
 
 function Signup() {
     DocTitle("Afrimentary Signup - Welcome to Afrimentary");
     const navigate = useNavigate();
     const [isRespondent, setIsRespondent] = useState(true);
-    const [associates, setAssociates] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
@@ -37,7 +36,6 @@ function Signup() {
             city: "",
             county: "",
             country: "",
-            referred_by: ""
         }
     );
     const [researcherData, setResearcherData] = useState({
@@ -50,35 +48,6 @@ function Signup() {
         country: "",
         institution: ""
     });
-    
-    //Load Agents
-    useEffect(() => {
-
-        const controller = new AbortController();
-        const getAssociates = async () => {
-            try {
-                const response = await axios.get(
-                    "https://afrimentary.onrender.com/API/respondents/associates",
-                    {signal: controller.signal}
-                );
-                !controller.signal.abort && setAssociates(response?.data?.associates);
-            } catch(err) {
-                setErrorMsg(err.response);
-            }
-        }
-        // Get Associates only when signing up as respondent
-        if (isRespondent) {
-            getAssociates();
-            return () => {
-                controller.abort();
-            }
-        }
-    }, []);
-
-    // Reset Error msg
-    useEffect(() => {
-        setErrorMsg("");
-    }, [researcherData, respondentData]);
 
     // Handle respondent form values change
     const handleRespondentChange = (e) => {
@@ -86,6 +55,18 @@ function Signup() {
         setRespondentData(prev => {
             return {...prev, [name]: value.trimStart()}
         });
+        // Set Phone code
+        if (name === "country") {
+            if (value) {
+                const selectedCountry = countries.find(country => country.name === value);
+                setRespondentData(prev => {
+                    return {...prev, phone: selectedCountry?.phoneCode, county: ""}
+                });
+            } 
+        }
+
+        // Reset Error msg
+        errMsg && setErrorMsg("");
     }
 
     // Handle Researcher Data
@@ -100,7 +81,7 @@ function Signup() {
         isRespondent ? setRespondentData(
             {
                 l_name: "", f_name: "", age: "", password: "", confirmPass: "", education_level: "",
-                gender: "", phone: "", email: "", language: "", city: "", county: "", country: "", referred_by: ""
+                gender: "", phone: "", email: "", language: "", city: "", county: "", country: ""
             }
         ) : setResearcherData(
             {
@@ -116,8 +97,8 @@ function Signup() {
             if (data?.password != data?.confirmPass) {
                 setErrorMsg("Passwords are not same");
                 errRef.current.focus();
-            } else if (data?.gender === "" || data?.referred_by === "" || data?.education==="") {
-                setErrorMsg("Please fill these fields (Education, Referred By and Gender)");
+            }  else if (data?.phone?.length < 11 || data?.phone?.length > 16) {
+                setErrorMsg("Invalid phone number");
                 errRef.current.focus();
             }
              else {
@@ -132,9 +113,9 @@ function Signup() {
                 axios(axiosConfig)
                 .then(response => {
                     if (response.data.message) {
-                        setSuccessMsg("Your account has been created");
+                        setSuccessMsg("Your account has been created. Verification link sent to your email");
                         successRef.current.focus();
-                        setTimeout(() => {navigate("/login")}, 2000);
+                        setTimeout(() => {navigate("/login")}, 5000);
                         setIsLoading(false);
                         resetUserData();
                     }
@@ -165,13 +146,19 @@ function Signup() {
                 <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Last Name", name: "l_name", type: "text"}} />
             </div>,
             <div className="field__collection" key={uniqid}>
+                <Countries data={respondentData} handleChange={handleRespondentChange} />
+                <SignupFields handleChange={handleRespondentChange}  data={respondentData} example="e.g +254700000000" fields={{label: "Phone", name: "phone" , type: "text"}} /> 
+            </div>,
+            <div className="field__collection" key={uniqid}>
+                {respondentData.country === "Kenya" ?
+                    <Counties data={respondentData} handleChange={handleRespondentChange} />:
+                    <SignupFields handleChange={handleRespondentChange}  data={respondentData} fields={{label: "Province/State", name: "county" , type: "text"}} />
+                }
+                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Email", name: "email" , type: "email"}} />
+            </div>,
+            <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Age", name: "age" , type: "number"}} />
                 <GenderField data={respondentData} handleChange={handleRespondentChange} />
-            </div>
-            ,
-            <div className="field__collection" key={uniqid}>
-                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Email", name: "email" , type: "email"}} />
-                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Phone", name: "phone" , type: "text"}} /> 
             </div>
             ,
             <div className="field__collection" key={uniqid}>
@@ -180,23 +167,11 @@ function Signup() {
             </div>
             ,
             <div className="field__collection" key={uniqid}>
-                <Countries data={respondentData} handleChange={handleRespondentChange} />
-                {respondentData.country === "Kenya" ?
-                 <Counties data={respondentData} handleChange={handleRespondentChange} />:
-                    <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Province/State", name: "county" , type: "text"}} />
-                 }
-            </div>
-            ,
-            <div className="field__collection" key={uniqid}>
-                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "City", name: "city" , type: "text"}} />
-                <ReferrerField agents={associates} data={respondentData} handleChange={handleRespondentChange} />
-            </div>
-            ,
-            <div className="field__collection" key={uniqid}>
                 <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Password", name: "password" , type: "password"}} />
                 <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "Confirm Password", name: "confirmPass" , type: "password"}} />
             </div>,
             <div className="field__collection" key={uniqid}>
+                <SignupFields handleChange={handleRespondentChange} data={respondentData} fields={{label: "City", name: "city" , type: "text"}} />
                 <CheckBox />
             </div>
         ] : 

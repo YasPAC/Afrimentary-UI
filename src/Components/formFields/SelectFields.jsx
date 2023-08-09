@@ -1,20 +1,7 @@
 import uniqid from "uniqid";
 import {Link} from "react-router-dom";
 import {counties, countries} from "../../Utilities";
-const ReferrerField = ({agents, data, handleChange}) => {
-    return (
-            <section className="form__field form__field-select">
-                <label htmlFor="referee">Referred By</label>
-                <select name="referred_by" id="referee" value={data.referred_by} onChange={handleChange}>
-                    <option value="">Select Referrer</option>
-                    <option value="self">Self Referral</option>
-                    {agents.map(agent =>  {agent
-                        return <option key={uniqid()} value={agent?.public_id}>{`${agent?.first_name} ${agent?.last_name}`} </option>})
-                    }
-                </select>
-            </section>
-    )
-}
+
 const EducationField = ({data, handleChange}) => {
     return (
         <section className="form__field form__field-select">
@@ -75,7 +62,7 @@ const Countries = ({data, handleChange}) => {
                 <option key={uniqid()} value="">Select--</option>
                 {
                     countries.map(country => {
-                        return <option key={uniqid()} value={country}>{country}</option>
+                        return <option key={uniqid()} value={country.name}>{country.name}</option>
                     })
                 }
             </select>
@@ -98,6 +85,4 @@ const GeneralSelectField = ({options, fields, data, handleChange}) => {
     )
 }
 
-
-export default ReferrerField;
 export {EducationField, GenderField, CheckBox, GeneralSelectField, Counties, Countries};

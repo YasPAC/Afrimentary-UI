@@ -125,11 +125,11 @@ const AdminRespondents = () => {
         axios(requestConfig).then(res => {
           setSuccessMessage(res?.data?.message);
           // Filter out the deleted respondent
-          setRespondentId(prev => {
-            prev.filter(respondent => {
+          setRespondents(prev => {
+            return prev.filter(respondent => {
               return respondent.id != respondentId.id;
-            })
-          })
+            });
+          });
         }).catch(
           err => {
             setErrorMessage(err?.response?.data?.message);

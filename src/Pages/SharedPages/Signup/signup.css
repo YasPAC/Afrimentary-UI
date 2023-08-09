@@ -187,6 +187,11 @@
     font-size: 1rem;
     color: #868686;
 }
+.signup__form .form__field .label__example {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-style: italic;
+}
 .signup__form .form__field input {
     border: none;
     outline: none;
